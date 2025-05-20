@@ -6,10 +6,10 @@ website:
   navbar:
     left:
       - href: index.qmd
-        text: Home
+      - text: Blog
+        href: posts/index.qmd
 
 format:
   html:
     theme: cosmo
     toc: true
-
