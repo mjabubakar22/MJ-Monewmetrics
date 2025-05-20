@@ -10,30 +10,16 @@
     "listing": "/Finance/index.html",
     "items": [
       "/Finance/2020-12-21-Amdocs-LTD.html",
-      "/Finance/2021-01-21-Footlocker-Inc.html",
       "/Finance/2020-12-25-Microsoft-Corp.html",
+      "/Finance/2021-01-21-Footlocker-Inc.html",
       "/Finance/2024-10-12-HSY.html"
-    ]
-  },
-  {
-    "listing": "/posts/index.html",
-    "items": [
-      "/posts/2020-12-21-Amdocs-LTD.html",
-      "/posts/2020-12-25-Microsoft-Corp.html",
-      "/posts/2021-01-21-Footlocker-Inc.html",
-      "/posts/2022-05-07-Tech-Stocks-Portfolio.html",
-      "/posts/2022-06-01-btc-usd-price-prediction.html",
-      "/posts/2022-07-03-ARIMA-prediction.html",
-      "/posts/2022-08-21-Stats1.html",
-      "/posts/2022-10-07-Stats2.html",
-      "/posts/2024-10-12-HSY.html"
     ]
   },
   {
     "listing": "/Quant/index.html",
     "items": [
-      "/Quant/2022-06-01-btc-usd-price-prediction.html",
       "/Quant/2022-05-07-Tech-Stocks-Portfolio.html",
+      "/Quant/2022-06-01-btc-usd-price-prediction.html",
       "/Quant/2022-07-03-ARIMA-prediction.html"
     ]
   }
