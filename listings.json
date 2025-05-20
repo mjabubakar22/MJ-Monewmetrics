@@ -1,18 +1,18 @@
 [
   {
-    "listing": "/Stats & Probability/index.html",
+    "listing": "/Stats/index.html",
     "items": [
-      "/Stats & Probability/2022-08-21-Stats1.html",
-      "/Stats & Probability/2022-10-07-Stats2.html"
+      "/Stats/2022-08-21-Stats1.html",
+      "/Stats/2022-10-07-Stats2.html"
     ]
   },
   {
-    "listing": "/Financial Analysis/index.html",
+    "listing": "/Finance/index.html",
     "items": [
-      "/Financial Analysis/2020-12-21-Amdocs-LTD.html",
-      "/Financial Analysis/2021-01-21-Footlocker-Inc.html",
-      "/Financial Analysis/2020-12-25-Microsoft-Corp.html",
-      "/Financial Analysis/2024-10-12-HSY.html"
+      "/Finance/2020-12-21-Amdocs-LTD.html",
+      "/Finance/2021-01-21-Footlocker-Inc.html",
+      "/Finance/2020-12-25-Microsoft-Corp.html",
+      "/Finance/2024-10-12-HSY.html"
     ]
   },
   {
@@ -30,11 +30,11 @@
     ]
   },
   {
-    "listing": "/Quant Research/index.html",
+    "listing": "/Quant/index.html",
     "items": [
-      "/Quant Research/2022-06-01-btc-usd-price-prediction.html",
-      "/Quant Research/2022-05-07-Tech-Stocks-Portfolio.html",
-      "/Quant Research/2022-07-03-ARIMA-prediction.html"
+      "/Quant/2022-06-01-btc-usd-price-prediction.html",
+      "/Quant/2022-05-07-Tech-Stocks-Portfolio.html",
+      "/Quant/2022-07-03-ARIMA-prediction.html"
     ]
   }
 ]
