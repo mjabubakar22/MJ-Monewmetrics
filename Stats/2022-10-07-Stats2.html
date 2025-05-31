@@ -6,8 +6,10 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="dcterms.date" content="2022-10-07">
+<meta name="description" content="This is Part 2 of a two-part Exploratory Data Analysis (EDA) series. While the first notebook focused on statistical summaries, this part dives into visual techniques using plots to explore trends, distributions, relationships, and outliers in financial datasets using Python..">
 
-<title>EDA PART 2, Graphical Analysis – Monewmetrics</title>
+<title>Understanding Data Through Visuals: A Practical Guide to EDA (Part 2) – Monewmetrics</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -72,10 +74,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-8ef56b68f8fa1e9d2ba328e99e439f80.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-46f4cc9626f044588a66931b604fc9c8.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-3338b9a37bf0371b586c4716454e3b6b.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="dark">
+<link href="../site_libs/bootstrap/bootstrap-0d8e5b651ac309985c3777edbadb43cf.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="dark">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -161,6 +163,8 @@ require(['plotly'], function(Plotly) {
 </ul>
           </div> <!-- /navcollapse -->
             <div class="quarto-navbar-tools">
+    <a href="https://www.linkedin.com/in/mbarak-abubakar/" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-linkedin"></i></a>
+    <a href="https://github.com/mjabubakar22" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-github"></i></a>
 </div>
       </div> <!-- /container-fluid -->
     </nav>
@@ -174,7 +178,9 @@ require(['plotly'], function(Plotly) {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#heatmap" id="toc-heatmap" class="nav-link active" data-scroll-target="#heatmap">HEATMAP</a></li>
+  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction">Introduction</a>
+  <ul class="collapse">
+  <li><a href="#heatmap" id="toc-heatmap" class="nav-link" data-scroll-target="#heatmap">HEATMAP</a></li>
   <li><a href="#scatter-matrix-scatter-plot" id="toc-scatter-matrix-scatter-plot" class="nav-link" data-scroll-target="#scatter-matrix-scatter-plot">SCATTER MATRIX &amp; SCATTER PLOT</a></li>
   <li><a href="#bar-chart" id="toc-bar-chart" class="nav-link" data-scroll-target="#bar-chart">BAR CHART</a></li>
   <li><a href="#stacked-bar-chart" id="toc-stacked-bar-chart" class="nav-link" data-scroll-target="#stacked-bar-chart">STACKED BAR CHART</a></li>
@@ -183,6 +189,7 @@ require(['plotly'], function(Plotly) {
   <li><a href="#box-plot" id="toc-box-plot" class="nav-link" data-scroll-target="#box-plot">BOX PLOT</a></li>
   <li><a href="#violin-plot" id="toc-violin-plot" class="nav-link" data-scroll-target="#violin-plot">VIOLIN PLOT</a></li>
   <li><a href="#histogram" id="toc-histogram" class="nav-link" data-scroll-target="#histogram">Histogram</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -191,14 +198,28 @@ require(['plotly'], function(Plotly) {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">EDA PART 2, Graphical Analysis</h1>
-</div>
+<h1 class="title">Understanding Data Through Visuals: A Practical Guide to EDA (Part 2)</h1>
+  <div class="quarto-categories">
+    <div class="quarto-category">Statistics &amp; Probability</div>
+  </div>
+  </div>
 
+<div>
+  <div class="description">
+    This is Part 2 of a two-part Exploratory Data Analysis (EDA) series. While the first notebook focused on statistical summaries, this part dives into visual techniques using plots to explore trends, distributions, relationships, and outliers in financial datasets using Python..
+  </div>
+</div>
 
 
 <div class="quarto-title-meta">
 
     
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">October 7, 2022</p>
+    </div>
+  </div>
   
     
   </div>
@@ -208,23 +229,15 @@ require(['plotly'], function(Plotly) {
 </header>
 
 
-<blockquote class="blockquote">
-<p>In this we’ll go through some visualization techniques performed during explanatory data analysis</p>
-</blockquote>
-<ul>
-<li>toc: true</li>
-<li>badges: true</li>
-<li>categories:[Statistics &amp; Probability]</li>
-<li>image:images/plots.jpg</li>
-<li>use_plotly: true</li>
-</ul>
+<section id="introduction" class="level2">
+<h2 class="anchored" data-anchor-id="introduction">Introduction</h2>
 <p>While non-graphical analysis provides us with valuable insights, graphical techniques provide a visual representation that enhances our understanding of the data. graphical analysis serves as a vital tool for exploring and understanding data.</p>
 <p>Graphical analysis allows us to examine the distribution of data, providing insights into the patterns, shape, and spread of values within a dataset. Histograms, for example, display the frequency or proportion of data points within specific intervals, enabling us to identify peaks, gaps, or skewed distributions. Box plots provide a visual representation of the minimum, maximum, median, and quartiles, helping us understand the central tendencies and variability in the data. By exploring the distribution of data graphically, we can gain a deeper understanding of its characteristics and identify any outliers or anomalies.</p>
 <p>Furthermore, Graphical analysis enables us to explore the relationships between different variables in a dataset. Scatter plots, for instance, plot data points as dots on a graph, allowing us to observe the correlation or association between two variables. This helps us identify trends, patterns, or potential dependencies. Additionally, line plots or time series plots provide a visual representation of how variables change over time, highlighting any trends or seasonal patterns. By examining these graphical representations, we can uncover valuable insights into the relationships and dependencies between variables, enabling us to make informed decisions or predictions.</p>
 <p>Lastly, Graphical analysis facilitates the comparison of different datasets or categories, allowing us to identify similarities, differences, or trends. Bar charts or column charts, for example, provide a visual representation of categorical data, making it easy to compare the frequency or proportions of different categories. Grouped bar charts or stacked bar charts can be used to compare multiple categories simultaneously. By visually comparing data, we can identify variations, spot outliers, or detect patterns across different groups or time periods. This helps us make data-driven decisions and identify areas of improvement.</p>
 <p>By leveraging visual representations, we gain valuable insights into the underlying patterns, trends, and characteristics of the data, empowering us to make informed decisions and draw meaningful conclusions.</p>
 <p>We will explore some of the most commonly used visualization tools that I frequently use when performing graphical analysis</p>
-<div id="cell-3" class="cell" data-execution_count="1">
+<div id="cell-2" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">#importing relevant libraries</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
@@ -243,7 +256,7 @@ require(['plotly'], function(Plotly) {
 <h3 class="anchored" data-anchor-id="heatmap">HEATMAP</h3>
 <p>The correlation heatmap allows for a quick visual assessment of the relationships between variables in a dataset. It helps identify strong positive or negative correlations, patterns, and clusters among variables. This graphical representation provides a more intuitive and comprehensive understanding of the interdependencies among multiple variables compared to a tabular format.</p>
 <p>Using the same portfolio of stocks from the previous part, when we examine the return correlation between the stocks, we can quickly observe which stocks move together. As suspected, there is no pair with a negative correlation, considering that all the stocks share common traits. They are all part of the S&amp;P 500, and they all belong to the technology sector, except for Tesla. This explains why Tesla is the only stock that exhibits a less positive correlation with every other stock. However, since Tesla utilizes technology heavily in its electric vehicles, it still considered a tech company by some despite its primary focus on automotive production. Therefore, it exhibits similar characteristics to other tech stocks, which may explain why the correlation is not negative but still not as strong as the correlations among the purely technology-focused stocks.</p>
-<div id="cell-7" class="cell" data-execution_count="82">
+<div id="cell-6" class="cell" data-execution_count="82">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>assets <span class="op">=</span> [<span class="st">'META'</span>,<span class="st">'AMZN'</span>,<span class="st">'NFLX'</span>,<span class="st">'GOOG'</span>,<span class="st">'MSFT'</span>,<span class="st">'NVDA'</span>,<span class="st">'TSLA'</span>]</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>pf_data <span class="op">=</span> pd.DataFrame()</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> a <span class="kw">in</span> assets:</span>
@@ -263,7 +276,7 @@ require(['plotly'], function(Plotly) {
 </div>
 </div>
 <p>(NOTE: REFRESH PAGE IF GRAPHS ARE NOT LOADING)</p>
-<div id="cell-9" class="cell" data-execution_count="89">
+<div id="cell-8" class="cell" data-execution_count="89">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>fig <span class="op">=</span> px.imshow(corr)</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>fig.update_layout(width<span class="op">=</span><span class="dv">1000</span>, height<span class="op">=</span><span class="dv">800</span>)</span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>fig.update_layout(template <span class="op">=</span> <span class="st">"plotly_dark"</span>, title <span class="op">=</span> <span class="st">'A heat Map Of Stock Returns In a Portfolio'</span>) </span>
@@ -303,7 +316,7 @@ if (outputEl) {{
 <p>A scatter matrix, also known as a scatterplot matrix or pair plot, is a graphical tool used to explore the relationships between multiple variables in a dataset. It consists of a grid of scatterplots, where each scatterplot represents the relationship between two variables.</p>
 <p>A scatter plot is a type of graph that displays the relationship between two variables. It consists of a horizontal x-axis and a vertical y-axis, where each data point is represented by a dot or marker on the plot. The position of each dot on the scatter plot corresponds to the values of the two variables being analyzed.</p>
 <p>Scatter plots are particularly useful for visualizing the correlation or relationship between two continuous variables. By plotting the data points on the scatter plot, it becomes easier to observe any patterns, trends, or associations between the variables. The general shape or direction of the points on the scatter plot can provide insights into the strength and direction of the relationship.</p>
-<div id="cell-13" class="cell" data-execution_count="95">
+<div id="cell-12" class="cell" data-execution_count="95">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>fig <span class="op">=</span> px.scatter_matrix(returns, title<span class="op">=</span><span class="st">'A Scatter Matrix Of Stock Returns In A Portfolio'</span>, color_discrete_sequence<span class="op">=</span>[<span class="st">'firebrick'</span>])</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>fig.update_layout(width<span class="op">=</span><span class="dv">1200</span>, height<span class="op">=</span><span class="dv">800</span>)</span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>fig.update_layout(template <span class="op">=</span> <span class="st">"plotly_dark"</span>)</span>
@@ -337,7 +350,7 @@ if (outputEl) {{
 </div>
 </div>
 <p>When we examine the relationships from both the heatmap and scatter matrix, the pair that exhibits the highest correlation is Microsoft and Google. This can be explained by the fact that these two companies are often mentioned in the same context, as they share similarities in their business models. For instance, Microsoft has Bing while Google dominates the search engine market, both companies have cloud platforms (Azure and Google Cloud Platform), and they offer productivity suites such as Excel and Google Sheets, Word and Google Docs, Gmail and Outlook, among others. To gain a deeper understanding of the relationship between these two stocks, we can visualize their relationship separately and analyze it more closely.</p>
-<div id="cell-15" class="cell" data-execution_count="94">
+<div id="cell-14" class="cell" data-execution_count="94">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>fig <span class="op">=</span> px.scatter(returns, x<span class="op">=</span><span class="st">'MSFT'</span>, y<span class="op">=</span><span class="st">'GOOG'</span>, title<span class="op">=</span><span class="st">'Scatter Plot Of MSFT Return and GOOG Return'</span>,color<span class="op">=</span><span class="st">"MSFT"</span>)<span class="co">#,trendline='ols', trendline_color_override='firebrick')#color_discrete_sequence=['firebrick'])</span></span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>fig.update_layout(width<span class="op">=</span><span class="dv">1000</span>, height<span class="op">=</span><span class="dv">800</span>)</span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>fig.update_layout(template <span class="op">=</span> <span class="st">"plotly_dark"</span>)</span>
@@ -373,7 +386,7 @@ if (outputEl) {{
 <p>We can definitely see a linear relationship here, when one does well the other does well and vice versa, this should be taken into consideration whenever one includes both of them in a portfolio</p>
 <p>We can also plot a trendline, which is also known as an Ordinary Least Squares (OLS) line. it is often used in scatter plots to depict the overall trend or relationship between two variables.</p>
 <p>By using a trendline or OLS line in a scatter plot, we can visually observe the direction and strength of the relationship between the variables. The line is positioned to best represent the general pattern of the data points, whether it be a positive or negative correlation, or even no apparent correlation.</p>
-<div id="cell-18" class="cell" data-execution_count="110">
+<div id="cell-17" class="cell" data-execution_count="110">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>fig <span class="op">=</span> px.scatter(returns, x<span class="op">=</span><span class="st">'MSFT'</span>, y<span class="op">=</span><span class="st">'GOOG'</span>, title<span class="op">=</span><span class="st">'Scatter Plot and Trendline Of MSFT Return and GOOG Return'</span>,color<span class="op">=</span><span class="st">"MSFT"</span>,trendline<span class="op">=</span><span class="st">'ols'</span>, trendline_color_override<span class="op">=</span><span class="st">'firebrick'</span>)</span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>fig.update_layout(width<span class="op">=</span><span class="dv">1000</span>, height<span class="op">=</span><span class="dv">800</span>)</span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>fig.update_layout(template <span class="op">=</span> <span class="st">"plotly_dark"</span>)</span>
@@ -414,7 +427,7 @@ if (outputEl) {{
 <h3 class="anchored" data-anchor-id="bar-chart">BAR CHART</h3>
 <p>A bar chart, also known as a bar graph, is a popular visualization tool that presents data using rectangular bars of varying heights. Each bar represents a category or group, and the height of the bar corresponds to the value or frequency of that category. Bar charts are effective in comparing different categories or groups and visually displaying patterns or trends in the data.</p>
 <p>For this particular case, I wanted to examine the volume of trades for each stock in the 4th quarter of 2021. As anticipated, Tesla emerged as the leader of the pack, with approximately 5 billion shares traded. Amazon closely followed with 4 billion shares traded. Surprisingly, Netflix has not been receiving the level of trading activity that I would have expected, considering the company’s size and prominence</p>
-<div id="cell-24" class="cell" data-execution_count="83">
+<div id="cell-23" class="cell" data-execution_count="83">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>pf_data2 <span class="op">=</span> pd.DataFrame()</span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> b <span class="kw">in</span> assets:</span>
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>    pf_data2[b] <span class="op">=</span> yf.download(b, start<span class="op">=</span><span class="st">"2021-01-01"</span>, end<span class="op">=</span><span class="st">"2021-12-31"</span>, interval<span class="op">=</span><span class="st">'3mo'</span>)[<span class="st">'Volume'</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -428,7 +441,7 @@ if (outputEl) {{
 [*********************100%***********************]  1 of 1 completed</code></pre>
 </div>
 </div>
-<div id="cell-25" class="cell" data-execution_count="85">
+<div id="cell-24" class="cell" data-execution_count="85">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>fig <span class="op">=</span> px.bar(pf_data2.loc[<span class="st">'2021-10-01'</span>],color_discrete_sequence<span class="op">=</span>[<span class="st">'firebrick'</span>])</span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>fig.update_layout(width<span class="op">=</span><span class="dv">1000</span>, height<span class="op">=</span><span class="dv">800</span>, template <span class="op">=</span> <span class="st">"plotly_dark"</span>)</span>
 <span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>fig.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -465,7 +478,7 @@ if (outputEl) {{
 <h3 class="anchored" data-anchor-id="stacked-bar-chart">STACKED BAR CHART</h3>
 <p>A stacked bar chart is a visualization tool that represents different categories or groups of data as stacked bars, where each bar segment corresponds to a subcategory or a portion of the whole</p>
 <p>Using the same example, instead of focusing on the volume traded in a single quarter, I now intend to analyze the volume traded in each of the four quarters of 2021. The verdict remains consistent, with Tesla consistently trading the highest volume. Additionally, another noteworthy observation is that the volume for the tech stocks in the portfolio decreased in the 3rd quarter, the volume had been in a downward trend decreasing QoQ since early 2021.</p>
-<div id="cell-28" class="cell" data-execution_count="128">
+<div id="cell-27" class="cell" data-execution_count="128">
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>fig <span class="op">=</span> px.bar(pf_data2)</span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>fig.update_layout(width<span class="op">=</span><span class="dv">1000</span>, height<span class="op">=</span><span class="dv">800</span>, template <span class="op">=</span> <span class="st">"plotly_dark"</span>)</span>
 <span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>fig.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -498,7 +511,7 @@ if (outputEl) {{
 </div>
 </div>
 <p>Alternatively, we can plot a side-by-side bar graph for each stock. While a stacked bar chart provides information on the total volume, a side-by-side bar graph presents a clearer depiction of how the volume for each stock has evolved throughout the year.</p>
-<div id="cell-30" class="cell" data-execution_count="134">
+<div id="cell-29" class="cell" data-execution_count="134">
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>fig <span class="op">=</span> px.bar(pf_data2,barmode<span class="op">=</span><span class="st">'group'</span>)</span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>fig.update_layout(width<span class="op">=</span><span class="dv">1000</span>, height<span class="op">=</span><span class="dv">800</span>, template <span class="op">=</span> <span class="st">"plotly_dark"</span>)</span>
 <span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>fig.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -535,7 +548,7 @@ if (outputEl) {{
 <h3 class="anchored" data-anchor-id="line-chart">LINE CHART</h3>
 <p>Line charts, also known as line graphs or time series plots, are effective visual representations for displaying trends and patterns over time. They are particularly useful when analyzing data that is continuous or sequential in nature, such as stock prices, temperature fluctuations, or population growth.</p>
 <p>If we plot the stock prices, we can observe the progression of each stock throughout 2021.</p>
-<div id="cell-33" class="cell" data-execution_count="138">
+<div id="cell-32" class="cell" data-execution_count="138">
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>fig <span class="op">=</span> px.line(pf_data)</span>
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>fig.update_layout(width<span class="op">=</span><span class="dv">1200</span>, height<span class="op">=</span><span class="dv">800</span>, template <span class="op">=</span> <span class="st">"plotly_dark"</span>)</span>
 <span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>fig.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -568,7 +581,7 @@ if (outputEl) {{
 </div>
 </div>
 <p>However, I typically examine how each stock has performed relative to one another. To achieve this, I normalize the data using cumulative returns, making it much easier to identify outperforming and underperforming stocks. By doing so, we can see that Nvidia is leading the pack, followed by Tesla, while Netflix and Meta have significantly underperformed in comparison.</p>
-<div id="cell-35" class="cell" data-execution_count="159">
+<div id="cell-34" class="cell" data-execution_count="159">
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>cum_returns <span class="op">=</span>   (<span class="dv">1</span> <span class="op">+</span> returns).cumprod() <span class="op">-</span> <span class="dv">1</span></span>
 <span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>fig <span class="op">=</span> px.line(cum_returns)</span>
 <span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>fig.update_layout(width<span class="op">=</span><span class="dv">1200</span>, height<span class="op">=</span><span class="dv">800</span>, template <span class="op">=</span> <span class="st">"plotly_dark"</span>)</span>
@@ -607,7 +620,7 @@ if (outputEl) {{
 <p>A pie chart is a circular graphical representation that is divided into slices to illustrate the proportional composition of different categories or parts of a whole. Each slice represents a specific category, and its size is determined by the proportion or percentage it contributes to the total. Pie charts are effective in visualizing categorical data and showing the relative sizes or distributions of different categories. They are particularly useful for displaying data that can be grouped into distinct categories and highlighting the relative importance or contribution of each category. By examining a pie chart, we can quickly grasp the overall composition and relative significance of different components within the data.</p>
 <p>If we want to determine the sectors that contribute the most or are most represented in the S&amp;P 500, we can use a pie chart for this analysis. From the pie chart, we can observe that there are five dominant sectors, with four of them being cyclical. This observation may explain why the S&amp;P 500 tends to underperform during economic downturns. Additionally, the telecommunication sector has the fewest number of companies in the index, indicating that it is the least represented sector</p>
 <p>Data Source: https://www.kaggle.com/datasets/paytonfisher/sp-500-companies-with-financial-information?resource=download</p>
-<div id="cell-40" class="cell" data-execution_count="111">
+<div id="cell-39" class="cell" data-execution_count="111">
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>SnP_500 <span class="op">=</span> pd.read_csv(<span class="st">'/home/mj22/data/financials.csv'</span>)</span>
 <span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>fig <span class="op">=</span> px.pie(SnP_500, names<span class="op">=</span><span class="st">'Sector'</span>)</span>
@@ -646,7 +659,7 @@ if (outputEl) {{
 <h3 class="anchored" data-anchor-id="box-plot">BOX PLOT</h3>
 <p>A box plot is a graphical representation that provides a visual summary of the distribution of a dataset. It is particularly useful for comparing the distribution of multiple variables or groups. The plot consists of a box that represents the interquartile range (IQR), which contains the middle 50% of the data, with a line inside the box indicating the median. The whiskers extend from the box to the minimum and maximum values, excluding any outliers, which are represented as individual points. By examining the box plot, we can identify the central tendency, spread, skewness, and potential outliers in the data, making it a powerful tool for exploratory data analysis.</p>
 <p>When we examine the box plot for Price/Sales for all the stocks in the index, we quickly notice the presence of outliers. The maximum value is 20, the minimum value is 0.15, and the median is 2.89. The first quartile is 1.62, and the third quartile is 4.71.</p>
-<div id="cell-44" class="cell" data-execution_count="106">
+<div id="cell-43" class="cell" data-execution_count="106">
 <div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>fig <span class="op">=</span> px.box(SnP_500, y<span class="op">=</span><span class="st">'Price/Sales'</span>, color_discrete_sequence<span class="op">=</span>[<span class="st">'firebrick'</span>])</span>
 <span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>fig.update_layout(width<span class="op">=</span><span class="dv">1000</span>, height<span class="op">=</span><span class="dv">800</span>, template <span class="op">=</span> <span class="st">"plotly_dark"</span>)</span>
 <span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>fig.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -679,7 +692,7 @@ if (outputEl) {{
 </div>
 </div>
 <p>We can also analyze the Price/Sales ratio for each sector in the index, providing us with a more insightful observation. From this analysis, we can observe that the real estate sector has a significantly higher P/S ratio compared to other sectors, while the telecommunications sector appears to have the lowest. However, it’s important to note that this is an inductive observation, as the index only includes the 500 largest companies, which may not present the complete picture.</p>
-<div id="cell-46" class="cell" data-execution_count="101">
+<div id="cell-45" class="cell" data-execution_count="101">
 <div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>fig <span class="op">=</span> px.box(SnP_500, y<span class="op">=</span><span class="st">'Price/Sales'</span>, x<span class="op">=</span><span class="st">'Sector'</span>, color_discrete_sequence<span class="op">=</span>[<span class="st">'firebrick'</span>])</span>
 <span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>fig.update_layout(width<span class="op">=</span><span class="dv">1200</span>, height<span class="op">=</span><span class="dv">800</span>, template <span class="op">=</span> <span class="st">"plotly_dark"</span>)</span>
 <span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>fig.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -715,7 +728,7 @@ if (outputEl) {{
 <section id="violin-plot" class="level3">
 <h3 class="anchored" data-anchor-id="violin-plot">VIOLIN PLOT</h3>
 <p>Alternatively we can use a violin plot, a violin plot combines a box plot with a kernel density plot. It displays the same summary statistics as a box plot, but also provides a more detailed view of the distribution. The plot is symmetrical and resembles a violin or a mirrored density plot. The width of the violin at each point represents the density of data points, with wider areas indicating higher density.</p>
-<div id="cell-49" class="cell" data-execution_count="109">
+<div id="cell-48" class="cell" data-execution_count="109">
 <div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>fig <span class="op">=</span> px.violin(SnP_500, y<span class="op">=</span><span class="st">'Earnings/Share'</span>, color_discrete_sequence<span class="op">=</span>[<span class="st">'firebrick'</span>])</span>
 <span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>fig.update_layout(width<span class="op">=</span><span class="dv">1000</span>, height<span class="op">=</span><span class="dv">800</span>, template <span class="op">=</span> <span class="st">"plotly_dark"</span>)</span>
 <span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>fig.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -750,7 +763,7 @@ if (outputEl) {{
 <p>Compared to box plots, violin plots offer additional insights into the shape and multimodality of the distribution. They provide a more comprehensive visualization of the data, allowing for a better understanding of its characteristics. However, box plots are more compact and straightforward, making them useful for quick comparisons between multiple groups or variables.</p>
 <p>Additionally, with a violin plot, we can plot scatter dots alongside to better visualize the concentration of data.</p>
 <p>We can see that most of the companies in the index have earnings per share between 12 and -3, but the data is more concentrated around the range of 3 to 1. Additionally, the majority of companies have a positive earnings per share.</p>
-<div id="cell-52" class="cell" data-execution_count="63">
+<div id="cell-51" class="cell" data-execution_count="63">
 <div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>fig <span class="op">=</span> px.violin(SnP_500, y<span class="op">=</span><span class="st">'Earnings/Share'</span>, color_discrete_sequence<span class="op">=</span>[<span class="st">'firebrick'</span>], points<span class="op">=</span><span class="st">"all"</span>)</span>
 <span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>fig.update_layout(width<span class="op">=</span><span class="dv">1000</span>, height<span class="op">=</span><span class="dv">800</span>, template <span class="op">=</span> <span class="st">"plotly_dark"</span>)</span>
 <span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>fig.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -783,7 +796,7 @@ if (outputEl) {{
 </div>
 </div>
 <p>Again, we could also observe the earnings per share (EPS) for all the sectors. It appears that almost all of the sectors have a higher number of companies with positive earnings, except for the energy sector. This discrepancy raises further questions and warrants investigation to understand why the energy sector has more companies with negative earnings compared to the rest.</p>
-<div id="cell-54" class="cell" data-execution_count="62">
+<div id="cell-53" class="cell" data-execution_count="62">
 <div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>fig <span class="op">=</span> px.violin(SnP_500, y<span class="op">=</span><span class="st">'Earnings/Share'</span>, x<span class="op">=</span><span class="st">'Sector'</span>, color_discrete_sequence<span class="op">=</span>[<span class="st">'firebrick'</span>],points<span class="op">=</span><span class="st">"all"</span>)</span>
 <span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>fig.update_layout(width<span class="op">=</span><span class="dv">1200</span>, height<span class="op">=</span><span class="dv">800</span>, template <span class="op">=</span> <span class="st">"plotly_dark"</span>)</span>
 <span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>fig.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -821,14 +834,14 @@ if (outputEl) {{
 <h3 class="anchored" data-anchor-id="histogram">Histogram</h3>
 <p>A histogram is a graphical representation that displays the distribution of a dataset. It consists of a series of bars, where each bar represents a range of values and the height of the bar corresponds to the frequency or count of observations falling within that range. Histograms provide a visual depiction of the data’s frequency distribution, allowing us to identify patterns, skewness, and central tendencies. They are particularly useful for understanding the shape of the data and detecting any outliers or unusual patterns. By examining the histogram, we can gain insights into the underlying characteristics and distribution of the variable being analyzed</p>
 <p>When we plot the weekly distribution of returns for the MSCI World Index, we can observe that most of the data points are situated around -1.5% to 2.5%. Additionally, we can identify outliers scattered along the distribution, indicating extreme or unusual returns compared to the majority of data points.</p>
-<div id="cell-59" class="cell" data-execution_count="51">
+<div id="cell-58" class="cell" data-execution_count="51">
 <div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>world <span class="op">=</span> yf.download(<span class="st">'IXUS'</span>, <span class="st">"2013-01-01"</span>, <span class="st">"2022-06-01"</span>,interval<span class="op">=</span><span class="st">"1wk"</span>)[<span class="st">'Adj Close'</span>]</span>
 <span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>world_returns <span class="op">=</span> world.pct_change(<span class="dv">1</span>).dropna()   </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[*********************100%***********************]  1 of 1 completed</code></pre>
 </div>
 </div>
-<div id="cell-60" class="cell" data-execution_count="64">
+<div id="cell-59" class="cell" data-execution_count="64">
 <div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create histogram using Plotly Express</span></span>
 <span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>fig <span class="op">=</span> px.histogram(world_returns, x<span class="op">=</span>world_returns, nbins<span class="op">=</span><span class="dv">80</span>, color_discrete_sequence<span class="op">=</span>[<span class="st">'firebrick'</span>])</span>
 <span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -875,7 +888,7 @@ if (outputEl) {{
 <li>On the other hand, if you were to go short with a minimum target of a 1% return, the probability of achieving that desired return would be 23%.</li>
 </ul>
 <p>Although the odds appear to be better when adjusting our expectations, it is still statistically insignificant. Comparing it to a skydiving scenario where the parachute only works 33% of the time, taking such a risk would not be advisable.</p>
-<div id="cell-62" class="cell" data-execution_count="65">
+<div id="cell-61" class="cell" data-execution_count="65">
 <div class="sourceCode cell-code" id="cb24"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create histogram using Plotly Express</span></span>
 <span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>fig <span class="op">=</span> px.histogram(world_returns, nbins<span class="op">=</span><span class="dv">80</span>, color_discrete_sequence<span class="op">=</span>[<span class="st">'firebrick'</span>], text_auto<span class="op">=</span><span class="va">True</span>, histnorm<span class="op">=</span><span class="st">'percent'</span>)</span>
 <span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -920,6 +933,7 @@ if (outputEl) {{
 </ul>
 
 
+</section>
 </section>
 </section>
 

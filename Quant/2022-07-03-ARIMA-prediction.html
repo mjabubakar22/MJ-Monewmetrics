@@ -6,8 +6,10 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="dcterms.date" content="2022-07-03">
+<meta name="description" content="This project uses ARIMA model to forecast the stock price of Procter &amp; Gamble (PG). It covers everything from stationarity tests and differencing to PACF/ACF plots, model fitting, and residual analysis while also reflecting on the limits of univariate forecasting.">
 
-<title>Stock Price Forecast Using ARIMA Model – Monewmetrics</title>
+<title>Can ARIMA Predict Stocks? A Time-Series Forecasting Case – Monewmetrics</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -72,10 +74,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-8ef56b68f8fa1e9d2ba328e99e439f80.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-46f4cc9626f044588a66931b604fc9c8.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-3338b9a37bf0371b586c4716454e3b6b.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="dark">
+<link href="../site_libs/bootstrap/bootstrap-0d8e5b651ac309985c3777edbadb43cf.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="dark">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -171,6 +173,8 @@ window.Quarto = {
 </ul>
           </div> <!-- /navcollapse -->
             <div class="quarto-navbar-tools">
+    <a href="https://www.linkedin.com/in/mbarak-abubakar/" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-linkedin"></i></a>
+    <a href="https://github.com/mjabubakar22" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-github"></i></a>
 </div>
       </div> <!-- /container-fluid -->
     </nav>
@@ -184,8 +188,8 @@ window.Quarto = {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#disclaimer" id="toc-disclaimer" class="nav-link active" data-scroll-target="#disclaimer"><strong>DISCLAIMER!</strong></a></li>
-  <li><a href="#intro-on-time-series" id="toc-intro-on-time-series" class="nav-link" data-scroll-target="#intro-on-time-series"><strong>Intro on time series</strong>:</a></li>
+  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction">Introduction</a>
+  <ul class="collapse">
   <li><a href="#objective" id="toc-objective" class="nav-link" data-scroll-target="#objective"><strong>Objective</strong>:</a></li>
   <li><a href="#what-is-an-arima-model" id="toc-what-is-an-arima-model" class="nav-link" data-scroll-target="#what-is-an-arima-model"><strong>What is an ARIMA model</strong>:</a></li>
   <li><a href="#eda" id="toc-eda" class="nav-link" data-scroll-target="#eda"><strong>EDA</strong>:</a></li>
@@ -194,6 +198,7 @@ window.Quarto = {
   <li><a href="#model-development-evaluation" id="toc-model-development-evaluation" class="nav-link" data-scroll-target="#model-development-evaluation"><strong>Model development &amp; Evaluation</strong>:</a></li>
   <li><a href="#auto-arima" id="toc-auto-arima" class="nav-link" data-scroll-target="#auto-arima">AUTO ARIMA:</a></li>
   <li><a href="#conclusion" id="toc-conclusion" class="nav-link" data-scroll-target="#conclusion"><strong>Conclusion</strong>:</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -202,14 +207,28 @@ window.Quarto = {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Stock Price Forecast Using ARIMA Model</h1>
-</div>
+<h1 class="title">Can ARIMA Predict Stocks? A Time-Series Forecasting Case</h1>
+  <div class="quarto-categories">
+    <div class="quarto-category">Quantitative Research</div>
+  </div>
+  </div>
 
+<div>
+  <div class="description">
+    This project uses ARIMA model to forecast the stock price of Procter &amp; Gamble (PG). It covers everything from stationarity tests and differencing to PACF/ACF plots, model fitting, and residual analysis while also reflecting on the limits of univariate forecasting.
+  </div>
+</div>
 
 
 <div class="quarto-title-meta">
 
     
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">July 3, 2022</p>
+    </div>
+  </div>
   
     
   </div>
@@ -219,28 +238,13 @@ window.Quarto = {
 </header>
 
 
-<blockquote class="blockquote">
-<p>In this notebook i’m going to forecast the stock price of The Procter &amp; Gamble Company (Ticker PG) using the Auto Regressive Integrated Moving Average (ARIMA) model</p>
-</blockquote>
-<ul>
-<li>toc: true</li>
-<li>badges: true</li>
-<li>categories:[Quantitative Research]</li>
-<li>image:images/time series.png</li>
-</ul>
-<section id="disclaimer" class="level3">
-<h3 class="anchored" data-anchor-id="disclaimer"><strong>DISCLAIMER!</strong></h3>
-<p><em>Before proceeding, please make sure that you note the following important information</em>:</p>
-<p><em>NOT FINANCIAL ADVICE!</em></p>
-<p><em>My content is intended to be used and must be used for informational and educational purposes only</em>. <em>I am not an attorney, CPA, or financial advisor, nor am I holding myself out to be, and the information contained on this blog/notebook is not a substitute for financial advice, None of the information contained here constitutes an offer (or solicitation of an offer) to buy or sell any security or financial instrument to make any investment or to participate in any particular trading strategy. Always seek advice from a professional who is aware of the facts and circumstances of your individual situation. Or, Independently research and verify any information that you find on my blog/notebook and wish to rely upon in making any investment decision or otherwise. I accept no liability whatsoever for any loss or damage you may incur</em></p>
-</section>
-<section id="intro-on-time-series" class="level3">
-<h3 class="anchored" data-anchor-id="intro-on-time-series"><strong>Intro on time series</strong>:</h3>
+<section id="introduction" class="level2">
+<h2 class="anchored" data-anchor-id="introduction">Introduction</h2>
 <p>A time series is a sequence of data that attaches a time period to each value, the value can be anything measurable that depends on time in some way like rainfall measurements, heart rate measurements, annual retail sales, monthly subscription, trading volumes, security prices, exchange rates and so on.</p>
 <p>All we need for a time series is a starting point and an ending point(a time period), all time periods must be equal and clearly defined which would result in a constant frequency. The frequency is how often the values of the data set are recorded which could be hourly, daily, monthly, quarterly, etc. There are also no limitations regarding the total time span of our time series.</p>
 <p>Time series analysis comprises methods for analyzing time series data in order to extract meaningful statistics like observing patterns in the data while Time series forecasting is the use of a model to predict future values based on previously observed patterns.</p>
 <p>Data can be univariate or multivariate, univariate time series is when we are forecasting the value of a single variable based on patterns observed in its own past history. For example, predicting the closing stock price of apple tomorrow using its own closing price in the past 7 trading days. While multivariate time series is when we are forecasting the value of a single variable considering patterns in parallel time series. For example, predicting the closing stock price of apple tomorrow using the closing price of Microsoft and Nvidia in the past 7 trading days.</p>
-<div id="cell-4" class="cell" data-execution_count="1">
+<div id="cell-2" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> yfinance <span class="im">as</span> yf</span>
@@ -257,7 +261,6 @@ window.Quarto = {
 <span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>warnings.simplefilter(<span class="st">"ignore"</span>)</span>
 <span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a><span class="op">%</span>matplotlib inline</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-</section>
 <section id="objective" class="level3">
 <h3 class="anchored" data-anchor-id="objective"><strong>Objective</strong>:</h3>
 <p>The American economy contracted an annualized 1.6% in Q1 2022. It was the first contraction since the pandemic-induced recession in 2020 as record trade deficits, supply constraints, worker shortages, and high inflation weigh.</p>
@@ -322,7 +325,7 @@ window.Quarto = {
 <h3 class="anchored" data-anchor-id="eda"><strong>EDA</strong>:</h3>
 <p>The objective now is to perform an Exploratory Data Analysis(EDA) on the dataset (Closing prices of PG) to find the values of p, q, and d</p>
 <p>Before performing EDA, I’m going to split the data first and work only with the train data set which I will use to perform the EDA on, while the test data will be used to evaluate the prediction</p>
-<div id="cell-8" class="cell" data-execution_count="2">
+<div id="cell-6" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Read data</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> yf.download(<span class="st">'PG'</span>, <span class="st">'2018-06-01'</span>, <span class="st">'2022-06-30'</span>, interval<span class="op">=</span> <span class="st">'1d'</span>, auto_adjust<span class="op">=</span><span class="va">True</span>)</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -341,7 +344,7 @@ window.Quarto = {
 <pre><code>[*********************100%***********************]  1 of 1 completed</code></pre>
 </div>
 </div>
-<div id="cell-9" class="cell" data-execution_count="3">
+<div id="cell-7" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>df.info()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>&lt;class 'pandas.core.frame.DataFrame'&gt;
@@ -356,7 +359,7 @@ memory usage: 16.1 KB</code></pre>
 </div>
 </div>
 <p>90/10 split, 90% of data will be used to train and 10% to test</p>
-<div id="cell-11" class="cell" data-execution_count="4">
+<div id="cell-9" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>t <span class="op">=</span> <span class="fl">.9</span></span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>t <span class="op">=</span> <span class="bu">int</span>(t<span class="op">*</span><span class="bu">len</span>(df))</span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -382,11 +385,11 @@ number of training samples: 925</code></pre>
 <p>We can check for stationarity visually and statistically</p>
 <section id="visual-test" class="level4">
 <h4 class="anchored" data-anchor-id="visual-test">Visual test:</h4>
-<div id="cell-14" class="cell" data-execution_count="5">
+<div id="cell-12" class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>train[<span class="st">'rolmean'</span>] <span class="op">=</span> train[<span class="st">'Close'</span>].rolling(<span class="dv">20</span>).mean()</span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>train[<span class="st">'rolstd'</span>] <span class="op">=</span> train[<span class="st">'Close'</span>].rolling(<span class="dv">20</span>).std()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="cell-15" class="cell" data-execution_count="6">
+<div id="cell-13" class="cell" data-execution_count="6">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>plt.style.use(<span class="st">'dark_background'</span>)</span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">12</span>, <span class="dv">6</span>))</span>
 <span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>orig <span class="op">=</span> plt.plot(df_copy.index[:<span class="dv">925</span>], train[<span class="st">'Close'</span>], color<span class="op">=</span><span class="st">'red'</span>)</span>
@@ -400,7 +403,7 @@ number of training samples: 925</code></pre>
 </div>
 </div>
 </div>
-<div id="cell-16" class="cell" data-execution_count="7">
+<div id="cell-14" class="cell" data-execution_count="7">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>plt.style.use(<span class="st">'dark_background'</span>)</span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">12</span>, <span class="dv">6</span>))</span>
 <span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>mean <span class="op">=</span> plt.plot(df_copy.index[:<span class="dv">925</span>],train[<span class="st">'rolmean'</span>], color<span class="op">=</span><span class="st">'red'</span>)</span>
@@ -414,7 +417,7 @@ number of training samples: 925</code></pre>
 </div>
 </div>
 </div>
-<div id="cell-17" class="cell" data-execution_count="8">
+<div id="cell-15" class="cell" data-execution_count="8">
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>plt.style.use(<span class="st">'dark_background'</span>)</span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">12</span>, <span class="dv">6</span>))</span>
 <span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>std <span class="op">=</span> plt.plot(df_copy.index[:<span class="dv">925</span>],train[<span class="st">'rolstd'</span>], color<span class="op">=</span><span class="st">'red'</span>)</span>
@@ -435,7 +438,7 @@ number of training samples: 925</code></pre>
 <p>To check for stationary statistically we use the Augmented Dickey-Fuller(ADF) which is more accurate than making a visual observation.</p>
 <p>In statistics and econometrics, an augmented Dickey–Fuller test is used to test whether a given time series is stationary or not.</p>
 <p>The p-value resulting from the ADF test has to be less than 0.05 or 5% for a time series to be stationary. If the p-value is greater than 0.05 or 5%, you conclude that the time series has a unit root which means that it is a non-stationary process.</p>
-<div id="cell-20" class="cell" data-execution_count="9">
+<div id="cell-18" class="cell" data-execution_count="9">
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>result <span class="op">=</span> adfuller(df[<span class="st">'Close'</span>])</span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'Augmented Dickey-Fuller Test:'</span>)</span>
 <span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>labels <span class="op">=</span> [<span class="st">'ADF Test Statistic'</span>,<span class="st">'p-value'</span>,<span class="st">'#Lags Used'</span>,<span class="st">'Number of Observations Used'</span>]</span>
@@ -467,7 +470,7 @@ weak evidence against null hypothesis, time series has a unit root, indicating i
 <h4 class="anchored" data-anchor-id="y_t-y_t-y_t1-1"><em><span class="math inline">\(Y_{t}^′ = Y_{t} − Y_{t−1}\)</span></em></h4>
 <p>So now the question is at what difference order? Once, twice?. The aim is to avoid over-differencing because it can lead to loss of valuable information about the time series and this often affects the construction of the model</p>
 <p>We could repeat the visual and statistical test every time we difference our time series but fortunately, there is a helpful package we can use called pmdarima and it will tell us at what order should we difference our time series (under the hood it repeats our statistical test and constantly checks at what order will the null hypothesis be rejected)</p>
-<div id="cell-23" class="cell" data-execution_count="10">
+<div id="cell-21" class="cell" data-execution_count="10">
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># from pmdarima.arima.utils import ndiffs</span></span>
 <span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>ndiffs(train[<span class="st">'Close'</span>], test<span class="op">=</span><span class="st">"adf"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="10">
@@ -475,7 +478,7 @@ weak evidence against null hypothesis, time series has a unit root, indicating i
 </div>
 </div>
 <p>So in order to make the series stationary we only need to difference it once!</p>
-<div id="cell-25" class="cell" data-execution_count="11">
+<div id="cell-23" class="cell" data-execution_count="11">
 <div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>diff <span class="op">=</span> train[<span class="st">'Close'</span>].diff().dropna()</span>
 <span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>diff_rolmean <span class="op">=</span> diff.rolling(<span class="dv">20</span>).mean()</span>
 <span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>diff_rolstd <span class="op">=</span> diff.rolling(<span class="dv">20</span>).std()</span>
@@ -529,7 +532,7 @@ strong evidence against the null hypothesis, reject the null hypothesis. Data ha
 <section id="acf-for-maq" class="level4">
 <h4 class="anchored" data-anchor-id="acf-for-maq">ACF for MA(q):</h4>
 <p>The order q can be determined by the Autocorrelation Function plot (ACF) which checks for correlation between two different data points of a Time Series separated by a lag “h”. For example, for lag 1, today’s stock price can be correlated with yesterday’s and yesterday’s stock price and can be correlated with the day before yesterday… day 1 with day 2, day 2 with day 3, etc, etc</p>
-<div id="cell-30" class="cell" data-execution_count="12">
+<div id="cell-28" class="cell" data-execution_count="12">
 <div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>plt.style.use(<span class="st">'dark_background'</span>)</span>
 <span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a><span class="co">#PACF to find p</span></span>
@@ -563,7 +566,7 @@ strong evidence against the null hypothesis, reject the null hypothesis. Data ha
 <p>For PACF we can see that the PACF lag 1,4,7,9 and 15 are significant, but I will pick lag 7 since it is well above the significance line compared to the rest. So, we will set the AR(p) value equal to 7.</p>
 <p>While for the ACF, the lags 1,4,7 and 9 are significant, but lag 4 seems to be well above the significance line compared to the other lags. So, we will set the MA(q) value equal to 4.</p>
 <p>NOTE: Before we continue something useful to remember is that the ACF can also be used to check for stationarity, for a stationary series, the autocorrelation in the ACF plot should decay quickly; with a non-stationary series, the ACF will decay slowly as we’ve already seen</p>
-<div id="cell-33" class="cell" data-execution_count="13">
+<div id="cell-31" class="cell" data-execution_count="13">
 <div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="co">#ACF example for checking stationarity</span></span>
 <span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>plt.style.use(<span class="st">'dark_background'</span>)</span>
 <span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="dv">12</span>,<span class="dv">3</span>))</span>
@@ -584,12 +587,12 @@ strong evidence against the null hypothesis, reject the null hypothesis. Data ha
 <section id="model-development-evaluation" class="level3">
 <h3 class="anchored" data-anchor-id="model-development-evaluation"><strong>Model development &amp; Evaluation</strong>:</h3>
 <p>Now that we have determined the parameters (p,d,q), we will estimate the accuracy of the ARIMA model on a training data set and then use the fitted model to forecast the values of the test data set using a forecasting function. In the end, we cross-check whether our forecasted values are in line with the actual values.</p>
-<div id="cell-36" class="cell" data-execution_count="14">
+<div id="cell-34" class="cell" data-execution_count="14">
 <div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ARIMA Model</span></span>
 <span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>model <span class="op">=</span> ARIMA(train[<span class="st">'Close'</span>], order<span class="op">=</span>(<span class="dv">7</span>,<span class="dv">1</span>,<span class="dv">4</span>))</span>
 <span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>result <span class="op">=</span> model.fit()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="cell-37" class="cell" data-execution_count="15">
+<div id="cell-35" class="cell" data-execution_count="15">
 <div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Histogram to plot residuals</span></span>
 <span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>residuals <span class="op">=</span> pd.DataFrame({<span class="st">'residuals'</span>:result.resid})</span>
 <span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>plt.style.use(<span class="st">'dark_background'</span>)</span>
@@ -605,7 +608,7 @@ strong evidence against the null hypothesis, reject the null hypothesis. Data ha
 </div>
 </div>
 <p>The residuals are the error based of what it would predict for the train data, the closer the residuals are to zero the better</p>
-<div id="cell-39" class="cell" data-execution_count="16">
+<div id="cell-37" class="cell" data-execution_count="16">
 <div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>pred <span class="op">=</span> result.get_forecast(<span class="st">'2022-06-29'</span>).summary_frame()</span>
 <span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>pred <span class="op">=</span> pred[<span class="st">'2022-02-01'</span>:]</span>
 <span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -628,7 +631,7 @@ strong evidence against the null hypothesis, reject the null hypothesis. Data ha
 </div>
 </div>
 </div>
-<div id="cell-40" class="cell" data-execution_count="17">
+<div id="cell-38" class="cell" data-execution_count="17">
 <div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>pred[<span class="st">'mean'</span>][<span class="st">'2022-02-01'</span>:]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="17">
 <pre><code>2022-02-01    159.739671
@@ -653,7 +656,7 @@ Freq: D, Name: mean, Length: 149, dtype: float64</code></pre>
 <h3 class="anchored" data-anchor-id="auto-arima">AUTO ARIMA:</h3>
 <p>We can implement the Auto ARIMA model using the pmdarima time-series library which provides the auto_arima() function that automatically generates the optimal parameter values for all 3 p,d,q values</p>
 <p>The <code>auto_arima()</code> function can take a number of paramters but to keep it simple i’ll just run the function and get the default best model, all we need to do is just pass in our time series data.</p>
-<div id="cell-44" class="cell" data-execution_count="18">
+<div id="cell-42" class="cell" data-execution_count="18">
 <div class="sourceCode cell-code" id="cb25"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> pmdarima.arima <span class="im">import</span> auto_arima</span>
 <span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>auto_arima <span class="op">=</span> auto_arima(train[<span class="st">"Close"</span>])</span>
 <span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a>auto_arima</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -661,18 +664,18 @@ Freq: D, Name: mean, Length: 149, dtype: float64</code></pre>
 <pre><code>ARIMA(order=(4, 1, 5), scoring_args={}, suppress_warnings=True)</code></pre>
 </div>
 </div>
-<div id="cell-45" class="cell" data-execution_count="19">
+<div id="cell-43" class="cell" data-execution_count="19">
 <div class="sourceCode cell-code" id="cb27"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f'The default best value is </span><span class="sc">{</span>auto_arima<span class="sc">.</span>fit(train[<span class="st">"Close"</span>])<span class="sc">}</span><span class="ss">'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>The default best value is  ARIMA(4,1,5)(0,0,0)[0] intercept</code></pre>
 </div>
 </div>
-<div id="cell-46" class="cell" data-execution_count="20">
+<div id="cell-44" class="cell" data-execution_count="20">
 <div class="sourceCode cell-code" id="cb29"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ARIMA Model</span></span>
 <span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>model2 <span class="op">=</span> ARIMA(train[<span class="st">'Close'</span>], order<span class="op">=</span>(<span class="dv">4</span>,<span class="dv">1</span>,<span class="dv">5</span>))</span>
 <span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a>result2 <span class="op">=</span> model2.fit()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="cell-47" class="cell" data-execution_count="21">
+<div id="cell-45" class="cell" data-execution_count="21">
 <div class="sourceCode cell-code" id="cb30"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Histogram</span></span>
 <span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>residuals2 <span class="op">=</span> pd.DataFrame({<span class="st">'residuals'</span>:result2.resid})</span>
 <span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a>plt.style.use(<span class="st">'dark_background'</span>)</span>
@@ -687,7 +690,7 @@ Freq: D, Name: mean, Length: 149, dtype: float64</code></pre>
 </div>
 </div>
 </div>
-<div id="cell-48" class="cell" data-execution_count="22">
+<div id="cell-46" class="cell" data-execution_count="22">
 <div class="sourceCode cell-code" id="cb31"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>pred2 <span class="op">=</span> result2.get_forecast(<span class="st">'2022-06-29'</span>).summary_frame()</span>
 <span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>pred2 <span class="op">=</span> pred2[<span class="st">'2022-02-01'</span>:] </span>
 <span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -709,7 +712,7 @@ Freq: D, Name: mean, Length: 149, dtype: float64</code></pre>
 </div>
 </div>
 </div>
-<div id="cell-49" class="cell" data-execution_count="23">
+<div id="cell-47" class="cell" data-execution_count="23">
 <div class="sourceCode cell-code" id="cb32"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a>pred2[<span class="st">'mean'</span>][<span class="st">'2022-02-01'</span>:]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="23">
 <pre><code>2022-02-01    159.472243
@@ -734,8 +737,23 @@ Freq: D, Name: mean, Length: 149, dtype: float64</code></pre>
 <p>Alternatively, we could try and predict stock returns instead because returns are considered stationary(at least visually) or we could use the SARIMA (Seasonal Auto-Regressive Integrated Moving Average) model which is an extension of the ARIMA, it adds seasonal components of the time series that can help improve prediction.</p>
 <p>But again something to remember is that even if we continue to fine-tune the ARIMA and SARIMA models, the prediction could still be inaccurate because we will still be using univariate data, in order to get the best predictions it’s better to use multivariate data like using the closing prices or stock return of other correlated consumer staple stocks like Colgate-Palmolive Company (TICKER: CL) or The Clorox Company (TICKER: CLX) using models like the ARIMAX or SARIMAX which are just an extension of the ARIMA and SARIMA models, The ‘X’ stands for an exogenous variable(or variables) and in this example, CL and CLX could be those exogenous variables.</p>
 <p>For now, my knowledge is still limited, more time is needed to research and learn about other models as well learning in-depth analysis and forecasting techniques, hence, In future blogs, I will try and incorporate all relevant models and leverage the pmdarima package even further by adding extra parameters to try to find the most accurate model</p>
+<div class="callout callout-style-default callout-warning callout-titled" title="Disclaimer">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Disclaimer
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><em>The content on this site is for <strong>educational and informational purposes only</strong> and does <strong>not constitute financial advice</strong>. I am not a financial advisor, and nothing here should be taken as investment guidance.</em></p>
+<p><em>Always do your own research or consult with a qualified professional. I accept <strong>no responsibility</strong> for any loss (or gain) resulting from the use of this content.</em></p>
+</div>
+</div>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->

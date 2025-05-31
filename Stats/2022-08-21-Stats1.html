@@ -6,8 +6,10 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="dcterms.date" content="2022-08-21">
+<meta name="description" content="This notebook is the first part of a two-part series on Exploratory Data Analysis (EDA) exploring fundamental statistical concepts from mean, variance, and standard deviation to correlation and covariance using Python and real financial datasets. It’s designed as both a study journal and a practical reference for applying statistics to real-world data.">
 
-<title>EDA PART 1, Summary Statistics – Monewmetrics</title>
+<title>Understanding Data Through Numbers: A Practical EDA Guide (Part 1) – Monewmetrics</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -72,10 +74,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-8ef56b68f8fa1e9d2ba328e99e439f80.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-46f4cc9626f044588a66931b604fc9c8.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-3338b9a37bf0371b586c4716454e3b6b.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="dark">
+<link href="../site_libs/bootstrap/bootstrap-0d8e5b651ac309985c3777edbadb43cf.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="dark">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -174,6 +176,8 @@ window.Quarto = {
 </ul>
           </div> <!-- /navcollapse -->
             <div class="quarto-navbar-tools">
+    <a href="https://www.linkedin.com/in/mbarak-abubakar/" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-linkedin"></i></a>
+    <a href="https://github.com/mjabubakar22" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-github"></i></a>
 </div>
       </div> <!-- /container-fluid -->
     </nav>
@@ -187,7 +191,8 @@ window.Quarto = {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#measures-of-central-tendency" id="toc-measures-of-central-tendency" class="nav-link active" data-scroll-target="#measures-of-central-tendency">Measures of central tendency:</a></li>
+  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction">Introduction</a></li>
+  <li><a href="#measures-of-central-tendency" id="toc-measures-of-central-tendency" class="nav-link" data-scroll-target="#measures-of-central-tendency">Measures of central tendency:</a></li>
   <li><a href="#measures-of-dispersion" id="toc-measures-of-dispersion" class="nav-link" data-scroll-target="#measures-of-dispersion">Measures of dispersion</a></li>
   <li><a href="#relationship-between-variables" id="toc-relationship-between-variables" class="nav-link" data-scroll-target="#relationship-between-variables">Relationship between variables</a></li>
   </ul>
@@ -198,14 +203,28 @@ window.Quarto = {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">EDA PART 1, Summary Statistics</h1>
-</div>
+<h1 class="title">Understanding Data Through Numbers: A Practical EDA Guide (Part 1)</h1>
+  <div class="quarto-categories">
+    <div class="quarto-category">Statistics &amp; Probability</div>
+  </div>
+  </div>
 
+<div>
+  <div class="description">
+    This notebook is the first part of a two-part series on Exploratory Data Analysis (EDA) exploring fundamental statistical concepts from mean, variance, and standard deviation to correlation and covariance using Python and real financial datasets. It’s designed as both a study journal and a practical reference for applying statistics to real-world data.
+  </div>
+</div>
 
 
 <div class="quarto-title-meta">
 
     
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">August 21, 2022</p>
+    </div>
+  </div>
   
     
   </div>
@@ -215,15 +234,8 @@ window.Quarto = {
 </header>
 
 
-<blockquote class="blockquote">
-<p>In this notebook we’ll go through some basic concepts that most if not all statisticians and data analysts look at when they first encouter a data set</p>
-</blockquote>
-<ul>
-<li>toc: true</li>
-<li>badges: true</li>
-<li>categories:[Statistics &amp; Probability]</li>
-<li>image:images/math.jpg</li>
-</ul>
+<section id="introduction" class="level2">
+<h2 class="anchored" data-anchor-id="introduction">Introduction</h2>
 <p>Exploratory Data Analysis (EDA) is a systematic and unbiased approach to analyze and understand a dataset by employing statistical techniques and visualizations. It involves thoroughly examining the dataset from various perspectives, summarizing its characteristics, and identifying key patterns, trends, or anomalies without making any prior assumptions about the data’s nature or underlying relationships. EDA aims to provide meaningful insights and uncover relevant features of the data that can guide further analysis and decision-making processes.</p>
 <p>There are two types of data, categorical and numerical data.</p>
 <p>Categorical data, also known as qualitative data, is a type of data that represents characteristics or attributes that belong to a specific category or group</p>
@@ -236,6 +248,7 @@ window.Quarto = {
 <p>Non-graphical Analysis: Non-graphical analysis in exploratory data analysis involves examining and analyzing data using statistical tools and measures such summary statistic that quantitatively describes or summarizes features of a dataset. It focuses on understanding the characteristics and patterns for mostly one variable but can also be used for two or more variables.</p>
 <p>Graphical Analysis: Graphical analysis is the most common part of exploratory data analysis that utilizes visualizations and charts to analyze and interpret data. It involves representing data in graphical forms to visually identify trends, patterns, distributions, relationships between variables or even compare different variables. Graphical analysis provides a comprehensive view of the data, allowing for a better understanding of the underlying structure and facilitating the exploration of multivariate relationships.</p>
 <p>We’ll start off by first performing the non graphical part then we will finish with graphical analysis in the second part</p>
+</section>
 <section id="measures-of-central-tendency" class="level2">
 <h2 class="anchored" data-anchor-id="measures-of-central-tendency">Measures of central tendency:</h2>
 <p>A measure of central tendency (also referred to as measures of center or central location) is a summary measure that attempts to describe a whole set of data with a single value that represents the middle or center of its distribution.</p>
@@ -320,8 +333,7 @@ The Arithmetic mean return of the portfolio assuming no split is: 0.35%</code></
 <p><span class="math display">\[ G = \sqrt[n]{X_1,X_2,X_3....X_n} \]</span></p>
 <p>Data Source: https://www.kaggle.com/datasets/paytonfisher/sp-500-companies-with-financial-information?resource=download</p>
 <div id="b613d152" class="cell" data-execution_count="9">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>SnP_500 <span class="op">=</span> pd.read_csv(<span class="st">'/home/mj22/data/financials.csv'</span>)</span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>SnP_500</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>SnP_500</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="9">
 <div>
 

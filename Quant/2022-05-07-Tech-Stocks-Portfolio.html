@@ -6,8 +6,10 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="dcterms.date" content="2022-05-07">
+<meta name="description" content="In the rapidly evolving tech sector, investors face the challenge of balancing high returns with associated risks. This analysis focuses on constructing a diversified portfolio comprising of the most prominent technology stocks.">
 
-<title>Portfolio Analysis, Efficient Frontier &amp; Monte Carlo – Monewmetrics</title>
+<title>Optimizing a Tech Stock Portfolio: Efficient Frontier and Monte Carlo Simulation Analysis – Monewmetrics</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -72,10 +74,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-8ef56b68f8fa1e9d2ba328e99e439f80.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-46f4cc9626f044588a66931b604fc9c8.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-3338b9a37bf0371b586c4716454e3b6b.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="dark">
+<link href="../site_libs/bootstrap/bootstrap-0d8e5b651ac309985c3777edbadb43cf.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="dark">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -161,6 +163,8 @@ require(['plotly'], function(Plotly) {
 </ul>
           </div> <!-- /navcollapse -->
             <div class="quarto-navbar-tools">
+    <a href="https://www.linkedin.com/in/mbarak-abubakar/" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-linkedin"></i></a>
+    <a href="https://github.com/mjabubakar22" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-github"></i></a>
 </div>
       </div> <!-- /container-fluid -->
     </nav>
@@ -174,13 +178,15 @@ require(['plotly'], function(Plotly) {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#disclaimer" id="toc-disclaimer" class="nav-link active" data-scroll-target="#disclaimer">DISCLAIMER!</a></li>
+  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction">Introduction</a>
+  <ul class="collapse">
   <li><a href="#portfolio-construction-and-analysis" id="toc-portfolio-construction-and-analysis" class="nav-link" data-scroll-target="#portfolio-construction-and-analysis">Portfolio construction and analysis:</a></li>
   <li><a href="#creating-an-equal-weight-ew-portfolio" id="toc-creating-an-equal-weight-ew-portfolio" class="nav-link" data-scroll-target="#creating-an-equal-weight-ew-portfolio">Creating an equal weight (EW) portfolio:</a></li>
   <li><a href="#sharpe-ratio" id="toc-sharpe-ratio" class="nav-link" data-scroll-target="#sharpe-ratio">Sharpe Ratio</a></li>
   <li><a href="#modern-portfolio-theory-monte-carlo-simulation" id="toc-modern-portfolio-theory-monte-carlo-simulation" class="nav-link" data-scroll-target="#modern-portfolio-theory-monte-carlo-simulation">Modern Portfolio Theory &amp; Monte Carlo simulation:</a></li>
   <li><a href="#portfolio-vs-benchmarks" id="toc-portfolio-vs-benchmarks" class="nav-link" data-scroll-target="#portfolio-vs-benchmarks">Portfolio vs benchmarks:</a></li>
   <li><a href="#conclusion" id="toc-conclusion" class="nav-link" data-scroll-target="#conclusion">Conclusion:</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -189,14 +195,28 @@ require(['plotly'], function(Plotly) {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Portfolio Analysis, Efficient Frontier &amp; Monte Carlo</h1>
-</div>
+<h1 class="title">Optimizing a Tech Stock Portfolio: Efficient Frontier and Monte Carlo Simulation Analysis</h1>
+  <div class="quarto-categories">
+    <div class="quarto-category">Quantitative Research</div>
+  </div>
+  </div>
 
+<div>
+  <div class="description">
+    In the rapidly evolving tech sector, investors face the challenge of balancing high returns with associated risks. This analysis focuses on constructing a diversified portfolio comprising of the most prominent technology stocks.
+  </div>
+</div>
 
 
 <div class="quarto-title-meta">
 
     
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">May 7, 2022</p>
+    </div>
+  </div>
   
     
   </div>
@@ -206,22 +226,11 @@ require(['plotly'], function(Plotly) {
 </header>
 
 
-<blockquote class="blockquote">
-<p>In this notebook, I’ll be constructing and analyzing an equal-weighted portfolio which will constitute a list of my favorite large-cap tech stocks that I had already screened using various metrics like debt to asset ratio, investor yield and other metrics. I will then use a monte carlo simulation to find the optimal weightings of the tech stocks which i will compare against certain benchmarks and pick the best one out of the lot</p>
-</blockquote>
-<ul>
-<li>toc: true</li>
-<li>badges: true</li>
-<li>categories:[Quantitative Research]</li>
-<li>image:images/pic.png</li>
-<li>use_plotly: true</li>
-</ul>
-<section id="disclaimer" class="level3">
-<h3 class="anchored" data-anchor-id="disclaimer">DISCLAIMER!</h3>
-<p><em>Before proceeding, please make sure that you note the following important information</em>:</p>
-<p><em>NOT FINANCIAL ADVICE!</em></p>
-<p><em>My content is intended to be used and must be used for informational and educational purposes only</em>. <em>I am not an attorney, CPA, or financial advisor, nor am I holding myself out to be, and the information contained on this blog/notebook is not a substitute for financial advice None of the information contained here constitutes an offer (or solicitation of an offer) to buy or sell any security or financial instrument, to make any investment, or to participate in any particular trading strategy. Always seek advice from a professional who is aware of the facts and circumstances of your individual situation. Or, Independently research and verify any information that you find on my blog/notebook and wish to rely upon in making any investment decision or otherwise. I accept no liability whatsoever for any loss or damage you may incur</em></p>
-<div id="cell-3" class="cell" data-execution_count="1">
+<section id="introduction" class="level2">
+<h2 class="anchored" data-anchor-id="introduction">Introduction</h2>
+<p>Utilizing historical data from 2012 to 2021, the study applies Modern Portfolio Theory to identify optimal asset allocations. The Efficient Frontier is employed to determine portfolios that offer the best possible expected return for a given level of risk. Additionally, Monte Carlo simulations provide insights into the range of potential portfolio outcomes under varying market conditions.</p>
+<p>Through this quantitative approach, the project aims to provide a framework for investors to make informed decisions in tech stock investments, balancing potential returns with acceptable risk levels.</p>
+<div id="cell-2" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Importing all the relevant librabries and modules</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
@@ -237,10 +246,9 @@ require(['plotly'], function(Plotly) {
 <span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="op">%</span>matplotlib inline</span>
 <span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>plt.style.use(<span class="st">'seaborn-darkgrid'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-</section>
 <section id="portfolio-construction-and-analysis" class="level3">
 <h3 class="anchored" data-anchor-id="portfolio-construction-and-analysis">Portfolio construction and analysis:</h3>
-<div id="cell-5" class="cell" data-execution_count="2">
+<div id="cell-4" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># importing the data from yahoo finance and exploring the data</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>assets <span class="op">=</span> [<span class="st">'TXN'</span>,<span class="st">'CSCO'</span>,<span class="st">'INTC'</span>,<span class="st">'AAPL'</span>,<span class="st">'MSFT'</span>,</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>          <span class="st">'NVDA'</span>,<span class="st">'INFY'</span>,<span class="st">'INTU'</span>,<span class="st">'SAP'</span>,<span class="st">'ADI'</span>,</span>
@@ -272,7 +280,7 @@ require(['plotly'], function(Plotly) {
 [*********************100%***********************]  1 of 1 completed</code></pre>
 </div>
 </div>
-<div id="cell-6" class="cell" data-execution_count="3">
+<div id="cell-5" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>pf_data.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="3">
 <div>
@@ -449,7 +457,7 @@ require(['plotly'], function(Plotly) {
 </div>
 </div>
 </div>
-<div id="cell-7" class="cell" data-scrolled="true" data-execution_count="4">
+<div id="cell-6" class="cell" data-scrolled="true" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Check to see if there are any missing values</span></span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>pf_data.info()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -483,7 +491,7 @@ memory usage: 397.0 KB</code></pre>
 </div>
 </div>
 <p>I’ll use a built-in method in DataFrame that computes the percent change from one row to another</p>
-<div id="cell-9" class="cell" data-scrolled="true" data-execution_count="5">
+<div id="cell-8" class="cell" data-scrolled="true" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Calculate the daily returns of the stocks in the portfolio</span></span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>returns <span class="op">=</span> pf_data.pct_change(<span class="dv">1</span>).dropna()</span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>returns</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -804,7 +812,7 @@ memory usage: 397.0 KB</code></pre>
 <p>I expected the stocks in this portfolio to have a large number of positive correlations considering they are all part of the same sector in fact no pair is negatively correlated</p>
 <p>The top 3 most correlated stocks are: Analog devices and Texas Instruments which have a strong positive correlation with 0.80 both companies are in the business of designing and fabrication of semiconductors and semiconductor devices which is a sub-industry of the overall technology sector,</p>
 <p>The other two sets of stocks have a moderate positive correlation which is Ansys Inc, and Synopsys inc with 0.69 and Synopsys inc again but this time with financial software company Intuit inc with 0.66</p>
-<div id="cell-11" class="cell" data-execution_count="7">
+<div id="cell-10" class="cell" data-execution_count="7">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>corr <span class="op">=</span> returns.corr()</span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>fig <span class="op">=</span> px.imshow(corr)</span>
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>fig.update_layout(width<span class="op">=</span><span class="dv">1000</span>, height<span class="op">=</span><span class="dv">800</span>)</span>
@@ -838,7 +846,7 @@ if (outputEl) {{
                         })                };                });            </script>        </div>
 </div>
 </div>
-<div id="cell-12" class="cell" data-scrolled="true" data-execution_count="7">
+<div id="cell-11" class="cell" data-scrolled="true" data-execution_count="7">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>corr.unstack().sort_values().drop_duplicates()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="7">
 <pre><code>FB    AMD     0.234715
@@ -859,7 +867,7 @@ Length: 191, dtype: float64</code></pre>
 <section id="creating-an-equal-weight-ew-portfolio" class="level3">
 <h3 class="anchored" data-anchor-id="creating-an-equal-weight-ew-portfolio">Creating an equal weight (EW) portfolio:</h3>
 <p>Equal weight is a type of proportional measuring method that gives the same importance to each stock in a portfolio, index, or index fund. So stocks of the smallest companies are given equal statistical significance, or weight, to the largest companies when it comes to evaluating the overall group’s performance.</p>
-<div id="cell-14" class="cell" data-scrolled="true" data-execution_count="8">
+<div id="cell-13" class="cell" data-scrolled="true" data-execution_count="8">
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Equal weighted portfolio</span></span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>N <span class="op">=</span> <span class="bu">len</span>(returns.columns)</span>
 <span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>equal_weights <span class="op">=</span> N <span class="op">*</span> [<span class="dv">1</span><span class="op">/</span>N] <span class="co"># Shows 1/20, 20 times. Its not multiplication, but repetition! 20*["A"]</span></span>
@@ -887,7 +895,7 @@ Length: 191, dtype: float64</code></pre>
  0.05]</code></pre>
 </div>
 </div>
-<div id="cell-15" class="cell" data-execution_count="9">
+<div id="cell-14" class="cell" data-execution_count="9">
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Calculate portfolio daily return</span></span>
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>portfolio_return <span class="op">=</span> returns.dot(equal_weights)</span>
 <span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>portfolio_return</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -907,14 +915,14 @@ Length: 191, dtype: float64</code></pre>
 Length: 2419, dtype: float64</code></pre>
 </div>
 </div>
-<div id="cell-16" class="cell" data-execution_count="10">
+<div id="cell-15" class="cell" data-execution_count="10">
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Formatting the dates to column and not index</span></span>
 <span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>pf_data.index</span>
 <span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>dates <span class="op">=</span> pf_data.index.to_frame().reset_index(drop<span class="op">=</span><span class="va">True</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>The returns were noticeably volatile in 2018 November as that year a lot was happening like the federal reserve interest hike but the most notable event was a lot of the big tech were under scrutiny at the time and considering this is a tech portfolio the volatility shouldn’t be surprising</p>
 <p>Another noticeable moment here is the pandemic in 2020, volatility was extremely high, in fact, On March 16, 2020, the VIX closed at a record high of 82.69 The markets were tumbling and a lot of trades were being made, some were covering short positions while others buying “the dip” and last but not least you have countless algorithims and retail traders day trading and taking advantage of the high volatility</p>
-<div id="cell-18" class="cell" data-execution_count="11">
+<div id="cell-17" class="cell" data-execution_count="11">
 <div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>fig <span class="op">=</span> go.Figure()</span>
 <span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>fig.add_trace(go.Scatter(x<span class="op">=</span>dates[<span class="st">'Date'</span>], y<span class="op">=</span>portfolio_return,</span>
 <span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>                    mode<span class="op">=</span><span class="st">'lines'</span>,</span>
@@ -950,13 +958,13 @@ if (outputEl) {{
                         })                };                });            </script>        </div>
 </div>
 </div>
-<div id="cell-19" class="cell" data-execution_count="12">
+<div id="cell-18" class="cell" data-execution_count="12">
 <div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co">#calculating the cummulative retrun of the equal weight portfolio</span></span>
 <span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>cum_equal_returns <span class="op">=</span>   (<span class="dv">1</span> <span class="op">+</span> portfolio_return).cumprod() <span class="op">-</span> <span class="dv">1</span></span>
 <span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>cum_equal_returns_perc <span class="op">=</span> pd.Series(<span class="dv">100</span> <span class="op">*</span> cum_equal_returns)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>The EW has done pretty well returning more than 1000%!</p>
-<div id="cell-21" class="cell" data-execution_count="13">
+<div id="cell-20" class="cell" data-execution_count="13">
 <div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>fig <span class="op">=</span> go.Figure([go.Scatter(x<span class="op">=</span>dates[<span class="st">'Date'</span>], y<span class="op">=</span>cum_equal_returns_perc)])</span>
 <span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>fig.update_layout(template <span class="op">=</span> <span class="st">"plotly_dark"</span>, title <span class="op">=</span> <span class="st">'Cummulative % Return'</span>) </span>
 <span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>fig.show()</span>
@@ -993,12 +1001,12 @@ if (outputEl) {{
 <section id="sharpe-ratio" class="level3">
 <h3 class="anchored" data-anchor-id="sharpe-ratio">Sharpe Ratio</h3>
 <p>In the next step i am going to calcluate sharpe ratio, but first we need the annual volatility, annual return and risk free rate</p>
-<div id="cell-23" class="cell" data-execution_count="14">
+<div id="cell-22" class="cell" data-execution_count="14">
 <div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Calculating the mean return and volatility</span></span>
 <span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>ER <span class="op">=</span> portfolio_return.mean()</span>
 <span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>STD <span class="op">=</span> portfolio_return.std()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="cell-24" class="cell" data-execution_count="15">
+<div id="cell-23" class="cell" data-execution_count="15">
 <div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Annualzing the volatility</span></span>
 <span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>ASTD <span class="op">=</span> STD <span class="op">*</span> <span class="dv">252</span> <span class="op">**</span> <span class="fl">0.5</span></span>
 <span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>ASTD</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -1006,7 +1014,7 @@ if (outputEl) {{
 <pre><code>0.21152541130551866</code></pre>
 </div>
 </div>
-<div id="cell-25" class="cell" data-execution_count="16">
+<div id="cell-24" class="cell" data-execution_count="16">
 <div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Annualzing the expected return </span></span>
 <span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>AER <span class="op">=</span> ER <span class="op">*</span> <span class="dv">252</span> </span>
 <span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>AER</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -1014,7 +1022,7 @@ if (outputEl) {{
 <pre><code>0.2784416783450839</code></pre>
 </div>
 </div>
-<div id="cell-26" class="cell" data-execution_count="17">
+<div id="cell-25" class="cell" data-execution_count="17">
 <div class="sourceCode cell-code" id="cb24"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Annual sharpe ratio</span></span>
 <span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>rf <span class="op">=</span> <span class="fl">0.03</span> <span class="co">#risk free rate is the 10 year trasury bond as of april 2022</span></span>
 <span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>excess_return <span class="op">=</span> AER <span class="op">-</span> rf</span>
@@ -1032,7 +1040,7 @@ if (outputEl) {{
 <p>Modern portfolio theory refers to the quantitative practice of asset allocation that maximizes projected (ex ante) return for a portfolio while holding constant its overall exposure to risk. Or, inversely, minimizing overall risk for a given target portfolio return. The theory considers the covariance of constituent assets or asset classes within a portfolio, and the impact of an asset allocation change on the overall expected risk/return profile of the portfolio.<br>
 The theory was originally proposed by nobel-winning economist Harry Markowitz in the 1952 Journal of Finance, and is now a cornerstone of portfolio management practice. Modern portfolio theory generally supports a practice of diversifying toward a mix of assets and asset classes with a low degree of mutual correlation.</p>
 <p>Hence, I’m going to find the optimal portfolio using Monte Carlo simulations by building thousands of portfolios, using randomly assigned weights, and visualizing the results.</p>
-<div id="cell-29" class="cell" data-execution_count="18">
+<div id="cell-28" class="cell" data-execution_count="18">
 <div class="sourceCode cell-code" id="cb26"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Saving a variable which will have the number of stocks in my portfolio which i will use later</span></span>
 <span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>num_assets <span class="op">=</span> <span class="bu">len</span>(pf_data.columns)</span>
 <span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a>num_assets</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -1040,7 +1048,7 @@ The theory was originally proposed by nobel-winning economist Harry Markowitz in
 <pre><code>20</code></pre>
 </div>
 </div>
-<div id="cell-30" class="cell" data-execution_count="19">
+<div id="cell-29" class="cell" data-execution_count="19">
 <div class="sourceCode cell-code" id="cb28"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="co">#calculating the log returns of the stocks in the portfolio</span></span>
 <span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>log_returns <span class="op">=</span> np.log(pf_data<span class="op">/</span>pf_data.shift(<span class="dv">1</span>))</span>
 <span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a>log_returns.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -1219,7 +1227,7 @@ The theory was originally proposed by nobel-winning economist Harry Markowitz in
 </div>
 </div>
 </div>
-<div id="cell-31" class="cell" data-execution_count="20">
+<div id="cell-30" class="cell" data-execution_count="20">
 <div class="sourceCode cell-code" id="cb29"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="co">#the covariance matrix of the stocks</span></span>
 <span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>cov <span class="op">=</span> log_returns.cov()</span>
 <span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a>cov</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -1720,7 +1728,7 @@ The theory was originally proposed by nobel-winning economist Harry Markowitz in
 </div>
 </div>
 </div>
-<div id="cell-32" class="cell" data-execution_count="21">
+<div id="cell-31" class="cell" data-execution_count="21">
 <div class="sourceCode cell-code" id="cb30"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>num_ports <span class="op">=</span> <span class="dv">20000</span> <span class="co">#the number of trials i will run</span></span>
 <span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>all_weights <span class="op">=</span> np.zeros((num_ports,num_assets))</span>
 <span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a>ret_arr <span class="op">=</span> np.zeros(num_ports)</span>
@@ -1747,7 +1755,7 @@ The theory was originally proposed by nobel-winning economist Harry Markowitz in
 </div>
 <p>After the monte carlo is done it’s time to inspect and locate the results and look at the weightings of the portfolios we need a portfolio that might be better than my initial equal weighted portfolio, rememebr returns alone are not the objective but also volatility, we want the highest return for the lowest volatility possible hence the highest sharpe ratio</p>
 <p>In the next step i will be creating a data frame that will contain not just the weigthings but also the expected return, volatility and even the sharpe ratio of all the portfolios generated which will help me locate where the optimal or tangency portfolio, the portfolio with minimum volatility and the portfolio with maximum expected return are at in the weightings that were generated</p>
-<div id="cell-34" class="cell" data-execution_count="22">
+<div id="cell-33" class="cell" data-execution_count="22">
 <div class="sourceCode cell-code" id="cb31"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Each row is a portfolio with the coresponding details </span></span>
 <span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>data <span class="op">=</span> pd.DataFrame({<span class="st">'Return'</span>: ret_arr, <span class="st">'Volatility'</span>: vol_arr, <span class="st">'Sharpe Ratio'</span>: sharpe_arr})<span class="co">#(ret_arr - rf) /vol_arr})</span></span>
 <span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> counter, symbol <span class="kw">in</span> <span class="bu">enumerate</span>(pf_data.columns.tolist()):</span>
@@ -2060,7 +2068,7 @@ The theory was originally proposed by nobel-winning economist Harry Markowitz in
 </div>
 <p>The tangency portfolio:</p>
 <p>The tangency or maximum Sharpe ratio portfolio in the Markowitz procedure possesses the highest potential return-for-risk tradeoff.</p>
-<div id="cell-36" class="cell" data-execution_count="23">
+<div id="cell-35" class="cell" data-execution_count="23">
 <div class="sourceCode cell-code" id="cb32"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="co">#optimal risky portfolio/ Tangency Portfolio / Highest sharpe</span></span>
 <span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a>optimal_risky_portfolio <span class="op">=</span> portfolios.iloc[portfolios[<span class="st">'Sharpe Ratio'</span>].idxmax()]</span>
 <span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a>optimal_risky_portfolio</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -2093,7 +2101,7 @@ Name: 13834, dtype: float64</code></pre>
 </div>
 <p>Minim vol is also known as the minimum variance portfolio:</p>
 <p>The minimum variance portfolio (mvp) is the portfolio that provides the lowest variance (standard deviation) among all possible portfolios of risky assets.</p>
-<div id="cell-38" class="cell" data-execution_count="24">
+<div id="cell-37" class="cell" data-execution_count="24">
 <div class="sourceCode cell-code" id="cb34"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Portfolio with minimum volatility</span></span>
 <span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a>min_vol_port <span class="op">=</span> portfolios.iloc[portfolios[<span class="st">'Volatility'</span>].idxmin()]</span>
 <span id="cb34-3"><a href="#cb34-3" aria-hidden="true" tabindex="-1"></a>min_vol_port</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -2125,7 +2133,7 @@ Name: 5947, dtype: float64</code></pre>
 </div>
 </div>
 <p>Max return portfolio: The portfolio with the highest return regardless of risk</p>
-<div id="cell-40" class="cell" data-execution_count="25">
+<div id="cell-39" class="cell" data-execution_count="25">
 <div class="sourceCode cell-code" id="cb36"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Portfolio with the maximum expected return</span></span>
 <span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a>max_er_port <span class="op">=</span> portfolios.iloc[portfolios[<span class="st">'Return'</span>].idxmax()]</span>
 <span id="cb36-3"><a href="#cb36-3" aria-hidden="true" tabindex="-1"></a>max_er_port</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -2157,7 +2165,7 @@ Name: 6471, dtype: float64</code></pre>
 </div>
 </div>
 <p>With a scatter plot I’ll be able to visually see the portfolios and where they lay on the frontier, but remember the correlation of the stocks, there was virtually no negative correlation and modern portfolio theory is about diversifying with UNCORELATED assets, hence I do not expect the plot to form the usual bullet like shape, but i will still be able to see the optimal portfolios across the edges of the fronteir</p>
-<div id="cell-42" class="cell" data-execution_count="27">
+<div id="cell-41" class="cell" data-execution_count="27">
 <div class="sourceCode cell-code" id="cb38"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="co"># creating a scatter plot and pinpointing the location of the above portfolios</span></span>
 <span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">20</span>,<span class="dv">10</span>))</span>
 <span id="cb38-3"><a href="#cb38-3" aria-hidden="true" tabindex="-1"></a>plt.scatter(portfolios[<span class="st">'Volatility'</span>],portfolios[<span class="st">'Return'</span>],c<span class="op">=</span>sharpe_arr,cmap<span class="op">=</span><span class="st">'RdBu'</span>)<span class="co">#ret_arr,vol_arr</span></span>
@@ -2186,7 +2194,7 @@ Auto-removal of grids by pcolor() and pcolormesh() is deprecated since 3.5 and w
 </div>
 <p>Now that we know the weights of each portfolio, I’ll Assign the weights to the stocks and check the cumulative returns of each of the portfolios</p>
 <p>But, NOTE: You’ve might have noticed from the observations produced by the simulation, the tangency portfolio has a lower sharp than my initial equal weight portfolio which now means based on ALL the observations I have, the EW portfolio is my tangency/Optimal portfolio and i will treat it as my optimal portfolio going forward</p>
-<div id="cell-44" class="cell" data-execution_count="28">
+<div id="cell-43" class="cell" data-execution_count="28">
 <div class="sourceCode cell-code" id="cb40"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="co">#min volatility portfolio weights</span></span>
 <span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a>min_vol_weights <span class="op">=</span> all_weights[<span class="dv">5947</span>,:]</span>
 <span id="cb40-3"><a href="#cb40-3" aria-hidden="true" tabindex="-1"></a>min_vol_weights</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -2197,7 +2205,7 @@ Auto-removal of grids by pcolor() and pcolormesh() is deprecated since 3.5 and w
        0.03386276, 0.02886554, 0.05347914, 0.13217338, 0.12768405])</code></pre>
 </div>
 </div>
-<div id="cell-45" class="cell" data-execution_count="29">
+<div id="cell-44" class="cell" data-execution_count="29">
 <div class="sourceCode cell-code" id="cb42"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a>min_vol_port_return <span class="op">=</span> returns.dot(min_vol_weights)</span>
 <span id="cb42-2"><a href="#cb42-2" aria-hidden="true" tabindex="-1"></a>cum_minvol_returns <span class="op">=</span>   (<span class="dv">1</span> <span class="op">+</span> min_vol_port_return).cumprod() <span class="op">-</span> <span class="dv">1</span></span>
 <span id="cb42-3"><a href="#cb42-3" aria-hidden="true" tabindex="-1"></a>cum_minvol_returns_perc <span class="op">=</span> pd.Series(<span class="dv">100</span> <span class="op">*</span> cum_minvol_returns)</span>
@@ -2235,7 +2243,7 @@ if (outputEl) {{
                         })                };                });            </script>        </div>
 </div>
 </div>
-<div id="cell-46" class="cell" data-execution_count="30">
+<div id="cell-45" class="cell" data-execution_count="30">
 <div class="sourceCode cell-code" id="cb43"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a><span class="co">#max volatility portfolio weights</span></span>
 <span id="cb43-2"><a href="#cb43-2" aria-hidden="true" tabindex="-1"></a>max_er_weights <span class="op">=</span> all_weights[<span class="dv">6471</span>,:]</span>
 <span id="cb43-3"><a href="#cb43-3" aria-hidden="true" tabindex="-1"></a>max_er_weights</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -2246,7 +2254,7 @@ if (outputEl) {{
        0.1097819 , 0.03867063, 0.03182504, 0.06169064, 0.07524542])</code></pre>
 </div>
 </div>
-<div id="cell-47" class="cell" data-execution_count="31">
+<div id="cell-46" class="cell" data-execution_count="31">
 <div class="sourceCode cell-code" id="cb45"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a>max_er_port_return <span class="op">=</span> returns.dot(max_er_weights)</span>
 <span id="cb45-2"><a href="#cb45-2" aria-hidden="true" tabindex="-1"></a>cum_maxer_returns <span class="op">=</span>   (<span class="dv">1</span> <span class="op">+</span> max_er_port_return).cumprod() <span class="op">-</span> <span class="dv">1</span></span>
 <span id="cb45-3"><a href="#cb45-3" aria-hidden="true" tabindex="-1"></a>cum_maxer_returns_perc <span class="op">=</span> pd.Series(<span class="dv">100</span> <span class="op">*</span> cum_maxer_returns)</span>
@@ -2289,7 +2297,7 @@ if (outputEl) {{
 <h3 class="anchored" data-anchor-id="portfolio-vs-benchmarks">Portfolio vs benchmarks:</h3>
 <p>It’s time to compare the all the portfolios against certain benchmarks which are going to be the Invesco QQQ fund which is a technology ETF, I chose this particular tech ETF as a benchmark because it has the highest NAV of 135 billion as of April 2022</p>
 <p>I’ll also include the NASDAQ composite as a benchmark as it is widely followed and considered as a benchmark by investors, the Nasdaq composite is even more relevant here because more than 50% of the stocks in the index are technology companies</p>
-<div id="cell-49" class="cell" data-execution_count="32">
+<div id="cell-48" class="cell" data-execution_count="32">
 <div class="sourceCode cell-code" id="cb46"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Importing the benchmarks data</span></span>
 <span id="cb46-2"><a href="#cb46-2" aria-hidden="true" tabindex="-1"></a>QQQ <span class="op">=</span> pd.DataFrame(yf.download(<span class="st">'QQQ'</span>, start<span class="op">=</span><span class="st">"2012-05-20"</span>, end<span class="op">=</span><span class="st">"2021-12-31"</span>, index_col <span class="op">=</span> <span class="st">'Date'</span>, parse_dates<span class="op">=</span><span class="va">True</span>)[<span class="st">'Adj Close'</span>]) </span>
 <span id="cb46-3"><a href="#cb46-3" aria-hidden="true" tabindex="-1"></a>NASDAQ <span class="op">=</span> pd.DataFrame(yf.download(<span class="st">'^IXIC'</span>, start<span class="op">=</span><span class="st">"2012-05-20"</span>, end<span class="op">=</span><span class="st">"2021-12-31"</span>, index_col <span class="op">=</span> <span class="st">'Date'</span>, parse_dates<span class="op">=</span><span class="va">True</span>)[<span class="st">'Adj Close'</span>]) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -2298,7 +2306,7 @@ if (outputEl) {{
 [*********************100%***********************]  1 of 1 completed</code></pre>
 </div>
 </div>
-<div id="cell-50" class="cell" data-execution_count="33">
+<div id="cell-49" class="cell" data-execution_count="33">
 <div class="sourceCode cell-code" id="cb48"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a><span class="co">#calculate daily return, cumm return for each bechmark and place them in their data frames</span></span>
 <span id="cb48-2"><a href="#cb48-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> funds <span class="kw">in</span> (QQQ,NASDAQ):</span>
 <span id="cb48-3"><a href="#cb48-3" aria-hidden="true" tabindex="-1"></a>    funds[<span class="st">'Daily Return'</span>] <span class="op">=</span> funds.pct_change(<span class="dv">1</span>).dropna()</span>
@@ -2386,7 +2394,7 @@ if (outputEl) {{
 <p>Both benchmarks performed poorly compared to the portfolios but this is largely due to concentration, as the portfolios have only 20 stocks while the benchmarks usually have hundreds of stocks in them, but the portfolio’s strongest point is also its weakest as a concentrated portfolio will probably have a much larger drawdown even during corrections let alone recessions</p>
 <p>The max expected return portfolio outperformed all the other portfolios and the benchmarks as expected</p>
 <p>While my initial EW portfolio now turned into my tangency optimal portfolio faired well by beating both the benchmarks by a mile!</p>
-<div id="cell-52" class="cell" data-execution_count="34">
+<div id="cell-51" class="cell" data-execution_count="34">
 <div class="sourceCode cell-code" id="cb49"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a>fig <span class="op">=</span> px.line(funds_cumm, x<span class="op">=</span><span class="st">"Dates"</span>, y<span class="op">=</span>funds_cumm.columns,</span>
 <span id="cb49-2"><a href="#cb49-2" aria-hidden="true" tabindex="-1"></a>              hover_data<span class="op">=</span>{<span class="st">"Dates"</span>: <span class="st">"|%B </span><span class="sc">%d</span><span class="st">, %Y"</span>},</span>
 <span id="cb49-3"><a href="#cb49-3" aria-hidden="true" tabindex="-1"></a>              title<span class="op">=</span><span class="st">'Commulative % Return'</span>)</span>
@@ -2439,7 +2447,7 @@ if (outputEl) {{
 <p>Assuming I started with a $5,000 in 2012 and invested in the ideal two best portfolios Max return portfolio and Optimal portfolio, by comparison, how much would my investment be by the end of 2021? (without rebalancing)</p>
 <p>The max expected return portfolio seems to have a better outcome and seems very attractive especially considering the Sharpe ratio difference isn’t that big but this portfolio was picked because of its high expected return unfortunately, it’s not practical due to the presence of large estimation errors in those expected return estimate. As I have estimated them using historical data and have assumed past performance will be the same in the future which is unlikely as businesses change ESPECIALLY in the ever-changing technology industry</p>
 <p>Hence the more reliable portfolio based on this research would either be the min vol or EW/Tangency portfolio</p>
-<div id="cell-54" class="cell" data-execution_count="35">
+<div id="cell-53" class="cell" data-execution_count="35">
 <div class="sourceCode cell-code" id="cb50"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb50-1"><a href="#cb50-1" aria-hidden="true" tabindex="-1"></a>Initial_Investment <span class="op">=</span> <span class="dv">5000</span></span>
 <span id="cb50-2"><a href="#cb50-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb50-3"><a href="#cb50-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -2486,8 +2494,23 @@ The 10 yr cummulative return of the optimal portfolio is 1065.93%
 A $5000 investment in the optimal portfolio in 2012 would be worth $53296.36 by the end of 2021</code></pre>
 </div>
 </div>
+<div class="callout callout-style-default callout-warning callout-titled" title="Disclaimer">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Disclaimer
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><em>The content on this site is for <strong>educational and informational purposes only</strong> and does <strong>not constitute financial advice</strong>. I am not a financial advisor, and nothing here should be taken as investment guidance.</em></p>
+<p><em>Always do your own research or consult with a qualified professional. I accept <strong>no responsibility</strong> for any loss (or gain) resulting from the use of this content.</em></p>
+</div>
+</div>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->

@@ -6,8 +6,10 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="dcterms.date" content="2022-06-01">
+<meta name="description" content="Using historical monthly data, this project explores whether variables like gold prices, trading volume, and exponential moving averages can help predict Bitcoin’s future price using a multiple linear regression model.">
 
-<title>BTC/USD Price Prediction Using Linear Regression – Monewmetrics</title>
+<title>A Multi-Variable Linear Regression Model for Bitcoin Price Forecasting – Monewmetrics</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -72,10 +74,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-8ef56b68f8fa1e9d2ba328e99e439f80.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-46f4cc9626f044588a66931b604fc9c8.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-3338b9a37bf0371b586c4716454e3b6b.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="dark">
+<link href="../site_libs/bootstrap/bootstrap-0d8e5b651ac309985c3777edbadb43cf.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="dark">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -190,6 +192,8 @@ window.Quarto = {
 </ul>
           </div> <!-- /navcollapse -->
             <div class="quarto-navbar-tools">
+    <a href="https://www.linkedin.com/in/mbarak-abubakar/" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-linkedin"></i></a>
+    <a href="https://github.com/mjabubakar22" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-github"></i></a>
 </div>
       </div> <!-- /container-fluid -->
     </nav>
@@ -203,7 +207,8 @@ window.Quarto = {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#disclaimer" id="toc-disclaimer" class="nav-link active" data-scroll-target="#disclaimer">DISCLAIMER!</a></li>
+  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction">Introduction</a>
+  <ul class="collapse">
   <li><a href="#import-data" id="toc-import-data" class="nav-link" data-scroll-target="#import-data">Import Data</a></li>
   <li><a href="#data-cleaning-and-wrangling" id="toc-data-cleaning-and-wrangling" class="nav-link" data-scroll-target="#data-cleaning-and-wrangling">Data Cleaning and Wrangling</a></li>
   <li><a href="#explanatory-data-analysis" id="toc-explanatory-data-analysis" class="nav-link" data-scroll-target="#explanatory-data-analysis">Explanatory Data Analysis</a></li>
@@ -211,6 +216,7 @@ window.Quarto = {
   <li><a href="#model-development" id="toc-model-development" class="nav-link" data-scroll-target="#model-development">Model Development</a></li>
   <li><a href="#model-evaluation" id="toc-model-evaluation" class="nav-link" data-scroll-target="#model-evaluation">Model Evaluation</a></li>
   <li><a href="#conclusion" id="toc-conclusion" class="nav-link" data-scroll-target="#conclusion">Conclusion</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -219,14 +225,28 @@ window.Quarto = {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">BTC/USD Price Prediction Using Linear Regression</h1>
-</div>
+<h1 class="title">A Multi-Variable Linear Regression Model for Bitcoin Price Forecasting</h1>
+  <div class="quarto-categories">
+    <div class="quarto-category">Quantitative Research</div>
+  </div>
+  </div>
 
+<div>
+  <div class="description">
+    Using historical monthly data, this project explores whether variables like gold prices, trading volume, and exponential moving averages can help predict Bitcoin’s future price using a multiple linear regression model.
+  </div>
+</div>
 
 
 <div class="quarto-title-meta">
 
     
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">June 1, 2022</p>
+    </div>
+  </div>
   
     
   </div>
@@ -236,22 +256,10 @@ window.Quarto = {
 </header>
 
 
-<blockquote class="blockquote">
-<p>In this notebook I’m going to try and predict the BTC/USD close price(target/dependant variable) for the month of June 2022 using the linear regression as the chosen model, I will also use a set of relevant independent variables like moving averages, volume, etc. I’ll follow a basic data science workflow from importing data to model development and evaluation. Lastly, assuming the model passes the validation stage, I will bactest and measure its performance as a trading strategy to further gain insights on how reliable it can be before placing any trade based on the prediction made</p>
-</blockquote>
-<ul>
-<li>toc: true</li>
-<li>badges: true</li>
-<li>categories:[Quantitative Research]</li>
-<li>image:images/lr.png</li>
-<li>use_plotly: true</li>
-</ul>
-<section id="disclaimer" class="level3">
-<h3 class="anchored" data-anchor-id="disclaimer">DISCLAIMER!</h3>
-<p><em>Before proceeding, please make sure that you note the following important information</em>:</p>
-<p><em>NOT FINANCIAL ADVICE!</em></p>
-<p><em>My content is intended to be used and must be used for informational and educational purposes only</em>. <em>I am not an attorney, CPA, or financial advisor, nor am I holding myself out to be, and the information contained on this blog/notebook is not a substitute for financial advice, None of the information contained here constitutes an offer (or solicitation of an offer) to buy or sell any security or financial instrument to make any investment or to participate in any particular trading strategy. Always seek advice from a professional who is aware of the facts and circumstances of your individual situation. Or, Independently research and verify any information that you find on my blog/notebook and wish to rely upon in making any investment decision or otherwise. I accept no liability whatsoever for any loss or damage you may incur</em></p>
-<div id="cell-3" class="cell" data-execution_count="1">
+<section id="introduction" class="level2">
+<h2 class="anchored" data-anchor-id="introduction">Introduction</h2>
+<p>In this project, I attempt to forecast Bitcoin’s monthly closing price using a basic linear regression model which is a common tool in both econometrics and machine learning. While Bitcoin is famously volatile and often unpredictable, some investors refer to it as “digital gold”, which inspired me to examine whether gold prices (and volume) have any statistical relationship with Bitcoin’s movements.</p>
+<div id="cell-2" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> yfinance <span class="im">as</span> yf</span>
@@ -268,10 +276,9 @@ window.Quarto = {
 <span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> warnings</span>
 <span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>warnings.simplefilter(<span class="st">"ignore"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-</section>
 <section id="import-data" class="level3">
 <h3 class="anchored" data-anchor-id="import-data">Import Data</h3>
-<div id="cell-5" class="cell" data-execution_count="2">
+<div id="cell-4" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Downloading all relevant data</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="co">#BTC price and volume</span></span>
@@ -294,7 +301,7 @@ window.Quarto = {
 <section id="data-cleaning-and-wrangling" class="level3">
 <h3 class="anchored" data-anchor-id="data-cleaning-and-wrangling">Data Cleaning and Wrangling</h3>
 <p>Before any modeling can be done, there are a few steps needed to prepare the data before feeding it to the model, at least by arranging the data set in a way it makes sense</p>
-<div id="cell-8" class="cell" data-execution_count="3">
+<div id="cell-7" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Reset date index and arrange rows in same format</span></span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> Df.reset_index()</span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> [<span class="st">'Close'</span>, <span class="st">'Volume'</span>]: </span>
@@ -388,7 +395,7 @@ window.Quarto = {
 </div>
 </div>
 <p>Because I’m working with monthly data, I’ll drop the days in the date to avoid confusion</p>
-<div id="cell-10" class="cell" data-execution_count="4">
+<div id="cell-9" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>date_format <span class="op">=</span> <span class="st">"%Y/%m"</span></span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'Date'</span>] <span class="op">=</span> df[<span class="st">'Date'</span>].dt.strftime(date_format)</span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -480,7 +487,7 @@ window.Quarto = {
 </div>
 </div>
 <p>Bitcoin is often referred to as “digital gold” by its backers hence I’ll add the gold price and volume data as potential independent variables and I’ll explore further to see its relationship and whether or not it will be a good predictor</p>
-<div id="cell-12" class="cell" data-execution_count="5">
+<div id="cell-11" class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Import gold</span></span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>gold <span class="op">=</span> yf.download(<span class="st">'GLD'</span>, <span class="st">'2014-10-01'</span>, <span class="st">'2022-05-31'</span>, interval<span class="op">=</span> <span class="st">'1mo'</span>, auto_adjust<span class="op">=</span><span class="va">True</span>)</span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>gold <span class="op">=</span> gold[[<span class="st">'Close'</span>,<span class="st">'Volume'</span>]]</span>
@@ -581,7 +588,7 @@ window.Quarto = {
 <p>The other two independent variables will be the moving averages and volume</p>
 <p>moving averages are often used by technical analysts to keep track of price trends for specific securities. I’ll use the 3 and 6 month exponential moving averages but whether it’s simple, weighted, or exponential in general it doesn’t really make much of a difference (but this could be a good hypothesis to test)</p>
 <p>Volume is also a well-known indicator of price movement, Trading volume is the total number of shares/units of a security traded during a given period of time.</p>
-<div id="cell-14" class="cell" data-execution_count="6">
+<div id="cell-13" class="cell" data-execution_count="6">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co">#add the first two indipendant variables: 3ema, 6ema</span></span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'ema3'</span>] <span class="op">=</span> df[<span class="st">'Close'</span>].ewm(span<span class="op">=</span><span class="dv">3</span>, adjust<span class="op">=</span><span class="va">False</span>).mean()</span>
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'ema6'</span>] <span class="op">=</span> df[<span class="st">'Close'</span>].ewm(span<span class="op">=</span><span class="dv">6</span>, adjust<span class="op">=</span><span class="va">False</span>).mean()</span>
@@ -697,7 +704,7 @@ window.Quarto = {
 </div>
 </div>
 </div>
-<div id="cell-15" class="cell" data-execution_count="7">
+<div id="cell-14" class="cell" data-execution_count="7">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># adding the other two indipendant variables download gold price and godl volume (btc volume already there)</span></span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'Gold Close'</span>] <span class="op">=</span> gld[<span class="st">'Close'</span>]</span>
 <span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'Gold Volume'</span>] <span class="op">=</span> gld[<span class="st">'Volume'</span>]</span>
@@ -838,7 +845,7 @@ window.Quarto = {
 </div>
 </div>
 <p>Now i’m going to generate the dependant/target variable that i’m going to try and predict</p>
-<div id="cell-17" class="cell" data-execution_count="8">
+<div id="cell-16" class="cell" data-execution_count="8">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Creating the dependant variable which is next month close price and adding it to the dataframe </span></span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'Next Month Close'</span>] <span class="op">=</span> df[<span class="st">'Close'</span>].shift(<span class="op">-</span><span class="dv">1</span>)</span>
 <span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -989,14 +996,14 @@ window.Quarto = {
 </div>
 </div>
 </div>
-<div id="cell-18" class="cell" data-execution_count="9">
+<div id="cell-17" class="cell" data-execution_count="9">
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co">#We don't need the current close price hence i'll remove it from the dataframe</span></span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>btc_close <span class="op">=</span> df[<span class="st">'Close'</span>] <span class="co">#But i'll save the close price just incase i need it </span></span>
 <span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a><span class="co">#Then i'll remove the previous month btc close price so that i'm left with only the relevant data that i need</span></span>
 <span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>df.drop(columns<span class="op">=</span><span class="st">'Close'</span>, inplace<span class="op">=</span><span class="va">True</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="cell-19" class="cell" data-execution_count="10">
+<div id="cell-18" class="cell" data-execution_count="10">
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co">#i'll drop all NA values in the data frame</span></span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>Df <span class="op">=</span> df.dropna()</span>
 <span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -1181,7 +1188,7 @@ The null hypothesis is that the two variables are uncorrelated .
 The p value is in scientific notation, it’s decimal form is e.g 4.2e-7 = 0.00000042.
 </li>
 </ul>
-<div id="cell-24" class="cell" data-execution_count="11">
+<div id="cell-23" class="cell" data-execution_count="11">
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co">#checking pearson correlation for gold price and volume</span></span>
 <span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="co">#I will start form the second last row to avoid errors bcz of nan value </span></span>
 <span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>pearson_coef, p_value <span class="op">=</span> stats.pearsonr(df[<span class="st">'Gold Close'</span>][:<span class="dv">90</span>], df[<span class="st">'Next Month Close'</span>][:<span class="dv">90</span>])</span>
@@ -1192,7 +1199,7 @@ The p value is in scientific notation, it’s decimal form is e.g 4.2e-7 = 0.000
 </div>
 <p>In this case,</p>
 <p>The p-value is &lt; 0.001 hence, there is strong evidence that the correlation between gold price and BTC price is statistically significant, and the linear relationship is quite strong (0.77, close to 1)</p>
-<div id="cell-26" class="cell" data-execution_count="12">
+<div id="cell-25" class="cell" data-execution_count="12">
 <div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>pearson_coef, p_value <span class="op">=</span> stats.pearsonr(df[<span class="st">'Gold Volume'</span>][:<span class="dv">90</span>], df[<span class="st">'Next Month Close'</span>][:<span class="dv">90</span>])</span>
 <span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"The Pearson Correlation Coefficient is"</span>, pearson_coef, <span class="st">" with a P-value of P ="</span>, p_value)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -1201,7 +1208,7 @@ The p value is in scientific notation, it’s decimal form is e.g 4.2e-7 = 0.000
 </div>
 <p>The p-value is &lt; 0.001 hence, there is moderate evidence that the correlation between gold volume and BTC price is statistically significant, and there is no linear relationship (0.08, almost 0)</p>
 <p>Visually we can see that there is almost no linear relationship between gold volume and btc price</p>
-<div id="cell-29" class="cell" data-execution_count="13">
+<div id="cell-28" class="cell" data-execution_count="13">
 <div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co"># make linear regression chart of btc next month price and gold price and do for volume</span></span>
 <span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>fig <span class="op">=</span> px.scatter(</span>
 <span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>    df, x<span class="op">=</span><span class="st">'Gold Volume'</span>, y<span class="op">=</span><span class="st">'Next Month Close'</span>, opacity<span class="op">=</span><span class="fl">0.65</span>,</span>
@@ -1238,7 +1245,7 @@ if (outputEl) {{
 </div>
 </div>
 <p>So we now know that we can use gold price but not its volume, it would have destroyed value and it wouldn’t have added anything to the model if anything it would have probably ruined our prediction</p>
-<div id="cell-31" class="cell" data-execution_count="14">
+<div id="cell-30" class="cell" data-execution_count="14">
 <div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Dropping gold volume</span></span>
 <span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>df.drop(columns<span class="op">=</span><span class="st">'Gold Volume'</span>, inplace<span class="op">=</span><span class="va">True</span>)</span>
 <span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>df.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -1311,7 +1318,7 @@ if (outputEl) {{
 </div>
 </div>
 <p>What about the the other indipendant variables?</p>
-<div id="cell-33" class="cell" data-execution_count="15">
+<div id="cell-32" class="cell" data-execution_count="15">
 <div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'EMA 3'</span>)</span>
 <span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>pearson_coef, p_value <span class="op">=</span> stats.pearsonr(df[<span class="st">'ema3'</span>][:<span class="dv">90</span>], df[<span class="st">'Next Month Close'</span>][:<span class="dv">90</span>])</span>
 <span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"The Pearson Correlation Coefficient is"</span>, pearson_coef, <span class="st">" with a P-value of P ="</span>, p_value)</span>
@@ -1345,7 +1352,7 @@ The Pearson Correlation Coefficient is 0.7995337431531997  with a P-value of P =
 <section id="model-development" class="level3">
 <h3 class="anchored" data-anchor-id="model-development">Model Development</h3>
 <p>Before we continue let’s clarify the objective again: I’m using the 3 and 6 month ema, BTC previous month volume, and Gold close price of the preceding month to predict what BTC close price of the impending month</p>
-<div id="cell-38" class="cell" data-execution_count="16">
+<div id="cell-37" class="cell" data-execution_count="16">
 <div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Define the indipendant variables</span></span>
 <span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> Df[[<span class="st">'ema3'</span>,<span class="st">'ema6'</span>,<span class="st">'Volume'</span>,<span class="st">'Gold Close'</span>]]</span>
 <span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -1353,7 +1360,7 @@ The Pearson Correlation Coefficient is 0.7995337431531997  with a P-value of P =
 <span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> Df[<span class="st">'Next Month Close'</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>I am going to spilt the data, 80% of the data will be used to train the model and 20% will be used to test the prediction made from that 80%</p>
-<div id="cell-40" class="cell" data-execution_count="17">
+<div id="cell-39" class="cell" data-execution_count="17">
 <div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Split the data into train and test dataset</span></span>
 <span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>t <span class="op">=</span> <span class="fl">.8</span></span>
 <span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>t <span class="op">=</span> <span class="bu">int</span>(t<span class="op">*</span><span class="bu">len</span>(Df))</span>
@@ -1366,7 +1373,7 @@ The Pearson Correlation Coefficient is 0.7995337431531997  with a P-value of P =
 <span id="cb23-10"><a href="#cb23-10" aria-hidden="true" tabindex="-1"></a>x_test <span class="op">=</span> x[t:]</span>
 <span id="cb23-11"><a href="#cb23-11" aria-hidden="true" tabindex="-1"></a>y_test <span class="op">=</span> y[t:]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="cell-41" class="cell" data-execution_count="18">
+<div id="cell-40" class="cell" data-execution_count="18">
 <div class="sourceCode cell-code" id="cb24"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="co">#print the lengths</span></span>
 <span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"number of test samples :"</span>, y_test.shape[<span class="dv">0</span>])</span>
 <span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"number of training samples:"</span>,y_train.shape[<span class="dv">0</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -1375,7 +1382,7 @@ The Pearson Correlation Coefficient is 0.7995337431531997  with a P-value of P =
 number of training samples: 72</code></pre>
 </div>
 </div>
-<div id="cell-42" class="cell" data-execution_count="19">
+<div id="cell-41" class="cell" data-execution_count="19">
 <div class="sourceCode cell-code" id="cb26"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="co">#fit the regression</span></span>
 <span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>reg <span class="op">=</span> linear_model.LinearRegression()</span>
 <span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a>reg.fit(x_train,y_train)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -1384,14 +1391,14 @@ number of training samples: 72</code></pre>
 </div>
 </div>
 <p>The constant came back negative which is confusing but i’ll get back to this later</p>
-<div id="cell-44" class="cell" data-execution_count="20">
+<div id="cell-43" class="cell" data-execution_count="20">
 <div class="sourceCode cell-code" id="cb28"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Intercept value</span></span>
 <span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>reg.intercept_ </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="20">
 <pre><code>-1262.8899087871669</code></pre>
 </div>
 </div>
-<div id="cell-45" class="cell" data-execution_count="21">
+<div id="cell-44" class="cell" data-execution_count="21">
 <div class="sourceCode cell-code" id="cb30"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="co">#make coefficient table</span></span>
 <span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>coeff_df <span class="op">=</span> pd.DataFrame(reg.coef_.T, x.columns, columns<span class="op">=</span>[<span class="st">'Coefficient'</span>]) </span>
 <span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a>coeff_df </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -1432,7 +1439,7 @@ number of training samples: 72</code></pre>
 <p>The Multiple linear regression formula:</p>
 <section id="y-β_0-β_1-x_1-β_2-x_2-β_3-x_3-β_4-x_4" class="level4">
 <h4 class="anchored" data-anchor-id="y-β_0-β_1-x_1-β_2-x_2-β_3-x_3-β_4-x_4"><span class="math display">\[ y = β_{0} \;+ \;β_{1} * \;X_{1} + \;β_{2} * \;X_{2} + \;β_{3} * \;X_{3} + \;β_{4} * \;X_{4}\]</span></h4>
-<div id="cell-47" class="cell" data-execution_count="22">
+<div id="cell-46" class="cell" data-execution_count="22">
 <div class="sourceCode cell-code" id="cb31"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Linear Regression model"</span>)</span>
 <span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"BTC Price (y) = </span><span class="sc">%.2f</span><span class="st"> (constant) + </span><span class="sc">%.2f</span><span class="st"> * EM3 (x1) + </span><span class="sc">%.2f</span><span class="st"> * EMA6 (x2) + </span><span class="sc">%.4f</span><span class="st"> * Volume (x3) + </span><span class="sc">%.2f</span><span class="st"> * Gold Close (x4)"</span> <span class="op">%</span> (reg.intercept_,reg.coef_[<span class="dv">0</span>], reg.coef_[<span class="dv">1</span>],reg.coef_[<span class="dv">2</span>],reg.coef_[<span class="dv">3</span>]))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -1445,12 +1452,12 @@ BTC Price (y) = -1262.89 (constant) + 1.78 * EM3 (x1) + -0.95 * EMA6 (x2) + 0.00
 <section id="model-evaluation" class="level3">
 <h3 class="anchored" data-anchor-id="model-evaluation">Model Evaluation</h3>
 <p>In this step, I will evaluate the model’s accuracy but before that happens I’m going to make the predictions first</p>
-<div id="cell-50" class="cell" data-execution_count="23">
+<div id="cell-49" class="cell" data-execution_count="23">
 <div class="sourceCode cell-code" id="cb33"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="co">#make prediction of test data</span></span>
 <span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a>predicted_price <span class="op">=</span> reg.predict(x_test)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>The R square is 0.05 which means the model’s predicitive power is poor in fact it is worse than what I expected it predicts little to nothing of the target variable</p>
-<div id="cell-52" class="cell" data-execution_count="24">
+<div id="cell-51" class="cell" data-execution_count="24">
 <div class="sourceCode cell-code" id="cb34"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="co">#check r2 and MSE's of testing data</span></span>
 <span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a>test_r2_score <span class="op">=</span> r2_score(y_test,predicted_price)</span>
 <span id="cb34-3"><a href="#cb34-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'The test R-square is: '</span>, test_r2_score)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -1459,7 +1466,7 @@ BTC Price (y) = -1262.89 (constant) + 1.78 * EM3 (x1) + -0.95 * EMA6 (x2) + 0.00
 </div>
 </div>
 <p>I will also look at other evaluation methods</p>
-<div id="cell-54" class="cell" data-execution_count="25">
+<div id="cell-53" class="cell" data-execution_count="25">
 <div class="sourceCode cell-code" id="cb36"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Test r2</span></span>
 <span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a>test_r2_score <span class="op">=</span> r2_score(y_test,predicted_price)</span>
 <span id="cb36-3"><a href="#cb36-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'The test R-square is: '</span>, test_r2_score)</span>
@@ -1482,7 +1489,7 @@ The test root mean square error of target variable and predicted value is:  1035
 <p>Mean Square Error (MSE) is the average difference of actual values and predicted values There is no correct value for MSE. Simply put, the lower the value the better, and 0 means the model is perfect.</p>
 <p>Mean Absolute Error (MAE) is the sum of the absolute difference between actual and predicted values in this case the average difference is $8821</p>
 <p>I’m going to evaluate further and try to see what other insights I can gather from the predicted price I’ll start by creating a data frame and add the predicted price and actual price so that I can plot the prices side by side</p>
-<div id="cell-57" class="cell" data-execution_count="26">
+<div id="cell-56" class="cell" data-execution_count="26">
 <div class="sourceCode cell-code" id="cb38"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a>btc <span class="op">=</span> pd.DataFrame()</span>
 <span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb38-3"><a href="#cb38-3" aria-hidden="true" tabindex="-1"></a><span class="co">#btc['Close Previous Month'] = btc_close[t:]</span></span>
@@ -1624,7 +1631,7 @@ The test root mean square error of target variable and predicted value is:  1035
 </div>
 </div>
 </div>
-<div id="cell-58" class="cell" data-execution_count="27">
+<div id="cell-57" class="cell" data-execution_count="27">
 <div class="sourceCode cell-code" id="cb39"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="co"># make a chart of predicted next month close VS actual next month close</span></span>
 <span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a>fig <span class="op">=</span> px.line(btc, x<span class="op">=</span><span class="st">"Date"</span>, y<span class="op">=</span>btc.columns,              </span>
 <span id="cb39-3"><a href="#cb39-3" aria-hidden="true" tabindex="-1"></a>              title<span class="op">=</span><span class="st">'Predicted Close Vs Actual Close'</span>)</span>
@@ -1670,7 +1677,7 @@ if (outputEl) {{
 </div>
 </div>
 <p>We have already seen the mean of these residuals (mean squared error), now I’ll look at the residuals of each month in absolute and in % to see how far off are the predictions for each month (Remember, the residual is the difference between the observed value and the estimated value)</p>
-<div id="cell-60" class="cell" data-execution_count="28">
+<div id="cell-59" class="cell" data-execution_count="28">
 <div class="sourceCode cell-code" id="cb40"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a>btc[<span class="st">'Residual'</span>] <span class="op">=</span> btc_close[t:] <span class="op">-</span> btc[<span class="st">'Actual Close'</span>] <span class="co">#The difference in absolute $ terms</span></span>
 <span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a>btc[<span class="st">'Residual in %'</span>] <span class="op">=</span> np.absolute(btc[<span class="st">'Residual'</span>]<span class="op">/</span>btc[<span class="st">'Actual Close'</span>]<span class="op">*</span><span class="dv">100</span>) <span class="co">#The difference in % </span></span>
 <span id="cb40-3"><a href="#cb40-3" aria-hidden="true" tabindex="-1"></a>btc</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -1857,8 +1864,23 @@ if (outputEl) {{
 <p>The MSE was way too high and very far from 0 since MSE is a measure of how close a fitted line is to data points</p>
 <p>Another red flag was the constant being negative, This means when the independent variables are 0 the mean price of BTC will be -1262. A negative constant doesn’t mean the regression made a mistake but rather it’s the data being modeled, realistically any security price can go to 0 but no security price can fall below 0 and turn negative, The your position value of that asset can turn negative but not the actual asset price. which is also why I think predicting returns instead of price would have been more accurate and much more realistic</p>
 <p>This is also a good example to showcase how a machine learning model is only as useful as the features selected and in-order to select the right features depends on the knowledge one has of that data set!</p>
+<div class="callout callout-style-default callout-warning callout-titled" title="Disclaimer">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Disclaimer
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><em>The content on this site is for <strong>educational and informational purposes only</strong> and does <strong>not constitute financial advice</strong>. I am not a financial advisor, and nothing here should be taken as investment guidance.</em></p>
+<p><em>Always do your own research or consult with a qualified professional. I accept <strong>no responsibility</strong> for any loss (or gain) resulting from the use of this content.</em></p>
+</div>
+</div>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->

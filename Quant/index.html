@@ -39,10 +39,10 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-8ef56b68f8fa1e9d2ba328e99e439f80.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-46f4cc9626f044588a66931b604fc9c8.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-3338b9a37bf0371b586c4716454e3b6b.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="dark">
+<link href="../site_libs/bootstrap/bootstrap-0d8e5b651ac309985c3777edbadb43cf.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="dark">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -80,9 +80,9 @@ ul.task-list li input[type="checkbox"] {
     }
 
     const options = {
-      valueNames: ['listing-title','listing-author','listing-image','listing-description',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
+      valueNames: ['listing-title','listing-date','listing-description',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-title-sort'] }],
       
-      searchColumns: ["listing-title","listing-author","listing-image","listing-description"],
+      searchColumns: ["listing-date","listing-title","listing-author"],
     };
 
     window['quarto-listings'] = window['quarto-listings'] || {};
@@ -167,19 +167,21 @@ window.Quarto = {
 </ul>
           </div> <!-- /navcollapse -->
             <div class="quarto-navbar-tools">
+    <a href="https://www.linkedin.com/in/mbarak-abubakar/" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-linkedin"></i></a>
+    <a href="https://github.com/mjabubakar22" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-github"></i></a>
 </div>
       </div> <!-- /container-fluid -->
     </nav>
 </header>
 <!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
         
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
+<main class="content column-page" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
@@ -188,7 +190,7 @@ window.Quarto = {
 
 
 
-<div class="quarto-title-meta">
+<div class="quarto-title-meta column-page">
 
     
   
@@ -204,85 +206,103 @@ window.Quarto = {
 
 
 
-<div class="quarto-listing quarto-listing-container-default" id="listing-listing">
-<div class="list quarto-listing-default">
-<div class="quarto-post image-right" data-index="0" data-listing-file-modified-sort="1747736848414" data-listing-reading-time-sort="8" data-listing-word-count-sort="1471">
-<div class="thumbnail"><a href="../Quant/2022-05-07-Tech-Stocks-Portfolio.html" class="no-external">
+<div class="quarto-listing quarto-listing-container-table" id="listing-listing">
+<div class="listing-actions-group">
+   <div class="input-group input-group-sm quarto-listing-sort">
+    <span class="input-group-text"><i class="bi bi-sort-down"></i></span>
+    <select id="listing-listing-sort" class="form-select" aria-label="Order By" onchange="window['quarto-listings']['listing-listing'].sort(this.options[this.selectedIndex].value, { order: this.options[this.selectedIndex].getAttribute('data-direction')})">
+      <option value="" disabled="" selected="" hidden="">Order By</option>
+      <option value="index" data-direction="asc">Default</option>
+      <option value="listing-date-sort" data-direction="asc">
+        Date - Oldest
+      </option>
+      <option value="listing-date-sort" data-direction="desc">
+        Date - Newest
+      </option>
+      <option value="listing-title-sort" data-direction="asc">
+        Title
+      </option>
+    </select>
+  </div>
+    <div class="input-group input-group-sm quarto-listing-filter">
+      <span class="input-group-text"><i class="bi bi-search"></i></span>
+      <input type="text" class="search form-control" placeholder="Filter">
+    </div>
+</div>
+<table class="quarto-listing-table table">
+<thead>
+<tr>
 
-<p class="card-img-top"><img src="2022-05-07-Tech-Stocks-Portfolio_files\figure-html\cell-27-output-2.png"  class="thumbnail-image card-img"/></p>
+<th>
+<a class="sort" data-sort="listing-title-sort" onclick="if (this.classList.contains('sort-asc')) { this.classList.add('sort-desc'); this.classList.remove('sort-asc') } else { this.classList.add('sort-asc'); this.classList.remove('sort-desc')} return false;">Title</a>
+</th>
 
-</a></div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="../Quant/2022-05-07-Tech-Stocks-Portfolio.html" class="no-external">Portfolio Analysis, Efficient Frontier &amp; Monte Carlo</a>
-</h3>
-<div class="delink listing-description"><a href="../Quant/2022-05-07-Tech-Stocks-Portfolio.html" class="no-external">
-In this notebook, I’ll be constructing and analyzing an equal-weighted portfolio which will constitute a list of my favorite large-cap tech stocks that I had already…
-</a></div>
-</div>
-<div class="metadata">
-<a href="../Quant/2022-05-07-Tech-Stocks-Portfolio.html" class="no-external">
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="1" data-listing-file-modified-sort="1747736848419" data-listing-reading-time-sort="8" data-listing-word-count-sort="1598">
-<div class="thumbnail"><a href="../Quant/2022-06-01-btc-usd-price-prediction.html" class="no-external">
+<th>
+<a class="sort" data-sort="listing-date-sort" onclick="if (this.classList.contains('sort-asc')) { this.classList.add('sort-desc'); this.classList.remove('sort-asc') } else { this.classList.add('sort-asc'); this.classList.remove('sort-desc')} return false;">Date</a>
+</th>
 
-<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
+<th>
+Description
+</th>
 
-</a></div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="../Quant/2022-06-01-btc-usd-price-prediction.html" class="no-external">BTC/USD Price Prediction Using Linear Regression</a>
-</h3>
-<div class="delink listing-description"><a href="../Quant/2022-06-01-btc-usd-price-prediction.html" class="no-external">
-In this notebook I’m going to try and predict the BTC/USD close price(target/dependant variable) for the month of June 2022 using the linear regression as the chosen model…
-</a></div>
-</div>
-<div class="metadata">
-<a href="../Quant/2022-06-01-btc-usd-price-prediction.html" class="no-external">
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="2" data-listing-file-modified-sort="1747736848433" data-listing-reading-time-sort="14" data-listing-word-count-sort="2703">
-<div class="thumbnail"><a href="../Quant/2022-07-03-ARIMA-prediction.html" class="no-external">
+</tr>
+</thead>
+<tbody class="list">
 
-<p class="card-img-top"><img src="2022-07-03-ARIMA-prediction_files\figure-html\cell-7-output-1.svg"  class="thumbnail-image card-img"/></p>
+<tr data-index="0" data-categories="UXVhbnRpdGF0aXZlJTIwUmVzZWFyY2g=" data-listing-date-sort="1747512000000" data-listing-file-modified-sort="1748611342418" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="32" data-listing-word-count-sort="6366" data-listing-title-sort="Forecasting UAE Non-Oil GDP: An Econometric Analysis of Local Indicators" data-listing-filename-sort="2025-05-05-UAE-non-Oil-GDP-Forecast.ipynb">
+<td>
+<a href="../Quant/2025-05-05-UAE-non-Oil-GDP-Forecast.html" class="title listing-title">Forecasting UAE Non-Oil GDP: An Econometric Analysis of Local Indicators</a>
+</td>
+<td>
+<span class="listing-date">May 18, 2025</span>
+</td>
+<td>
+<span class="listing-description">In this project, I explored the impact of localized and often underutilized economic indicators on the growth of the UAE’s Non-Oil GDP. By applying econometric models aimed at assessing their short-term predictive power and practical relevance to various end users.</span>
+</td>
 
-</a></div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="../Quant/2022-07-03-ARIMA-prediction.html" class="no-external">Stock Price Forecast Using ARIMA Model</a>
-</h3>
-<div class="delink listing-description"><a href="../Quant/2022-07-03-ARIMA-prediction.html" class="no-external">
-In this notebook i’m going to forecast the stock price of The Procter &amp; Gamble Company (Ticker PG) using the Auto Regressive Integrated Moving Average (ARIMA) model
-</a></div>
-</div>
-<div class="metadata">
-<a href="../Quant/2022-07-03-ARIMA-prediction.html" class="no-external">
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="3" data-listing-file-modified-sort="1748274628597" data-listing-reading-time-sort="32" data-listing-word-count-sort="6385">
-<div class="thumbnail"><a href="../Quant/2025-05-05-UAE-non-Oil-GDP-Forecast.html" class="no-external">
+</tr>
 
-<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
+<tr data-index="1" data-categories="UXVhbnRpdGF0aXZlJTIwUmVzZWFyY2g=" data-listing-date-sort="1656792000000" data-listing-file-modified-sort="1748609682238" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="13" data-listing-word-count-sort="2572" data-listing-title-sort="Can ARIMA Predict Stocks? A Time-Series Forecasting Case" data-listing-filename-sort="2022-07-03-ARIMA-prediction.ipynb">
+<td>
+<a href="../Quant/2022-07-03-ARIMA-prediction.html" class="title listing-title">Can ARIMA Predict Stocks? A Time-Series Forecasting Case</a>
+</td>
+<td>
+<span class="listing-date">Jul 3, 2022</span>
+</td>
+<td>
+<span class="listing-description">This project uses ARIMA model to forecast the stock price of Procter &amp; Gamble (PG). It covers everything from stationarity tests and differencing to PACF/ACF plots, model fitting, and residual analysis while also reflecting on the limits of univariate forecasting.</span>
+</td>
 
-</a></div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="../Quant/2025-05-05-UAE-non-Oil-GDP-Forecast.html" class="no-external">Forecasting UAE Non-Oil GDP: An Econometric Analysis of Local Indicators</a>
-</h3>
-<div class="delink listing-description"><a href="../Quant/2025-05-05-UAE-non-Oil-GDP-Forecast.html" class="no-external">
-In this project, I explored the impact of localized and often underused economic indicators on the UAE’s Non-Oil GDP growth. This work was part of research conferenc ei…
-</a></div>
-</div>
-<div class="metadata">
-<a href="../Quant/2025-05-05-UAE-non-Oil-GDP-Forecast.html" class="no-external">
-</a>
-</div>
-</div>
-</div>
+</tr>
+
+<tr data-index="2" data-categories="UXVhbnRpdGF0aXZlJTIwUmVzZWFyY2g=" data-listing-date-sort="1654027200000" data-listing-file-modified-sort="1748607224831" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="8" data-listing-word-count-sort="1462" data-listing-title-sort="A Multi-Variable Linear Regression Model for Bitcoin Price Forecasting" data-listing-filename-sort="2022-06-01-btc-usd-price-prediction.ipynb">
+<td>
+<a href="../Quant/2022-06-01-btc-usd-price-prediction.html" class="title listing-title">A Multi-Variable Linear Regression Model for Bitcoin Price Forecasting</a>
+</td>
+<td>
+<span class="listing-date">Jun 1, 2022</span>
+</td>
+<td>
+<span class="listing-description">Using historical monthly data, this project explores whether variables like gold prices, trading volume, and exponential moving averages can help predict Bitcoin’s future price using a multiple linear regression model.</span>
+</td>
+
+</tr>
+
+<tr data-index="3" data-categories="UXVhbnRpdGF0aXZlJTIwUmVzZWFyY2g=" data-listing-date-sort="1651867200000" data-listing-file-modified-sort="1748606449941" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="7" data-listing-word-count-sort="1380" data-listing-title-sort="Optimizing a Tech Stock Portfolio: Efficient Frontier and Monte Carlo Simulation Analysis" data-listing-filename-sort="2022-05-07-Tech-Stocks-Portfolio.ipynb">
+<td>
+<a href="../Quant/2022-05-07-Tech-Stocks-Portfolio.html" class="title listing-title">Optimizing a Tech Stock Portfolio: Efficient Frontier and Monte Carlo Simulation Analysis</a>
+</td>
+<td>
+<span class="listing-date">May 7, 2022</span>
+</td>
+<td>
+<span class="listing-description">In the rapidly evolving tech sector, investors face the challenge of balancing high returns with associated risks. This analysis focuses on constructing a diversified portfolio comprising of the most prominent technology stocks.</span>
+</td>
+
+</tr>
+
+</tbody>
+</table>
 <div class="listing-no-matching d-none">No matching items</div>
 </div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
