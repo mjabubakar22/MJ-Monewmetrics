@@ -352,18 +352,18 @@ window.Quarto = {
 </section>
 <section id="load-clean-data-uae" class="level3">
 <h3 class="anchored" data-anchor-id="load-clean-data-uae">1.2 Load &amp; Clean Data — UAE</h3>
-<div id="cell-0008" class="cell" data-execution_count="3">
+<div id="cell-0008" class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ── UAE: TWO EXCHANGES, ONE COMBINED INDEX ────────────────────────────────</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="co"># UAE has two major exchanges: ADX (Abu Dhabi) and DFM (Dubai).</span></span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="co"># MSCI included both in the 2014 upgrade. Weights (70% ADX / 30% DFM)</span></span>
 <span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="co"># I approximate their relative market cap at the time of reclassification.</span></span>
 <span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>uae_adx <span class="op">=</span> clean_investing_csv(</span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>    pd.read_csv(<span class="vs">r'C:</span><span class="er">\</span><span class="vs">Users</span><span class="er">\</span><span class="vs">USER</span><span class="dv">\D</span><span class="vs">esktop</span><span class="dv">\A</span><span class="vs">rqaam_Intern_Case</span><span class="er">\</span><span class="vs">FTSE ADX General Historical Data</span><span class="dv">.</span><span class="vs">csv'</span>),</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>    pd.read_csv(<span class="vs">r'YOUR FILE PATH HERE'</span>),</span>
 <span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>    keep_price<span class="op">=</span><span class="va">True</span></span>
 <span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>)</span>
 <span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>uae_dfm <span class="op">=</span> clean_investing_csv(</span>
-<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>    pd.read_csv(<span class="vs">r'C:</span><span class="er">\</span><span class="vs">Users</span><span class="er">\</span><span class="vs">USER</span><span class="dv">\D</span><span class="vs">esktop</span><span class="dv">\A</span><span class="vs">rqaam_Intern_Case</span><span class="dv">\D</span><span class="vs">FM General Historical Data</span><span class="dv">.</span><span class="vs">csv'</span>),</span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>    pd.read_csv(<span class="vs">r'YOUR FILE PATH HERE'</span>),</span>
 <span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>    keep_price<span class="op">=</span><span class="va">True</span></span>
 <span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>)</span>
 <span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a></span>
@@ -393,14 +393,14 @@ Date range:   2012-03-04 to 2015-02-26</code></pre>
 </section>
 <section id="load-clean-data-qatar-saudi-arabia-msci-em" class="level3">
 <h3 class="anchored" data-anchor-id="load-clean-data-qatar-saudi-arabia-msci-em">1.3 Load &amp; Clean Data — Qatar, Saudi Arabia, MSCI EM</h3>
-<div id="cell-0010" class="cell" data-execution_count="4">
+<div id="cell-0010" class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ── SINGLE-INDEX COUNTRIES + MSCI EM BENCHMARK ───────────────────────────</span></span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Qatar and Saudi Arabia are single-exchange markets, no combining needed.</span></span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="co"># MSCI EM is the benchmark for computing rolling correlation in Section 1.5.</span></span>
 <span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>qatar   <span class="op">=</span> clean_investing_csv(pd.read_csv(<span class="vs">r'C:</span><span class="er">\</span><span class="vs">Users</span><span class="er">\</span><span class="vs">USER</span><span class="dv">\D</span><span class="vs">esktop</span><span class="dv">\A</span><span class="vs">rqaam_Intern_Case</span><span class="er">\</span><span class="vs">QE All Shares Historical Data</span><span class="dv">.</span><span class="vs">csv'</span>))</span>
-<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>saudi   <span class="op">=</span> clean_investing_csv(pd.read_csv(<span class="vs">r'C:</span><span class="er">\</span><span class="vs">Users</span><span class="er">\</span><span class="vs">USER</span><span class="dv">\D</span><span class="vs">esktop</span><span class="dv">\A</span><span class="vs">rqaam_Intern_Case</span><span class="er">\</span><span class="vs">Tadawul All Share Historical Data</span><span class="dv">.</span><span class="vs">csv'</span>))</span>
-<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>msci_em <span class="op">=</span> clean_investing_csv(pd.read_csv(<span class="vs">r'C:</span><span class="er">\</span><span class="vs">Users</span><span class="er">\</span><span class="vs">USER</span><span class="dv">\D</span><span class="vs">esktop</span><span class="dv">\A</span><span class="vs">rqaam_Intern_Case</span><span class="dv">\M</span><span class="vs">SCI Emerging Markets Historical Data</span><span class="dv">.</span><span class="vs">csv'</span>))</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>qatar   <span class="op">=</span> clean_investing_csv(pd.read_csv(<span class="vs">r'YOUR FILE PATH HERE'</span>))</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>saudi   <span class="op">=</span> clean_investing_csv(pd.read_csv(<span class="vs">r'YOUR FILE PATH HERE'</span>))</span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>msci_em <span class="op">=</span> clean_investing_csv(pd.read_csv(<span class="vs">r'YOUR FILE PATH HERE'</span>))</span>
 <span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f'Qatar:   </span><span class="sc">{</span><span class="bu">len</span>(qatar)<span class="sc">:,}</span><span class="ss"> days | </span><span class="sc">{</span>qatar[<span class="st">"Date"</span>]<span class="sc">.</span><span class="bu">min</span>()<span class="sc">.</span>date()<span class="sc">}</span><span class="ss"> to </span><span class="sc">{</span>qatar[<span class="st">"Date"</span>]<span class="sc">.</span><span class="bu">max</span>()<span class="sc">.</span>date()<span class="sc">}</span><span class="ss">'</span>)</span>
 <span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f'Saudi:   </span><span class="sc">{</span><span class="bu">len</span>(saudi)<span class="sc">:,}</span><span class="ss"> days | </span><span class="sc">{</span>saudi[<span class="st">"Date"</span>]<span class="sc">.</span><span class="bu">min</span>()<span class="sc">.</span>date()<span class="sc">}</span><span class="ss"> to </span><span class="sc">{</span>saudi[<span class="st">"Date"</span>]<span class="sc">.</span><span class="bu">max</span>()<span class="sc">.</span>date()<span class="sc">}</span><span class="ss">'</span>)</span>
@@ -421,14 +421,14 @@ MSCI EM: 2,329 days | 2012-01-30 to 2020-12-31</code></pre>
 <li><strong>Inclusion date</strong>: The day the market officially enters the index. Passive funds are forced to buy on this date to match their benchmark weights.</li>
 </ul>
 <p>Keeping them separate is what allows the four windows to isolate different effects.</p>
-<div id="cell-0012" class="cell" data-execution_count="6">
+<div id="cell-0012" class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ── EVENT STUDY CONFIGURATION ─────────────────────────────────────────────</span></span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="co"># 126 trading days = approximately 6 calendar months</span></span>
 <span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>WINDOW <span class="op">=</span> <span class="dv">126</span></span>
 <span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Update to your local output directory</span></span>
-<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>OUTPUT_PATH <span class="op">=</span> <span class="vs">r"C:</span><span class="er">\</span><span class="vs">Users</span><span class="er">\</span><span class="vs">USER</span><span class="dv">\D</span><span class="vs">esktop</span><span class="dv">\A</span><span class="vs">rqaam_Intern_Case</span><span class="ch">\\</span><span class="vs">"</span></span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>OUTPUT_PATH <span class="op">=</span> <span class="vs">r"YOUR FILE PATH HERE"</span></span>
 <span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>events <span class="op">=</span> {</span>
 <span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>    <span class="st">'UAE'</span>: {</span>
@@ -1314,7 +1314,7 @@ Saudi</code></pre>
 <tbody>
 <tr class="odd">
 <td>Full Market Cap</td>
-<td>≥ USD 3,000mn</td>
+<td>≥ USD 3,800mn</td>
 </tr>
 <tr class="even">
 <td>Float-Adjusted Market Cap</td>
@@ -1332,11 +1332,11 @@ Saudi</code></pre>
 <p>This is a simplified approximation of the official MSCI methodology, which uses monthly median daily traded values rather than total annual traded value. The denominator and direction are consistent with MSCI’s approach and the results are directionally reliable for the purpose of this screening.</p>
 <section id="configuration" class="level3">
 <h3 class="anchored" data-anchor-id="configuration">2.1 Configuration</h3>
-<div id="8bc8a64b" class="cell" data-execution_count="51">
+<div id="8bc8a64b" class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb34"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Each country has its own folder, FX rate, stock files, and float market caps</span></span>
 <span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a>countries <span class="op">=</span> {</span>
 <span id="cb34-3"><a href="#cb34-3" aria-hidden="true" tabindex="-1"></a>    <span class="st">'Oman'</span>: {</span>
-<span id="cb34-4"><a href="#cb34-4" aria-hidden="true" tabindex="-1"></a>        <span class="st">'base_path'</span>: <span class="vs">r'C:</span><span class="er">\</span><span class="vs">Users</span><span class="er">\</span><span class="vs">USER</span><span class="dv">\D</span><span class="vs">esktop</span><span class="dv">\A</span><span class="vs">rqaam_Intern_Case</span><span class="er">\</span><span class="vs">Oman'</span>,</span>
+<span id="cb34-4"><a href="#cb34-4" aria-hidden="true" tabindex="-1"></a>        <span class="st">'base_path'</span>: <span class="vs">r'YOUR FILE PATH HERE'</span>,</span>
 <span id="cb34-5"><a href="#cb34-5" aria-hidden="true" tabindex="-1"></a>        <span class="st">'fx_rate'</span>:   <span class="fl">2.60</span>,</span>
 <span id="cb34-6"><a href="#cb34-6" aria-hidden="true" tabindex="-1"></a>        <span class="st">'files'</span>: {</span>
 <span id="cb34-7"><a href="#cb34-7" aria-hidden="true" tabindex="-1"></a>            <span class="st">'Bank Muscat'</span>:         <span class="st">'Bank Muscat Stock Price History.csv'</span>,</span>
@@ -1350,7 +1350,7 @@ Saudi</code></pre>
 <span id="cb34-15"><a href="#cb34-15" aria-hidden="true" tabindex="-1"></a>        },</span>
 <span id="cb34-16"><a href="#cb34-16" aria-hidden="true" tabindex="-1"></a>    },</span>
 <span id="cb34-17"><a href="#cb34-17" aria-hidden="true" tabindex="-1"></a>    <span class="st">'Bahrain'</span>: {</span>
-<span id="cb34-18"><a href="#cb34-18" aria-hidden="true" tabindex="-1"></a>        <span class="st">'base_path'</span>: <span class="vs">r'C:</span><span class="er">\</span><span class="vs">Users</span><span class="er">\</span><span class="vs">USER</span><span class="dv">\D</span><span class="vs">esktop</span><span class="dv">\A</span><span class="vs">rqaam_Intern_Case</span><span class="dv">\B</span><span class="vs">ahrain'</span>,</span>
+<span id="cb34-18"><a href="#cb34-18" aria-hidden="true" tabindex="-1"></a>        <span class="st">'base_path'</span>: <span class="vs">r'YOUR FILE PATH HERE'</span>,</span>
 <span id="cb34-19"><a href="#cb34-19" aria-hidden="true" tabindex="-1"></a>        <span class="st">'fx_rate'</span>:   <span class="fl">2.66</span>,  <span class="co"># BHD to USD</span></span>
 <span id="cb34-20"><a href="#cb34-20" aria-hidden="true" tabindex="-1"></a>        <span class="st">'files'</span>: {</span>
 <span id="cb34-21"><a href="#cb34-21" aria-hidden="true" tabindex="-1"></a>            <span class="st">'GFH Financial'</span>:  <span class="st">'GFH Financial BSC Stock Price History.csv'</span>,</span>
@@ -1592,10 +1592,10 @@ Table&nbsp;2: Oman — ATVR Calculation (Most Recent 12 Months)
 </section>
 <section id="load-clean-merge" class="level3">
 <h3 class="anchored" data-anchor-id="load-clean-merge">3.2 Load, Clean &amp; Merge</h3>
-<div id="cell-0031" class="cell" data-execution_count="54">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb38"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a>msm_raw <span class="op">=</span> pd.read_csv(<span class="vs">r'C:</span><span class="er">\</span><span class="vs">Users</span><span class="er">\</span><span class="vs">USER</span><span class="dv">\D</span><span class="vs">esktop</span><span class="dv">\A</span><span class="vs">rqaam_Intern_Case</span><span class="er">\</span><span class="vs">Thesis</span><span class="dv">\M</span><span class="vs">SCI Oman Historical Data</span><span class="dv">.</span><span class="vs">csv'</span>)</span>
-<span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a>bse_raw <span class="op">=</span> pd.read_csv(<span class="vs">r'C:</span><span class="er">\</span><span class="vs">Users</span><span class="er">\</span><span class="vs">USER</span><span class="dv">\D</span><span class="vs">esktop</span><span class="dv">\A</span><span class="vs">rqaam_Intern_Case</span><span class="er">\</span><span class="vs">Thesis</span><span class="dv">\M</span><span class="vs">SCI Bahrain Index</span><span class="dv">.</span><span class="vs">csv'</span>)</span>
-<span id="cb38-3"><a href="#cb38-3" aria-hidden="true" tabindex="-1"></a>em_raw  <span class="op">=</span> pd.read_csv(<span class="vs">r'C:</span><span class="er">\</span><span class="vs">Users</span><span class="er">\</span><span class="vs">USER</span><span class="dv">\D</span><span class="vs">esktop</span><span class="dv">\A</span><span class="vs">rqaam_Intern_Case</span><span class="er">\</span><span class="vs">Thesis</span><span class="dv">\M</span><span class="vs">SCI Emerging Markets Historical Data </span><span class="kw">(</span><span class="vs">1</span><span class="kw">)</span><span class="dv">.</span><span class="vs">csv'</span>)</span>
+<div id="cell-0031" class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb38"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a>msm_raw <span class="op">=</span> pd.read_csv(<span class="vs">r'YOUR FILE PATH HERE'</span>)</span>
+<span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a>bse_raw <span class="op">=</span> pd.read_csv(<span class="vs">r'YOUR FILE PATH HERE'</span>)</span>
+<span id="cb38-3"><a href="#cb38-3" aria-hidden="true" tabindex="-1"></a>em_raw  <span class="op">=</span> pd.read_csv(<span class="vs">r'YOUR FILE PATH HERE'</span>)</span>
 <span id="cb38-4"><a href="#cb38-4" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb38-5"><a href="#cb38-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Oman and MSCI EM use 'Price'; Bahrain uses 'Close'</span></span>
 <span id="cb38-6"><a href="#cb38-6" aria-hidden="true" tabindex="-1"></a>msm_clean <span class="op">=</span> clean_price_df(msm_raw, <span class="st">'Date'</span>, <span class="st">'Price'</span>, <span class="st">'Oman'</span>)</span>
