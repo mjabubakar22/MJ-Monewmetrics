@@ -111,3 +111,8 @@ body {
   color: #666;
   margin-top: 2rem;
 }
+
+/* Bigger navbar icons */
+.navbar .bi {
+  font-size: 1.5rem;
+}
