@@ -1,0 +1,9 @@
+---
+title: "Financial Analysis"
+page-layout: full
+listing: 
+  contents: .
+  type: table
+  sort: "date desc"
+  fields: [title, date, description]
+---

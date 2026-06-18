@@ -1,0 +1,116 @@
+/*-- scss:defaults --*/
+$font-family-sans-serif: 'Open Sans', sans-serif;
+$font-size-base: 1.5rem;
+$body-bg: #000000;
+$body-color: #d3d3d3;
+$link-color: #66ccff;
+
+$navbar-bg: #8B0000;
+$navbar-fg: #ffffff;
+$navbar-hover-color: #ffffff;
+$navbar-active-color: #ffffff;
+
+$code-bg: #1e1e1e;
+$code-color: inherit;
+
+$callout-bg: #1f1f1f;
+$callout-border-left: #444;
+
+/*-- scss:rules --*/
+
+// Code blocks
+pre, code {
+  background-color: #1e1e1e !important;
+  font-family: "Courier New", monospace;
+  font-size: 1.5rem;
+  border-radius: 0.25rem;
+  padding: 0.2rem 0.4rem;
+}
+
+// Syntax highlighting tokens (for highlight-style: github-dark or similar)
+code span.kw         { color: #ff6b6b; }   // keywords
+code span.dt         { color: #ffa07a; }   // data types
+code span.dv         { color: #87cefa; }   // numbers
+code span.bn         { color: #f0e68c; }   // binary
+code span.fl         { color: #add8e6; }   // float
+code span.cf         { color: #ffa500; }   // control flow
+code span.op         { color: #ffb6c1; }   // operators
+code span.cn         { color: #20b2aa; }   // constants
+code span.v          { color: #f8f8ff; }   // variables
+code span.st         { color: #98fb98; }   // strings
+code span.fn         { color: #66ccff; }   // functions
+code span.cm         { color: #808080; }   // comments
+
+// Output: standard output (red)
+.cell-output,
+.cell-output-stdout {
+  background-color: #1a1a1a;
+  color: #ff6b6b;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  margin-top: 1rem;
+  font-size: 1.5rem;
+  transition: background-color 0.3s ease;
+
+  &:hover {
+    background-color: #222222;
+  }
+}
+
+// Output: error messages (blue)
+.cell-output-stderr {
+  background-color: #1a1a1a;
+  color: #99ccff;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  margin-top: 1rem;
+  font-size: 1.5rem;
+}
+
+// Output: display output (text or rich objects)
+.cell-output-display {
+  background-color: #1a1a1a;
+  color: #ff6b6b; // red text for plain display
+  padding: 1rem;
+  border-radius: 0.5rem;
+  margin-top: 1rem;
+  font-size: 1.5rem;
+
+  // Reset color for rich HTML inside
+  *:not(pre):not(code):not(span) {
+    color: #cccccc !important;
+  }
+}
+
+// Headers and paragraph styling
+h1, h2, h3, h4, h5, h6 {
+  color: #f1f1f1;
+}
+
+p {
+  color: #e0e0e0;
+  font-size: 1.5rem;
+}
+
+// Force all output text (print, errors, tables, etc.) to use red text
+.cell-output,
+.cell-output-display,
+.cell-output-stdout,
+.cell-output-stderr {
+  background-color: #1a1a1a !important;
+  color: #d3d3d3 !important; // Light gray for ALL output text
+  font-size: 1.5rem;
+  border-radius: 0.5rem;
+  padding: 1rem;
+  margin-top: 1rem;
+}
+
+// Force nested text in outputs to inherit the red color
+.cell-output *,
+.cell-output-display *,
+.cell-output-stdout *,
+.cell-output-stderr * {
+  color: inherit !important;
+}
+
+

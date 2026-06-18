@@ -3,13 +3,29 @@ project:
 
 website:
   title: "Monewmetrics"
+  favicon: images/fav.png
   navbar:
     left:
-      - href: index.qmd
-        text: Home
+      - text: Quantitative Research
+        href: Quant/index.qmd
+      - text: Statistics & Probability
+        href: Stats/index.qmd
+      - text: Financial Analysis
+        href: Finance/index.qmd
+    tools:
+      - icon: linkedin
+        href: https://www.linkedin.com/in/mbarak-abubakar/
+      - icon: github
+        href: https://github.com/mjabubakar22
 
 format:
   html:
-    theme: cosmo
+    theme: theme.scss
+    css: styles.css
     toc: true
+    highlight-style: github-dark
+    page-layout: full
+
+
+
 
