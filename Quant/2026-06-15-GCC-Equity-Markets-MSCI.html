@@ -1,0 +1,2189 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.9.38">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="dcterms.date" content="2026-06-15">
+<meta name="description" content="This is model contains all the major quantitative calculations supporting the research report on MSCI index reclassification and its impact on GCC equity markets. It follows the presentation section order.">
+
+<title>GCC Equity Markets: MSCI Inclusion Impact &amp; Upgrade Opportunities – Monewmetrics</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" integrity="sha384-ZvpUoO/+PpLXR1lu4jmpXWu80pZlYUAfxl5NsBMWOEPSjUn/6Z/hRTt8+pR6L4N2" crossorigin="anonymous"></script><script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../images/fav.png" rel="icon" type="image/png">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-6b6957c917596b414ec0b78690761e87.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-cb6ddd068ed2fde742fa89075f934cfb.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="dark">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<script src="https://cdn.jsdelivr.net/npm/requirejs@2.3.6/require.min.js" integrity="sha384-c9c+LnTbwQ3aujuU7ULEPVvgLs+Fn6fJUvIGTsuu1ZcCf11fiEubah0ttpca4ntM sha384-6V1/AdqZRWk1KAlWbKBlGhN7VG4iE/yAZcO6NZPMF8od0vukrvr0tg4qY6NSrItx" crossorigin="anonymous"></script>
+
+<script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="stylesheet" href="../styles.css">
+</head>
+
+<body class="nav-fixed quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../index.html">
+    <span class="navbar-title">Monewmetrics</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../Quant/index.html"> 
+<span class="menu-text">Quantitative Research</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../Stats/index.html"> 
+<span class="menu-text">Statistics &amp; Probability</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../Finance/index.html"> 
+<span class="menu-text">Financial Analysis</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+    <a href="https://www.linkedin.com/in/mbarak-abubakar/" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-linkedin"></i></a>
+    <a href="https://github.com/mjabubakar22" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-github"></i></a>
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#imports" id="toc-imports" class="nav-link active" data-scroll-target="#imports">Imports</a></li>
+  <li><a href="#section-1-historical-impact-analysis" id="toc-section-1-historical-impact-analysis" class="nav-link" data-scroll-target="#section-1-historical-impact-analysis">Section 1 — Historical Impact Analysis</a>
+  <ul class="collapse">
+  <li><a href="#data-cleaning-function" id="toc-data-cleaning-function" class="nav-link" data-scroll-target="#data-cleaning-function">1.1 Data Cleaning Function</a></li>
+  <li><a href="#load-clean-data-uae" id="toc-load-clean-data-uae" class="nav-link" data-scroll-target="#load-clean-data-uae">1.2 Load &amp; Clean Data — UAE</a></li>
+  <li><a href="#load-clean-data-qatar-saudi-arabia-msci-em" id="toc-load-clean-data-qatar-saudi-arabia-msci-em" class="nav-link" data-scroll-target="#load-clean-data-qatar-saudi-arabia-msci-em">1.3 Load &amp; Clean Data — Qatar, Saudi Arabia, MSCI EM</a></li>
+  <li><a href="#event-study-configuration" id="toc-event-study-configuration" class="nav-link" data-scroll-target="#event-study-configuration">1.4 Event Study Configuration</a></li>
+  <li><a href="#analytical-functions" id="toc-analytical-functions" class="nav-link" data-scroll-target="#analytical-functions">1.5 Analytical Functions</a></li>
+  <li><a href="#results-four-transmission-channels" id="toc-results-four-transmission-channels" class="nav-link" data-scroll-target="#results-four-transmission-channels">1.6 Results — Four Transmission Channels</a></li>
+  </ul></li>
+  <li><a href="#section-2-size-liquidity-screening" id="toc-section-2-size-liquidity-screening" class="nav-link" data-scroll-target="#section-2-size-liquidity-screening">Section 2 — Size &amp; Liquidity Screening</a>
+  <ul class="collapse">
+  <li><a href="#configuration" id="toc-configuration" class="nav-link" data-scroll-target="#configuration">2.1 Configuration</a></li>
+  <li><a href="#atvr-calculator" id="toc-atvr-calculator" class="nav-link" data-scroll-target="#atvr-calculator">2.2 ATVR Calculator</a></li>
+  <li><a href="#run-screening" id="toc-run-screening" class="nav-link" data-scroll-target="#run-screening">2.3 Run Screening</a></li>
+  </ul></li>
+  <li><a href="#section-3-equity-market-performance-oman-and-bahrain" id="toc-section-3-equity-market-performance-oman-and-bahrain" class="nav-link" data-scroll-target="#section-3-equity-market-performance-oman-and-bahrain">Section 3: Equity Market Performance Oman and Bahrain</a>
+  <ul class="collapse">
+  <li><a href="#data-cleaning-function-1" id="toc-data-cleaning-function-1" class="nav-link" data-scroll-target="#data-cleaning-function-1">3.1 Data Cleaning Function</a></li>
+  <li><a href="#load-clean-merge" id="toc-load-clean-merge" class="nav-link" data-scroll-target="#load-clean-merge">3.2 Load, Clean &amp; Merge</a></li>
+  <li><a href="#resample-to-weekly" id="toc-resample-to-weekly" class="nav-link" data-scroll-target="#resample-to-weekly">3.3 Resample to Weekly</a></li>
+  <li><a href="#metric-functions" id="toc-metric-functions" class="nav-link" data-scroll-target="#metric-functions">3.4 Metric Functions</a></li>
+  <li><a href="#summary-statistics" id="toc-summary-statistics" class="nav-link" data-scroll-target="#summary-statistics">3.5 Summary Statistics</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content column-page-left" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">GCC Equity Markets: MSCI Inclusion Impact &amp; Upgrade Opportunities</h1>
+  <div class="quarto-categories">
+    <div class="quarto-category">Quantitative Research</div>
+  </div>
+  </div>
+
+<div>
+  <div class="description">
+    This is model contains all the major quantitative calculations supporting the research report on MSCI index reclassification and its impact on GCC equity markets. It follows the presentation section order.
+  </div>
+</div>
+
+
+<div class="quarto-title-meta column-page-left">
+
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">June 15, 2026</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<p><strong>Three analytical sections:</strong></p>
+<ol type="1">
+<li><strong>Historical Impact Analysis</strong>: Event-study framework: UAE (2014), Qatar (2014), Saudi Arabia (2019)</li>
+<li><strong>Size &amp; Liquidity Screening</strong>:ATVR and market cap vs MSCI EM entry thresholds</li>
+<li><strong>Equity Market Performance</strong>:Returns, risk, and diversification metrics</li>
+</ol>
+<p><strong>Data sources:</strong> Investing.com (index and stock price/volume), MSCI factsheets (float market caps), MSCI Global Investable Market Indexes Methodology (thresholds)</p>
+<blockquote class="blockquote">
+<p><strong>Note:</strong> All file paths are hidden for privacy as they point to my local data files. Update <code>OUTPUT_PATH</code>, <code>base_path</code>, and CSV paths to match your directory before running.</p>
+</blockquote>
+<section id="imports" class="level2">
+<h2 class="anchored" data-anchor-id="imports">Imports</h2>
+<div id="cell-0003" class="cell" data-execution_count="1">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.dates <span class="im">as</span> mdates</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> os</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> IPython.display <span class="im">import</span> display</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="co"># ── Notebook display settings ──────────────────────────────────────────────</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>pd.set_option(<span class="st">'display.float_format'</span>, <span class="st">'</span><span class="sc">{:,.2f}</span><span class="st">'</span>.<span class="bu">format</span>)</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>pd.set_option(<span class="st">'display.max_columns'</span>, <span class="dv">20</span>)</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="co"># ── Chart style ────────────────────────────────────────────────────────────</span></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>plt.rcParams.update({</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>    <span class="st">'figure.facecolor'</span>:  <span class="st">'white'</span>,</span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>    <span class="st">'axes.facecolor'</span>:    <span class="st">'white'</span>,</span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>    <span class="st">'axes.spines.top'</span>:   <span class="va">False</span>,</span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>    <span class="st">'axes.spines.right'</span>: <span class="va">False</span>,</span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>    <span class="st">'font.family'</span>:       <span class="st">'sans-serif'</span>,</span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>    <span class="st">'axes.titlesize'</span>:    <span class="dv">11</span>,</span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>    <span class="st">'axes.labelsize'</span>:    <span class="dv">9</span>,</span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>    <span class="st">'legend.fontsize'</span>:   <span class="dv">8</span>,</span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>    <span class="st">'xtick.labelsize'</span>:   <span class="dv">8</span>,</span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>    <span class="st">'ytick.labelsize'</span>:   <span class="dv">8</span>,</span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>})</span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a><span class="co"># ── Colour palette for the four event-study windows ───────────────────────</span></span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a>WINDOW_COLORS <span class="op">=</span> {</span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a>    <span class="st">'Pre-Announcement'</span>: <span class="st">'#4A4A6A'</span>,</span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a>    <span class="st">'Early Transition'</span>: <span class="st">'#1F6FEB'</span>,</span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a>    <span class="st">'Late Transition'</span>:  <span class="st">'#F4A261'</span>,</span>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a>    <span class="st">'Post-Inclusion'</span>:   <span class="st">'#2A9D8F'</span>,</span>
+<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+<section id="section-1-historical-impact-analysis" class="level2">
+<h2 class="anchored" data-anchor-id="section-1-historical-impact-analysis">Section 1 — Historical Impact Analysis</h2>
+<p>Applies an event-study framework to the three GCC markets that have completed a Frontier → Emerging Market reclassification: UAE (2014), Qatar (2014), and Saudi Arabia (2019). Kuwait’s 2020 upgrade is excluded, its transition coincided with the COVID-19 crash, making it impossible to isolate MSCI-driven effects.</p>
+<p>Each case is anchored on two dates: the <strong>announcement date</strong> (MSCI public confirmation) and the <strong>effective inclusion date</strong> (market enters the index). Four 126-trading-day windows are sliced around these anchors and four transmission channels are measured across each window.</p>
+<blockquote class="blockquote">
+<p><strong>Window length:</strong> 126 trading days = 6 calendar months. All four windows use the same length for comparability.</p>
+</blockquote>
+<section id="data-cleaning-function" class="level3">
+<h3 class="anchored" data-anchor-id="data-cleaning-function">1.1 Data Cleaning Function</h3>
+<div id="cell-0006" class="cell" data-execution_count="2">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ── CLEANING FUNCTION ─────────────────────────────────────────────────────</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Resolves consistent Investing.com export quirks:</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="co">#   - Dates as strings:     '02/26/2015'</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="co">#   - Prices with commas:   '4,686.19'</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="co">#   - Volume with suffixes: '62.82M' or '1.2B'</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Output: clean dataframe with Date, return, and Vol. columns</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> clean_investing_csv(df, keep_ohlc<span class="op">=</span><span class="va">False</span>, keep_price<span class="op">=</span><span class="va">False</span>):</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>    df <span class="op">=</span> df.copy()</span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>    df[<span class="st">'Date'</span>] <span class="op">=</span> pd.to_datetime(df[<span class="st">'Date'</span>], <span class="bu">format</span><span class="op">=</span><span class="st">'%m/</span><span class="sc">%d</span><span class="st">/%Y'</span>)</span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>    df <span class="op">=</span> df.sort_values(<span class="st">'Date'</span>).reset_index(drop<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>    df[<span class="st">'Price'</span>] <span class="op">=</span> df[<span class="st">'Price'</span>].astype(<span class="bu">str</span>).<span class="bu">str</span>.replace(<span class="st">','</span>, <span class="st">''</span>).astype(<span class="bu">float</span>)</span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> keep_ohlc:</span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> col <span class="kw">in</span> [<span class="st">'Open'</span>, <span class="st">'High'</span>, <span class="st">'Low'</span>]:</span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>            df[col] <span class="op">=</span> df[col].astype(<span class="bu">str</span>).<span class="bu">str</span>.replace(<span class="st">','</span>, <span class="st">''</span>).astype(<span class="bu">float</span>)</span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> parse_volume(v):</span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a>        v <span class="op">=</span> <span class="bu">str</span>(v).strip().replace(<span class="st">','</span>, <span class="st">''</span>)</span>
+<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> v.endswith(<span class="st">'B'</span>):   <span class="cf">return</span> <span class="bu">float</span>(v[:<span class="op">-</span><span class="dv">1</span>]) <span class="op">*</span> <span class="dv">1_000_000_000</span></span>
+<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a>        <span class="cf">elif</span> v.endswith(<span class="st">'M'</span>): <span class="cf">return</span> <span class="bu">float</span>(v[:<span class="op">-</span><span class="dv">1</span>]) <span class="op">*</span> <span class="dv">1_000_000</span></span>
+<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a>        <span class="cf">elif</span> v.endswith(<span class="st">'K'</span>): <span class="cf">return</span> <span class="bu">float</span>(v[:<span class="op">-</span><span class="dv">1</span>]) <span class="op">*</span> <span class="dv">1_000</span></span>
+<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a>        <span class="cf">else</span>:</span>
+<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a>            <span class="cf">try</span>:    <span class="cf">return</span> <span class="bu">float</span>(v)</span>
+<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a>            <span class="cf">except</span>: <span class="cf">return</span> np.nan</span>
+<span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-29"><a href="#cb2-29" aria-hidden="true" tabindex="-1"></a>    df[<span class="st">'Vol.'</span>]   <span class="op">=</span> df[<span class="st">'Vol.'</span>].<span class="bu">apply</span>(parse_volume)</span>
+<span id="cb2-30"><a href="#cb2-30" aria-hidden="true" tabindex="-1"></a>    df[<span class="st">'return'</span>] <span class="op">=</span> df[<span class="st">'Price'</span>].pct_change()</span>
+<span id="cb2-31"><a href="#cb2-31" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-32"><a href="#cb2-32" aria-hidden="true" tabindex="-1"></a>    cols <span class="op">=</span> [<span class="st">'Date'</span>, <span class="st">'return'</span>, <span class="st">'Vol.'</span>]</span>
+<span id="cb2-33"><a href="#cb2-33" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> keep_price: cols.append(<span class="st">'Price'</span>)</span>
+<span id="cb2-34"><a href="#cb2-34" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> keep_ohlc:  cols <span class="op">+=</span> [<span class="st">'Open'</span>, <span class="st">'High'</span>, <span class="st">'Low'</span>]</span>
+<span id="cb2-35"><a href="#cb2-35" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-36"><a href="#cb2-36" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> df[cols].copy()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+<section id="load-clean-data-uae" class="level3">
+<h3 class="anchored" data-anchor-id="load-clean-data-uae">1.2 Load &amp; Clean Data — UAE</h3>
+<div id="cell-0008" class="cell" data-execution_count="3">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ── UAE: TWO EXCHANGES, ONE COMBINED INDEX ────────────────────────────────</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="co"># UAE has two major exchanges: ADX (Abu Dhabi) and DFM (Dubai).</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="co"># MSCI included both in the 2014 upgrade. Weights (70% ADX / 30% DFM)</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="co"># I approximate their relative market cap at the time of reclassification.</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>uae_adx <span class="op">=</span> clean_investing_csv(</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>    pd.read_csv(<span class="vs">r'C:</span><span class="er">\</span><span class="vs">Users</span><span class="er">\</span><span class="vs">USER</span><span class="dv">\D</span><span class="vs">esktop</span><span class="dv">\A</span><span class="vs">rqaam_Intern_Case</span><span class="er">\</span><span class="vs">FTSE ADX General Historical Data</span><span class="dv">.</span><span class="vs">csv'</span>),</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>    keep_price<span class="op">=</span><span class="va">True</span></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>uae_dfm <span class="op">=</span> clean_investing_csv(</span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>    pd.read_csv(<span class="vs">r'C:</span><span class="er">\</span><span class="vs">Users</span><span class="er">\</span><span class="vs">USER</span><span class="dv">\D</span><span class="vs">esktop</span><span class="dv">\A</span><span class="vs">rqaam_Intern_Case</span><span class="dv">\D</span><span class="vs">FM General Historical Data</span><span class="dv">.</span><span class="vs">csv'</span>),</span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>    keep_price<span class="op">=</span><span class="va">True</span></span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>uae <span class="op">=</span> pd.merge(</span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>    uae_adx[[<span class="st">'Date'</span>, <span class="st">'Price'</span>, <span class="st">'return'</span>, <span class="st">'Vol.'</span>]],</span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a>    uae_dfm[[<span class="st">'Date'</span>, <span class="st">'Price'</span>, <span class="st">'return'</span>, <span class="st">'Vol.'</span>]],</span>
+<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a>    on<span class="op">=</span><span class="st">'Date'</span>, suffixes<span class="op">=</span>(<span class="st">'_adx'</span>, <span class="st">'_dfm'</span>)</span>
+<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a>ADX_WEIGHT <span class="op">=</span> <span class="fl">0.70</span></span>
+<span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a>DFM_WEIGHT <span class="op">=</span> <span class="fl">0.30</span></span>
+<span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-24"><a href="#cb3-24" aria-hidden="true" tabindex="-1"></a>uae[<span class="st">'return'</span>] <span class="op">=</span> (ADX_WEIGHT <span class="op">*</span> uae[<span class="st">'return_adx'</span>]) <span class="op">+</span> (DFM_WEIGHT <span class="op">*</span> uae[<span class="st">'return_dfm'</span>])</span>
+<span id="cb3-25"><a href="#cb3-25" aria-hidden="true" tabindex="-1"></a>uae[<span class="st">'Vol.'</span>]   <span class="op">=</span> uae[<span class="st">'Vol._adx'</span>] <span class="op">+</span> uae[<span class="st">'Vol._dfm'</span>]</span>
+<span id="cb3-26"><a href="#cb3-26" aria-hidden="true" tabindex="-1"></a><span class="co"># Reconstruct a synthetic price index from the combined return series</span></span>
+<span id="cb3-27"><a href="#cb3-27" aria-hidden="true" tabindex="-1"></a>uae[<span class="st">'Price'</span>]  <span class="op">=</span> <span class="dv">1000</span> <span class="op">*</span> np.exp(uae[<span class="st">'return'</span>].cumsum())</span>
+<span id="cb3-28"><a href="#cb3-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-29"><a href="#cb3-29" aria-hidden="true" tabindex="-1"></a>uae_combined <span class="op">=</span> uae[[<span class="st">'Date'</span>, <span class="st">'return'</span>, <span class="st">'Vol.'</span>, <span class="st">'Price'</span>]].dropna().reset_index(drop<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb3-30"><a href="#cb3-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-31"><a href="#cb3-31" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f'UAE combined: </span><span class="sc">{</span><span class="bu">len</span>(uae_combined)<span class="sc">:,}</span><span class="ss"> trading days'</span>)</span>
+<span id="cb3-32"><a href="#cb3-32" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f'Date range:   </span><span class="sc">{</span>uae_combined[<span class="st">"Date"</span>]<span class="sc">.</span><span class="bu">min</span>()<span class="sc">.</span>date()<span class="sc">}</span><span class="ss"> to </span><span class="sc">{</span>uae_combined[<span class="st">"Date"</span>]<span class="sc">.</span><span class="bu">max</span>()<span class="sc">.</span>date()<span class="sc">}</span><span class="ss">'</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>UAE combined: 748 trading days
+Date range:   2012-03-04 to 2015-02-26</code></pre>
+</div>
+</div>
+</section>
+<section id="load-clean-data-qatar-saudi-arabia-msci-em" class="level3">
+<h3 class="anchored" data-anchor-id="load-clean-data-qatar-saudi-arabia-msci-em">1.3 Load &amp; Clean Data — Qatar, Saudi Arabia, MSCI EM</h3>
+<div id="cell-0010" class="cell" data-execution_count="4">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ── SINGLE-INDEX COUNTRIES + MSCI EM BENCHMARK ───────────────────────────</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Qatar and Saudi Arabia are single-exchange markets, no combining needed.</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="co"># MSCI EM is the benchmark for computing rolling correlation in Section 1.5.</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>qatar   <span class="op">=</span> clean_investing_csv(pd.read_csv(<span class="vs">r'C:</span><span class="er">\</span><span class="vs">Users</span><span class="er">\</span><span class="vs">USER</span><span class="dv">\D</span><span class="vs">esktop</span><span class="dv">\A</span><span class="vs">rqaam_Intern_Case</span><span class="er">\</span><span class="vs">QE All Shares Historical Data</span><span class="dv">.</span><span class="vs">csv'</span>))</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>saudi   <span class="op">=</span> clean_investing_csv(pd.read_csv(<span class="vs">r'C:</span><span class="er">\</span><span class="vs">Users</span><span class="er">\</span><span class="vs">USER</span><span class="dv">\D</span><span class="vs">esktop</span><span class="dv">\A</span><span class="vs">rqaam_Intern_Case</span><span class="er">\</span><span class="vs">Tadawul All Share Historical Data</span><span class="dv">.</span><span class="vs">csv'</span>))</span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>msci_em <span class="op">=</span> clean_investing_csv(pd.read_csv(<span class="vs">r'C:</span><span class="er">\</span><span class="vs">Users</span><span class="er">\</span><span class="vs">USER</span><span class="dv">\D</span><span class="vs">esktop</span><span class="dv">\A</span><span class="vs">rqaam_Intern_Case</span><span class="dv">\M</span><span class="vs">SCI Emerging Markets Historical Data</span><span class="dv">.</span><span class="vs">csv'</span>))</span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f'Qatar:   </span><span class="sc">{</span><span class="bu">len</span>(qatar)<span class="sc">:,}</span><span class="ss"> days | </span><span class="sc">{</span>qatar[<span class="st">"Date"</span>]<span class="sc">.</span><span class="bu">min</span>()<span class="sc">.</span>date()<span class="sc">}</span><span class="ss"> to </span><span class="sc">{</span>qatar[<span class="st">"Date"</span>]<span class="sc">.</span><span class="bu">max</span>()<span class="sc">.</span>date()<span class="sc">}</span><span class="ss">'</span>)</span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f'Saudi:   </span><span class="sc">{</span><span class="bu">len</span>(saudi)<span class="sc">:,}</span><span class="ss"> days | </span><span class="sc">{</span>saudi[<span class="st">"Date"</span>]<span class="sc">.</span><span class="bu">min</span>()<span class="sc">.</span>date()<span class="sc">}</span><span class="ss"> to </span><span class="sc">{</span>saudi[<span class="st">"Date"</span>]<span class="sc">.</span><span class="bu">max</span>()<span class="sc">.</span>date()<span class="sc">}</span><span class="ss">'</span>)</span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f'MSCI EM: </span><span class="sc">{</span><span class="bu">len</span>(msci_em)<span class="sc">:,}</span><span class="ss"> days | </span><span class="sc">{</span>msci_em[<span class="st">"Date"</span>]<span class="sc">.</span><span class="bu">min</span>()<span class="sc">.</span>date()<span class="sc">}</span><span class="ss"> to </span><span class="sc">{</span>msci_em[<span class="st">"Date"</span>]<span class="sc">.</span><span class="bu">max</span>()<span class="sc">.</span>date()<span class="sc">}</span><span class="ss">'</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Qatar:   744 days | 2012-03-01 to 2015-02-26
+Saudi:   684 days | 2017-09-06 to 2020-05-31
+MSCI EM: 2,329 days | 2012-01-30 to 2020-12-31</code></pre>
+</div>
+</div>
+</section>
+<section id="event-study-configuration" class="level3">
+<h3 class="anchored" data-anchor-id="event-study-configuration">1.4 Event Study Configuration</h3>
+<p>The <code>events</code> dictionary stores three things for each country: the index data, the announcement date, and the inclusion date.</p>
+<p>These two dates are kept separate because they trigger different market behaviour:</p>
+<ul>
+<li><strong>Announcement date</strong>: The day MSCI confirms the upgrade. Active fund managers start buying here in anticipation of future passive flows.</li>
+<li><strong>Inclusion date</strong>: The day the market officially enters the index. Passive funds are forced to buy on this date to match their benchmark weights.</li>
+</ul>
+<p>Keeping them separate is what allows the four windows to isolate different effects.</p>
+<div id="cell-0012" class="cell" data-execution_count="6">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ── EVENT STUDY CONFIGURATION ─────────────────────────────────────────────</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="co"># 126 trading days = approximately 6 calendar months</span></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>WINDOW <span class="op">=</span> <span class="dv">126</span></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Update to your local output directory</span></span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>OUTPUT_PATH <span class="op">=</span> <span class="vs">r"C:</span><span class="er">\</span><span class="vs">Users</span><span class="er">\</span><span class="vs">USER</span><span class="dv">\D</span><span class="vs">esktop</span><span class="dv">\A</span><span class="vs">rqaam_Intern_Case</span><span class="ch">\\</span><span class="vs">"</span></span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>events <span class="op">=</span> {</span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>    <span class="st">'UAE'</span>: {</span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a>        <span class="st">'df'</span>:           uae_combined,</span>
+<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a>        <span class="st">'announcement'</span>: pd.Timestamp(<span class="st">'2013-06-11'</span>),   <span class="co"># MSCI announcement</span></span>
+<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a>        <span class="st">'inclusion'</span>:    pd.Timestamp(<span class="st">'2014-05-31'</span>),   <span class="co"># Effective index entry</span></span>
+<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a>    },</span>
+<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a>    <span class="st">'Qatar'</span>: {</span>
+<span id="cb7-16"><a href="#cb7-16" aria-hidden="true" tabindex="-1"></a>        <span class="st">'df'</span>:           qatar,</span>
+<span id="cb7-17"><a href="#cb7-17" aria-hidden="true" tabindex="-1"></a>        <span class="st">'announcement'</span>: pd.Timestamp(<span class="st">'2013-06-11'</span>),</span>
+<span id="cb7-18"><a href="#cb7-18" aria-hidden="true" tabindex="-1"></a>        <span class="st">'inclusion'</span>:    pd.Timestamp(<span class="st">'2014-05-31'</span>),</span>
+<span id="cb7-19"><a href="#cb7-19" aria-hidden="true" tabindex="-1"></a>    },</span>
+<span id="cb7-20"><a href="#cb7-20" aria-hidden="true" tabindex="-1"></a>    <span class="st">'Saudi'</span>: {</span>
+<span id="cb7-21"><a href="#cb7-21" aria-hidden="true" tabindex="-1"></a>        <span class="st">'df'</span>:           saudi,</span>
+<span id="cb7-22"><a href="#cb7-22" aria-hidden="true" tabindex="-1"></a>        <span class="st">'announcement'</span>: pd.Timestamp(<span class="st">'2018-06-20'</span>),</span>
+<span id="cb7-23"><a href="#cb7-23" aria-hidden="true" tabindex="-1"></a>        <span class="st">'inclusion'</span>:    pd.Timestamp(<span class="st">'2019-05-28'</span>),</span>
+<span id="cb7-24"><a href="#cb7-24" aria-hidden="true" tabindex="-1"></a>    },</span>
+<span id="cb7-25"><a href="#cb7-25" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+<section id="analytical-functions" class="level3">
+<h3 class="anchored" data-anchor-id="analytical-functions">1.5 Analytical Functions</h3>
+<p>Four functions form the engine of the event study. Defined separately so each can be read and verified in isolation before the main loop runs them in sequence.</p>
+<div id="cell-0014" class="cell" data-execution_count="7">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ── WINDOW SLICER ─────────────────────────────────────────────────────────</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Locates announcement and inclusion dates by index position, then slices</span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="co"># four equal WINDOW-length windows around each anchor date.</span></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Window 1 — Pre-Announcement  : 126 days before the announcement date  (baseline)</span></span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Window 2 — Early Transition  : 126 days after the announcement date   (active repositioning)</span></span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Window 3 — Late Transition   : 126 days before the inclusion date     (passive front-running)</span></span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Window 4 — Post-Inclusion    : 126 days after the inclusion date      (effects sustained or reversed)</span></span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Windows 2 and 3 may overlap when announcement-to-inclusion gap &lt; WINDOW.</span></span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a><span class="co"># This is by design — they measure different investor behaviours.</span></span>
+<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> get_windows(df, ann, inc, window):</span>
+<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a>    ann_idx <span class="op">=</span> df[df[<span class="st">'Date'</span>] <span class="op">&gt;=</span> ann].index[<span class="dv">0</span>]</span>
+<span id="cb8-15"><a href="#cb8-15" aria-hidden="true" tabindex="-1"></a>    inc_idx <span class="op">=</span> df[df[<span class="st">'Date'</span>] <span class="op">&gt;=</span> inc].index[<span class="dv">0</span>]</span>
+<span id="cb8-16"><a href="#cb8-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-17"><a href="#cb8-17" aria-hidden="true" tabindex="-1"></a>    pre         <span class="op">=</span> df.iloc[ann_idx <span class="op">-</span> window : ann_idx].copy()</span>
+<span id="cb8-18"><a href="#cb8-18" aria-hidden="true" tabindex="-1"></a>    early_trans <span class="op">=</span> df.iloc[ann_idx           : ann_idx <span class="op">+</span> window].copy()</span>
+<span id="cb8-19"><a href="#cb8-19" aria-hidden="true" tabindex="-1"></a>    late_trans  <span class="op">=</span> df.iloc[inc_idx <span class="op">-</span> window  : inc_idx].copy()</span>
+<span id="cb8-20"><a href="#cb8-20" aria-hidden="true" tabindex="-1"></a>    post        <span class="op">=</span> df.iloc[inc_idx           : inc_idx <span class="op">+</span> window].copy()</span>
+<span id="cb8-21"><a href="#cb8-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-22"><a href="#cb8-22" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> {</span>
+<span id="cb8-23"><a href="#cb8-23" aria-hidden="true" tabindex="-1"></a>        <span class="st">'Pre-Announcement'</span>: pre,</span>
+<span id="cb8-24"><a href="#cb8-24" aria-hidden="true" tabindex="-1"></a>        <span class="st">'Early Transition'</span>: early_trans,</span>
+<span id="cb8-25"><a href="#cb8-25" aria-hidden="true" tabindex="-1"></a>        <span class="st">'Late Transition'</span>:  late_trans,</span>
+<span id="cb8-26"><a href="#cb8-26" aria-hidden="true" tabindex="-1"></a>        <span class="st">'Post-Inclusion'</span>:   post,</span>
+<span id="cb8-27"><a href="#cb8-27" aria-hidden="true" tabindex="-1"></a>    }</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div id="cell-0015" class="cell" data-execution_count="8">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ── ROLLING CORRELATION — PRECOMPUTE ON FULL DATASET ──────────────────────</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Must be calculated BEFORE window slicing. If calculated per window, the</span></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="co"># first 60 rows of each window produce NaN because the rolling lookback has</span></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="co"># no prior history. Running on the full series first avoids this distortion.</span></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> precompute_rolling_corr(df, msci_em, window<span class="op">=</span><span class="dv">60</span>):</span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>    merged <span class="op">=</span> pd.merge(</span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>        df[[<span class="st">'Date'</span>, <span class="st">'return'</span>]],</span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>        msci_em[[<span class="st">'Date'</span>, <span class="st">'return'</span>]].rename(columns<span class="op">=</span>{<span class="st">'return'</span>: <span class="st">'msci_return'</span>}),</span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a>        on<span class="op">=</span><span class="st">'Date'</span>, how<span class="op">=</span><span class="st">'inner'</span></span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a>    <span class="co"># 60-day rolling Pearson correlation: country daily returns vs MSCI EM daily returns</span></span>
+<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a>    merged[<span class="st">'Rolling_Corr_60d'</span>] <span class="op">=</span> merged[<span class="st">'return'</span>].rolling(window).corr(merged[<span class="st">'msci_return'</span>])</span>
+<span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> merged[[<span class="st">'Date'</span>, <span class="st">'Rolling_Corr_60d'</span>]]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div id="cell-0016" class="cell" data-execution_count="9">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ── METRIC CALCULATIONS ───────────────────────────────────────────────────</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Computes all four transmission channel metrics per window.</span></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Returns a tidy DataFrame with one row per window.</span></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Ch.1 Price:       Cumulative simple return (compounded daily)</span></span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Ch.2 Liquidity:   Avg daily share volume; uplift vs pre-announcement baseline</span></span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Ch.3 Volatility:  Daily return std x sqrt(252) =&gt; annualised</span></span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Ch.4 Correlation: Avg 60-day rolling correlation with MSCI EM within window</span></span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> calc_metrics(windows, corr_series):</span>
+<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a>    results     <span class="op">=</span> {}</span>
+<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a>    pre_avg_vol <span class="op">=</span> windows[<span class="st">'Pre-Announcement'</span>][<span class="st">'Vol.'</span>].mean()</span>
+<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-14"><a href="#cb10-14" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> window_name, df <span class="kw">in</span> windows.items():</span>
+<span id="cb10-15"><a href="#cb10-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-16"><a href="#cb10-16" aria-hidden="true" tabindex="-1"></a>        cum_return_pct <span class="op">=</span> <span class="bu">round</span>(((<span class="dv">1</span> <span class="op">+</span> df[<span class="st">'return'</span>]).prod() <span class="op">-</span> <span class="dv">1</span>) <span class="op">*</span> <span class="dv">100</span>, <span class="dv">2</span>)</span>
+<span id="cb10-17"><a href="#cb10-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-18"><a href="#cb10-18" aria-hidden="true" tabindex="-1"></a>        avg_daily_vol  <span class="op">=</span> df[<span class="st">'Vol.'</span>].mean()</span>
+<span id="cb10-19"><a href="#cb10-19" aria-hidden="true" tabindex="-1"></a>        vol_uplift_pct <span class="op">=</span> <span class="bu">round</span>(((avg_daily_vol <span class="op">/</span> pre_avg_vol) <span class="op">-</span> <span class="dv">1</span>) <span class="op">*</span> <span class="dv">100</span>, <span class="dv">2</span>)</span>
+<span id="cb10-20"><a href="#cb10-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-21"><a href="#cb10-21" aria-hidden="true" tabindex="-1"></a>        ann_vol_pct <span class="op">=</span> <span class="bu">round</span>(df[<span class="st">'return'</span>].std() <span class="op">*</span> np.sqrt(<span class="dv">252</span>) <span class="op">*</span> <span class="dv">100</span>, <span class="dv">2</span>)</span>
+<span id="cb10-22"><a href="#cb10-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-23"><a href="#cb10-23" aria-hidden="true" tabindex="-1"></a>        window_corr <span class="op">=</span> corr_series[</span>
+<span id="cb10-24"><a href="#cb10-24" aria-hidden="true" tabindex="-1"></a>            (corr_series[<span class="st">'Date'</span>] <span class="op">&gt;=</span> df[<span class="st">'Date'</span>].<span class="bu">min</span>()) <span class="op">&amp;</span></span>
+<span id="cb10-25"><a href="#cb10-25" aria-hidden="true" tabindex="-1"></a>            (corr_series[<span class="st">'Date'</span>] <span class="op">&lt;=</span> df[<span class="st">'Date'</span>].<span class="bu">max</span>())</span>
+<span id="cb10-26"><a href="#cb10-26" aria-hidden="true" tabindex="-1"></a>        ][<span class="st">'Rolling_Corr_60d'</span>].dropna()</span>
+<span id="cb10-27"><a href="#cb10-27" aria-hidden="true" tabindex="-1"></a>        avg_corr <span class="op">=</span> <span class="bu">round</span>(window_corr.mean(), <span class="dv">3</span>)</span>
+<span id="cb10-28"><a href="#cb10-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-29"><a href="#cb10-29" aria-hidden="true" tabindex="-1"></a>        results[window_name] <span class="op">=</span> {</span>
+<span id="cb10-30"><a href="#cb10-30" aria-hidden="true" tabindex="-1"></a>            <span class="st">'Cumulative Return (%)'</span>:        cum_return_pct,</span>
+<span id="cb10-31"><a href="#cb10-31" aria-hidden="true" tabindex="-1"></a>            <span class="st">'Avg Daily Volume'</span>:             <span class="bu">round</span>(avg_daily_vol, <span class="dv">2</span>),</span>
+<span id="cb10-32"><a href="#cb10-32" aria-hidden="true" tabindex="-1"></a>            <span class="st">'Volume Uplift vs Pre-Ann (%)'</span>: vol_uplift_pct,</span>
+<span id="cb10-33"><a href="#cb10-33" aria-hidden="true" tabindex="-1"></a>            <span class="st">'Annualised Volatility (%)'</span>:    ann_vol_pct,</span>
+<span id="cb10-34"><a href="#cb10-34" aria-hidden="true" tabindex="-1"></a>            <span class="st">'Avg Rolling Correlation'</span>:      avg_corr,</span>
+<span id="cb10-35"><a href="#cb10-35" aria-hidden="true" tabindex="-1"></a>        }</span>
+<span id="cb10-36"><a href="#cb10-36" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-37"><a href="#cb10-37" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> pd.DataFrame(results).T.reset_index().rename(columns<span class="op">=</span>{<span class="st">'index'</span>: <span class="st">'Window'</span>})</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div id="cell-0017" class="cell" data-execution_count="10">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ── ROLLING CORRELATION SERIES — FULL STUDY PERIOD ────────────────────────</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Extracts the correlation time series spanning the full study window.</span></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Tags each row with its window label and adds event date markers</span></span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a><span class="co"># used for chart vertical reference lines.</span></span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> calc_rolling_corr_series(corr_series, df, ann, inc, window):</span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>    ann_idx <span class="op">=</span> df[df[<span class="st">'Date'</span>] <span class="op">&gt;=</span> ann].index[<span class="dv">0</span>]</span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a>    inc_idx <span class="op">=</span> df[df[<span class="st">'Date'</span>] <span class="op">&gt;=</span> inc].index[<span class="dv">0</span>]</span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a>    start_date <span class="op">=</span> df.iloc[ann_idx <span class="op">-</span> window][<span class="st">'Date'</span>]</span>
+<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a>    end_date   <span class="op">=</span> df.iloc[<span class="bu">min</span>(inc_idx <span class="op">+</span> window, <span class="bu">len</span>(df) <span class="op">-</span> <span class="dv">1</span>)][<span class="st">'Date'</span>]</span>
+<span id="cb11-12"><a href="#cb11-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-13"><a href="#cb11-13" aria-hidden="true" tabindex="-1"></a>    result <span class="op">=</span> corr_series[</span>
+<span id="cb11-14"><a href="#cb11-14" aria-hidden="true" tabindex="-1"></a>        (corr_series[<span class="st">'Date'</span>] <span class="op">&gt;=</span> start_date) <span class="op">&amp;</span></span>
+<span id="cb11-15"><a href="#cb11-15" aria-hidden="true" tabindex="-1"></a>        (corr_series[<span class="st">'Date'</span>] <span class="op">&lt;=</span> end_date)</span>
+<span id="cb11-16"><a href="#cb11-16" aria-hidden="true" tabindex="-1"></a>    ].copy()</span>
+<span id="cb11-17"><a href="#cb11-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-18"><a href="#cb11-18" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> tag_window(date):</span>
+<span id="cb11-19"><a href="#cb11-19" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> date <span class="op">&lt;</span> ann:                              <span class="cf">return</span> <span class="st">'Pre-Announcement'</span></span>
+<span id="cb11-20"><a href="#cb11-20" aria-hidden="true" tabindex="-1"></a>        <span class="cf">elif</span> date <span class="op">&lt;</span> ann <span class="op">+</span> pd.DateOffset(months<span class="op">=</span><span class="dv">6</span>): <span class="cf">return</span> <span class="st">'Early Transition'</span></span>
+<span id="cb11-21"><a href="#cb11-21" aria-hidden="true" tabindex="-1"></a>        <span class="cf">elif</span> date <span class="op">&lt;</span> inc:                            <span class="cf">return</span> <span class="st">'Late Transition'</span></span>
+<span id="cb11-22"><a href="#cb11-22" aria-hidden="true" tabindex="-1"></a>        <span class="cf">else</span>:                                       <span class="cf">return</span> <span class="st">'Post-Inclusion'</span></span>
+<span id="cb11-23"><a href="#cb11-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-24"><a href="#cb11-24" aria-hidden="true" tabindex="-1"></a>    result[<span class="st">'Window'</span>]            <span class="op">=</span> result[<span class="st">'Date'</span>].<span class="bu">apply</span>(tag_window)</span>
+<span id="cb11-25"><a href="#cb11-25" aria-hidden="true" tabindex="-1"></a>    result[<span class="st">'Announcement_Date'</span>] <span class="op">=</span> ann</span>
+<span id="cb11-26"><a href="#cb11-26" aria-hidden="true" tabindex="-1"></a>    result[<span class="st">'Inclusion_Date'</span>]    <span class="op">=</span> inc</span>
+<span id="cb11-27"><a href="#cb11-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-28"><a href="#cb11-28" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> result[[<span class="st">'Date'</span>, <span class="st">'Rolling_Corr_60d'</span>, <span class="st">'Window'</span>, <span class="st">'Announcement_Date'</span>, <span class="st">'Inclusion_Date'</span>]]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+<section id="results-four-transmission-channels" class="level3">
+<h3 class="anchored" data-anchor-id="results-four-transmission-channels">1.6 Results — Four Transmission Channels</h3>
+<p>Each channel is calculated separately across all three countries and saved to Excel for chart building.</p>
+<p><strong>Price Performance</strong>: Cumulative return per window, re-indexed to 100 at the start so returns are comparable regardless of starting price level. The full announcement-to-inclusion return is also calculated by slicing directly between the two anchor dates, capturing the total transition period as a single number.</p>
+<p><strong>Liquidity</strong>: Average daily share volume per window measured as a % change vs the pre-announcement baseline. This isolates upgrade-driven trading activity from normal market variation.</p>
+<p><strong>Volatility</strong>: Annualised volatility per window, calculated as daily return standard deviation × √252. Comparing across windows shows whether the upgrade process introduced uncertainty into the market or whether conditions stabilised over time.</p>
+<p><strong>Correlation</strong>: 60-day rolling correlation with MSCI EM per window. Correlation is precomputed on the full dataset before slicing into windows to avoid NaN distortion that would appear if calculated on each window independently.</p>
+<div id="dda9b80d" class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ── CHANNEL 1: PRICE PERFORMANCE ──────────────────────────────────────────</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> country, config <span class="kw">in</span> events.items():</span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>    df  <span class="op">=</span> config[<span class="st">'df'</span>].copy().reset_index(drop<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>    ann <span class="op">=</span> config[<span class="st">'announcement'</span>]</span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>    inc <span class="op">=</span> config[<span class="st">'inclusion'</span>]</span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a>    windows <span class="op">=</span> get_windows(df, ann, inc, WINDOW)</span>
+<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Build day-by-day indexed price path for each window</span></span>
+<span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a>    price_rows <span class="op">=</span> []</span>
+<span id="cb12-12"><a href="#cb12-12" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> window_name, wdf <span class="kw">in</span> windows.items():</span>
+<span id="cb12-13"><a href="#cb12-13" aria-hidden="true" tabindex="-1"></a>        wdf <span class="op">=</span> wdf.copy().reset_index(drop<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb12-14"><a href="#cb12-14" aria-hidden="true" tabindex="-1"></a>        wdf[<span class="st">'Indexed_Price'</span>] <span class="op">=</span> <span class="dv">100</span> <span class="op">*</span> (<span class="dv">1</span> <span class="op">+</span> wdf[<span class="st">'return'</span>]).cumprod()</span>
+<span id="cb12-15"><a href="#cb12-15" aria-hidden="true" tabindex="-1"></a>        wdf.loc[wdf.index[<span class="dv">0</span>], <span class="st">'Indexed_Price'</span>] <span class="op">=</span> <span class="dv">100</span></span>
+<span id="cb12-16"><a href="#cb12-16" aria-hidden="true" tabindex="-1"></a>        wdf[<span class="st">'Window'</span>] <span class="op">=</span> window_name</span>
+<span id="cb12-17"><a href="#cb12-17" aria-hidden="true" tabindex="-1"></a>        wdf[<span class="st">'Day'</span>]    <span class="op">=</span> <span class="bu">range</span>(<span class="dv">1</span>, <span class="bu">len</span>(wdf) <span class="op">+</span> <span class="dv">1</span>)</span>
+<span id="cb12-18"><a href="#cb12-18" aria-hidden="true" tabindex="-1"></a>        price_rows.append(wdf[[<span class="st">'Day'</span>, <span class="st">'Window'</span>, <span class="st">'Indexed_Price'</span>, <span class="st">'Date'</span>]])</span>
+<span id="cb12-19"><a href="#cb12-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-20"><a href="#cb12-20" aria-hidden="true" tabindex="-1"></a>    price_df <span class="op">=</span> pd.concat(price_rows, ignore_index<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb12-21"><a href="#cb12-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-22"><a href="#cb12-22" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Announcement-to-inclusion return: slice raw data between the two dates</span></span>
+<span id="cb12-23"><a href="#cb12-23" aria-hidden="true" tabindex="-1"></a>    transition <span class="op">=</span> df[(df[<span class="st">'Date'</span>] <span class="op">&gt;=</span> ann) <span class="op">&amp;</span> (df[<span class="st">'Date'</span>] <span class="op">&lt;</span> inc)].copy()</span>
+<span id="cb12-24"><a href="#cb12-24" aria-hidden="true" tabindex="-1"></a>    ann_to_inc <span class="op">=</span> <span class="bu">round</span>(((<span class="dv">1</span> <span class="op">+</span> transition[<span class="st">'return'</span>]).prod() <span class="op">-</span> <span class="dv">1</span>) <span class="op">*</span> <span class="dv">100</span>, <span class="dv">2</span>)</span>
+<span id="cb12-25"><a href="#cb12-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-26"><a href="#cb12-26" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Display summary</span></span>
+<span id="cb12-27"><a href="#cb12-27" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f'</span><span class="ch">\n</span><span class="sc">{</span>country<span class="sc">}</span><span class="ss">  |  Announcement: </span><span class="sc">{</span>ann<span class="sc">.</span>date()<span class="sc">}</span><span class="ss">  |  Inclusion: </span><span class="sc">{</span>inc<span class="sc">.</span>date()<span class="sc">}</span><span class="ss">'</span>)</span>
+<span id="cb12-28"><a href="#cb12-28" aria-hidden="true" tabindex="-1"></a>    summary <span class="op">=</span> (</span>
+<span id="cb12-29"><a href="#cb12-29" aria-hidden="true" tabindex="-1"></a>        price_df.groupby(<span class="st">'Window'</span>)[<span class="st">'Indexed_Price'</span>]</span>
+<span id="cb12-30"><a href="#cb12-30" aria-hidden="true" tabindex="-1"></a>        .last().sub(<span class="dv">100</span>)</span>
+<span id="cb12-31"><a href="#cb12-31" aria-hidden="true" tabindex="-1"></a>        .rename(<span class="st">'Cumulative Return (%)'</span>)</span>
+<span id="cb12-32"><a href="#cb12-32" aria-hidden="true" tabindex="-1"></a>        .reindex([<span class="st">'Pre-Announcement'</span>, <span class="st">'Early Transition'</span>, <span class="st">'Late Transition'</span>, <span class="st">'Post-Inclusion'</span>])</span>
+<span id="cb12-33"><a href="#cb12-33" aria-hidden="true" tabindex="-1"></a>        .to_frame()</span>
+<span id="cb12-34"><a href="#cb12-34" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb12-35"><a href="#cb12-35" aria-hidden="true" tabindex="-1"></a>    display(summary.style.<span class="bu">format</span>(<span class="st">'</span><span class="sc">{:+.2f}</span><span class="st">%'</span>))</span>
+<span id="cb12-36"><a href="#cb12-36" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f'  Announcement to Inclusion (full period): </span><span class="sc">{</span>ann_to_inc<span class="sc">:+.2f}</span><span class="ss">%'</span>)</span>
+<span id="cb12-37"><a href="#cb12-37" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-38"><a href="#cb12-38" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Save day-by-day indexed price data to Excel for chart building</span></span>
+<span id="cb12-39"><a href="#cb12-39" aria-hidden="true" tabindex="-1"></a>    price_df.to_excel(<span class="ss">f'</span><span class="sc">{</span>OUTPUT_PATH<span class="sc">}{</span>country<span class="sc">}</span><span class="ss">_Price.xlsx'</span>, index<span class="op">=</span><span class="va">False</span>)</span>
+<span id="cb12-40"><a href="#cb12-40" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f'  </span><span class="sc">{</span>country<span class="sc">}</span><span class="ss">_Price.xlsx saved'</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+UAE  |  Announcement: 2013-06-11  |  Inclusion: 2014-05-31</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<style type="text/css">
+</style>
+
+<table id="T_fd454" class="caption-top table table-sm table-striped small">
+<thead>
+<tr class="header">
+<th class="blank level0" data-quarto-table-cell-role="th">&nbsp;</th>
+<th id="T_fd454_level0_col0" class="col_heading level0 col0" data-quarto-table-cell-role="th">Cumulative Return (%)</th>
+</tr>
+<tr class="even">
+<th class="index_name level0" data-quarto-table-cell-role="th">Window</th>
+<th class="blank col0" data-quarto-table-cell-role="th">&nbsp;</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<th id="T_fd454_level0_row0" class="row_heading level0 row0" data-quarto-table-cell-role="th">Pre-Announcement</th>
+<td id="T_fd454_row0_col0" class="data row0 col0">+39.44%</td>
+</tr>
+<tr class="even">
+<th id="T_fd454_level0_row1" class="row_heading level0 row1" data-quarto-table-cell-role="th">Early Transition</th>
+<td id="T_fd454_row1_col0" class="data row1 col0">+19.70%</td>
+</tr>
+<tr class="odd">
+<th id="T_fd454_level0_row2" class="row_heading level0 row2" data-quarto-table-cell-role="th">Late Transition</th>
+<td id="T_fd454_row2_col0" class="data row2 col0">+46.72%</td>
+</tr>
+<tr class="even">
+<th id="T_fd454_level0_row3" class="row_heading level0 row3" data-quarto-table-cell-role="th">Post-Inclusion</th>
+<td id="T_fd454_row3_col0" class="data row3 col0">-12.30%</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  Announcement to Inclusion (full period): +66.30%
+  UAE_Price.xlsx saved
+
+Qatar  |  Announcement: 2013-06-11  |  Inclusion: 2014-05-31</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<style type="text/css">
+</style>
+
+<table id="T_660ae" class="caption-top table table-sm table-striped small">
+<thead>
+<tr class="header">
+<th class="blank level0" data-quarto-table-cell-role="th">&nbsp;</th>
+<th id="T_660ae_level0_col0" class="col_heading level0 col0" data-quarto-table-cell-role="th">Cumulative Return (%)</th>
+</tr>
+<tr class="even">
+<th class="index_name level0" data-quarto-table-cell-role="th">Window</th>
+<th class="blank col0" data-quarto-table-cell-role="th">&nbsp;</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<th id="T_660ae_level0_row0" class="row_heading level0 row0" data-quarto-table-cell-role="th">Pre-Announcement</th>
+<td id="T_660ae_row0_col0" class="data row0 col0">+18.08%</td>
+</tr>
+<tr class="even">
+<th id="T_660ae_level0_row1" class="row_heading level0 row1" data-quarto-table-cell-role="th">Early Transition</th>
+<td id="T_660ae_row1_col0" class="data row1 col0">+10.12%</td>
+</tr>
+<tr class="odd">
+<th id="T_660ae_level0_row2" class="row_heading level0 row2" data-quarto-table-cell-role="th">Late Transition</th>
+<td id="T_660ae_row2_col0" class="data row2 col0">+32.66%</td>
+</tr>
+<tr class="even">
+<th id="T_660ae_level0_row3" class="row_heading level0 row3" data-quarto-table-cell-role="th">Post-Inclusion</th>
+<td id="T_660ae_row3_col0" class="data row3 col0">-4.94%</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  Announcement to Inclusion (full period): +44.41%
+  Qatar_Price.xlsx saved
+
+Saudi  |  Announcement: 2018-06-20  |  Inclusion: 2019-05-28</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<style type="text/css">
+</style>
+
+<table id="T_1da53" class="caption-top table table-sm table-striped small">
+<thead>
+<tr class="header">
+<th class="blank level0" data-quarto-table-cell-role="th">&nbsp;</th>
+<th id="T_1da53_level0_col0" class="col_heading level0 col0" data-quarto-table-cell-role="th">Cumulative Return (%)</th>
+</tr>
+<tr class="even">
+<th class="index_name level0" data-quarto-table-cell-role="th">Window</th>
+<th class="blank col0" data-quarto-table-cell-role="th">&nbsp;</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<th id="T_1da53_level0_row0" class="row_heading level0 row0" data-quarto-table-cell-role="th">Pre-Announcement</th>
+<td id="T_1da53_row0_col0" class="data row0 col0">+15.00%</td>
+</tr>
+<tr class="even">
+<th id="T_1da53_level0_row1" class="row_heading level0 row1" data-quarto-table-cell-role="th">Early Transition</th>
+<td id="T_1da53_row1_col0" class="data row1 col0">-6.53%</td>
+</tr>
+<tr class="odd">
+<th id="T_1da53_level0_row2" class="row_heading level0 row2" data-quarto-table-cell-role="th">Late Transition</th>
+<td id="T_1da53_row2_col0" class="data row2 col0">+6.84%</td>
+</tr>
+<tr class="even">
+<th id="T_1da53_level0_row3" class="row_heading level0 row3" data-quarto-table-cell-role="th">Post-Inclusion</th>
+<td id="T_1da53_row3_col0" class="data row3 col0">-6.09%</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  Announcement to Inclusion (full period): +1.35%
+  Saudi_Price.xlsx saved</code></pre>
+</div>
+</div>
+<div id="f0d159ef" class="cell" data-execution_count="20">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ── PLOT: INDEXED PRICE PATH ───────────────────────────────────────────────</span></span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="co"># One subplot per country, four lines per chart — one per window.</span></span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Reads from the saved Excel files so this cell can be run independently.</span></span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>fig, axes <span class="op">=</span> plt.subplots(<span class="dv">1</span>, <span class="dv">3</span>, figsize<span class="op">=</span>(<span class="dv">16</span>, <span class="dv">4</span>), sharey<span class="op">=</span><span class="va">False</span>)</span>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a>fig.suptitle(<span class="st">'Indexed Price Path by Window (Base = 100)'</span>, fontsize<span class="op">=</span><span class="dv">12</span>, fontweight<span class="op">=</span><span class="st">'bold'</span>)</span>
+<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> ax, country <span class="kw">in</span> <span class="bu">zip</span>(axes, events.keys()):</span>
+<span id="cb17-9"><a href="#cb17-9" aria-hidden="true" tabindex="-1"></a>    df_plot <span class="op">=</span> pd.read_excel(<span class="ss">f'</span><span class="sc">{</span>OUTPUT_PATH<span class="sc">}{</span>country<span class="sc">}</span><span class="ss">_Price.xlsx'</span>)</span>
+<span id="cb17-10"><a href="#cb17-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-11"><a href="#cb17-11" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> window_name, group <span class="kw">in</span> df_plot.groupby(<span class="st">'Window'</span>):</span>
+<span id="cb17-12"><a href="#cb17-12" aria-hidden="true" tabindex="-1"></a>        ax.plot(group[<span class="st">'Day'</span>].values, group[<span class="st">'Indexed_Price'</span>].values,</span>
+<span id="cb17-13"><a href="#cb17-13" aria-hidden="true" tabindex="-1"></a>                label<span class="op">=</span>window_name, color<span class="op">=</span>WINDOW_COLORS[window_name], linewidth<span class="op">=</span><span class="dv">2</span>)</span>
+<span id="cb17-14"><a href="#cb17-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-15"><a href="#cb17-15" aria-hidden="true" tabindex="-1"></a>    ax.axhline(<span class="dv">100</span>, color<span class="op">=</span><span class="st">'grey'</span>, linewidth<span class="op">=</span><span class="fl">0.8</span>, linestyle<span class="op">=</span><span class="st">'--'</span>, alpha<span class="op">=</span><span class="fl">0.5</span>)</span>
+<span id="cb17-16"><a href="#cb17-16" aria-hidden="true" tabindex="-1"></a>    ax.set_title(country)</span>
+<span id="cb17-17"><a href="#cb17-17" aria-hidden="true" tabindex="-1"></a>    ax.set_xlabel(<span class="st">'Trading Days'</span>)</span>
+<span id="cb17-18"><a href="#cb17-18" aria-hidden="true" tabindex="-1"></a>    ax.set_ylabel(<span class="st">'Index Level'</span>)</span>
+<span id="cb17-19"><a href="#cb17-19" aria-hidden="true" tabindex="-1"></a>    ax.legend(fontsize<span class="op">=</span><span class="dv">7</span>)</span>
+<span id="cb17-20"><a href="#cb17-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-21"><a href="#cb17-21" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span>
+<span id="cb17-22"><a href="#cb17-22" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="2026-06-15-GCC-Equity-Markets-MSCI_files/figure-html/cell-12-output-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<div id="436899b6" class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ── CHANNEL 2: LIQUIDITY ───────────────────────────────────────────────────</span></span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> country, config <span class="kw">in</span> events.items():</span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>    df  <span class="op">=</span> config[<span class="st">'df'</span>].copy().reset_index(drop<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a>    ann <span class="op">=</span> config[<span class="st">'announcement'</span>]</span>
+<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a>    inc <span class="op">=</span> config[<span class="st">'inclusion'</span>]</span>
+<span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-8"><a href="#cb18-8" aria-hidden="true" tabindex="-1"></a>    windows  <span class="op">=</span> get_windows(df, ann, inc, WINDOW)</span>
+<span id="cb18-9"><a href="#cb18-9" aria-hidden="true" tabindex="-1"></a>    pre_avg  <span class="op">=</span> windows[<span class="st">'Pre-Announcement'</span>][<span class="st">'Vol.'</span>].mean()</span>
+<span id="cb18-10"><a href="#cb18-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-11"><a href="#cb18-11" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Build day-by-day volume data with uplift vs pre-announcement baseline</span></span>
+<span id="cb18-12"><a href="#cb18-12" aria-hidden="true" tabindex="-1"></a>    vol_rows <span class="op">=</span> []</span>
+<span id="cb18-13"><a href="#cb18-13" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> window_name, wdf <span class="kw">in</span> windows.items():</span>
+<span id="cb18-14"><a href="#cb18-14" aria-hidden="true" tabindex="-1"></a>        wdf <span class="op">=</span> wdf.copy().reset_index(drop<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb18-15"><a href="#cb18-15" aria-hidden="true" tabindex="-1"></a>        wdf[<span class="st">'Window'</span>]            <span class="op">=</span> window_name</span>
+<span id="cb18-16"><a href="#cb18-16" aria-hidden="true" tabindex="-1"></a>        wdf[<span class="st">'Avg_Daily_Volume'</span>]  <span class="op">=</span> wdf[<span class="st">'Vol.'</span>].mean()</span>
+<span id="cb18-17"><a href="#cb18-17" aria-hidden="true" tabindex="-1"></a>        wdf[<span class="st">'Volume_Uplift_Pct'</span>] <span class="op">=</span> <span class="bu">round</span>(((wdf[<span class="st">'Vol.'</span>].mean() <span class="op">/</span> pre_avg) <span class="op">-</span> <span class="dv">1</span>) <span class="op">*</span> <span class="dv">100</span>, <span class="dv">2</span>)</span>
+<span id="cb18-18"><a href="#cb18-18" aria-hidden="true" tabindex="-1"></a>        vol_rows.append(wdf[[<span class="st">'Date'</span>, <span class="st">'Window'</span>, <span class="st">'Vol.'</span>, <span class="st">'Avg_Daily_Volume'</span>, <span class="st">'Volume_Uplift_Pct'</span>]])</span>
+<span id="cb18-19"><a href="#cb18-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-20"><a href="#cb18-20" aria-hidden="true" tabindex="-1"></a>    vol_df <span class="op">=</span> pd.concat(vol_rows, ignore_index<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb18-21"><a href="#cb18-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-22"><a href="#cb18-22" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Display uplift summary</span></span>
+<span id="cb18-23"><a href="#cb18-23" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f'</span><span class="ch">\n</span><span class="sc">{</span>country<span class="sc">}</span><span class="ss">'</span>)</span>
+<span id="cb18-24"><a href="#cb18-24" aria-hidden="true" tabindex="-1"></a>    summary <span class="op">=</span> (</span>
+<span id="cb18-25"><a href="#cb18-25" aria-hidden="true" tabindex="-1"></a>        vol_df.groupby(<span class="st">'Window'</span>)[[<span class="st">'Avg_Daily_Volume'</span>, <span class="st">'Volume_Uplift_Pct'</span>]]</span>
+<span id="cb18-26"><a href="#cb18-26" aria-hidden="true" tabindex="-1"></a>        .first()</span>
+<span id="cb18-27"><a href="#cb18-27" aria-hidden="true" tabindex="-1"></a>        .reindex([<span class="st">'Pre-Announcement'</span>, <span class="st">'Early Transition'</span>, <span class="st">'Late Transition'</span>, <span class="st">'Post-Inclusion'</span>])</span>
+<span id="cb18-28"><a href="#cb18-28" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb18-29"><a href="#cb18-29" aria-hidden="true" tabindex="-1"></a>    display(summary.style.<span class="bu">format</span>({<span class="st">'Avg_Daily_Volume'</span>: <span class="st">'</span><span class="sc">{:,.0f}</span><span class="st">'</span>, <span class="st">'Volume_Uplift_Pct'</span>: <span class="st">'</span><span class="sc">{:+.2f}</span><span class="st">%'</span>}))</span>
+<span id="cb18-30"><a href="#cb18-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-31"><a href="#cb18-31" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Save day-by-day volume data to Excel for chart building</span></span>
+<span id="cb18-32"><a href="#cb18-32" aria-hidden="true" tabindex="-1"></a>    vol_df.to_excel(<span class="ss">f'</span><span class="sc">{</span>OUTPUT_PATH<span class="sc">}{</span>country<span class="sc">}</span><span class="ss">_Volume.xlsx'</span>, index<span class="op">=</span><span class="va">False</span>)</span>
+<span id="cb18-33"><a href="#cb18-33" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f'  </span><span class="sc">{</span>country<span class="sc">}</span><span class="ss">_Volume.xlsx saved'</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+UAE</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<style type="text/css">
+</style>
+
+<table id="T_81f0c" class="caption-top table table-sm table-striped small">
+<thead>
+<tr class="header">
+<th class="blank level0" data-quarto-table-cell-role="th">&nbsp;</th>
+<th id="T_81f0c_level0_col0" class="col_heading level0 col0" data-quarto-table-cell-role="th">Avg_Daily_Volume</th>
+<th id="T_81f0c_level0_col1" class="col_heading level0 col1" data-quarto-table-cell-role="th">Volume_Uplift_Pct</th>
+</tr>
+<tr class="even">
+<th class="index_name level0" data-quarto-table-cell-role="th">Window</th>
+<th class="blank col0" data-quarto-table-cell-role="th">&nbsp;</th>
+<th class="blank col1" data-quarto-table-cell-role="th">&nbsp;</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<th id="T_81f0c_level0_row0" class="row_heading level0 row0" data-quarto-table-cell-role="th">Pre-Announcement</th>
+<td id="T_81f0c_row0_col0" class="data row0 col0">413,341,270</td>
+<td id="T_81f0c_row0_col1" class="data row0 col1">+0.00%</td>
+</tr>
+<tr class="even">
+<th id="T_81f0c_level0_row1" class="row_heading level0 row1" data-quarto-table-cell-role="th">Early Transition</th>
+<td id="T_81f0c_row1_col0" class="data row1 col0">682,655,238</td>
+<td id="T_81f0c_row1_col1" class="data row1 col1">+65.16%</td>
+</tr>
+<tr class="odd">
+<th id="T_81f0c_level0_row2" class="row_heading level0 row2" data-quarto-table-cell-role="th">Late Transition</th>
+<td id="T_81f0c_row2_col0" class="data row2 col0">940,914,444</td>
+<td id="T_81f0c_row2_col1" class="data row2 col1">+127.64%</td>
+</tr>
+<tr class="even">
+<th id="T_81f0c_level0_row3" class="row_heading level0 row3" data-quarto-table-cell-role="th">Post-Inclusion</th>
+<td id="T_81f0c_row3_col0" class="data row3 col0">475,064,206</td>
+<td id="T_81f0c_row3_col1" class="data row3 col1">+14.93%</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  UAE_Volume.xlsx saved
+
+Qatar</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<style type="text/css">
+</style>
+
+<table id="T_87cdf" class="caption-top table table-sm table-striped small">
+<thead>
+<tr class="header">
+<th class="blank level0" data-quarto-table-cell-role="th">&nbsp;</th>
+<th id="T_87cdf_level0_col0" class="col_heading level0 col0" data-quarto-table-cell-role="th">Avg_Daily_Volume</th>
+<th id="T_87cdf_level0_col1" class="col_heading level0 col1" data-quarto-table-cell-role="th">Volume_Uplift_Pct</th>
+</tr>
+<tr class="even">
+<th class="index_name level0" data-quarto-table-cell-role="th">Window</th>
+<th class="blank col0" data-quarto-table-cell-role="th">&nbsp;</th>
+<th class="blank col1" data-quarto-table-cell-role="th">&nbsp;</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<th id="T_87cdf_level0_row0" class="row_heading level0 row0" data-quarto-table-cell-role="th">Pre-Announcement</th>
+<td id="T_87cdf_row0_col0" class="data row0 col0">6,350,079</td>
+<td id="T_87cdf_row0_col1" class="data row0 col1">+0.00%</td>
+</tr>
+<tr class="even">
+<th id="T_87cdf_level0_row1" class="row_heading level0 row1" data-quarto-table-cell-role="th">Early Transition</th>
+<td id="T_87cdf_row1_col0" class="data row1 col0">8,460,880</td>
+<td id="T_87cdf_row1_col1" class="data row1 col1">+33.24%</td>
+</tr>
+<tr class="odd">
+<th id="T_87cdf_level0_row2" class="row_heading level0 row2" data-quarto-table-cell-role="th">Late Transition</th>
+<td id="T_87cdf_row2_col0" class="data row2 col0">17,156,190</td>
+<td id="T_87cdf_row2_col1" class="data row2 col1">+170.17%</td>
+</tr>
+<tr class="even">
+<th id="T_87cdf_level0_row3" class="row_heading level0 row3" data-quarto-table-cell-role="th">Post-Inclusion</th>
+<td id="T_87cdf_row3_col0" class="data row3 col0">13,368,968</td>
+<td id="T_87cdf_row3_col1" class="data row3 col1">+110.53%</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  Qatar_Volume.xlsx saved
+
+Saudi</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<style type="text/css">
+</style>
+
+<table id="T_5b788" class="caption-top table table-sm table-striped small">
+<thead>
+<tr class="header">
+<th class="blank level0" data-quarto-table-cell-role="th">&nbsp;</th>
+<th id="T_5b788_level0_col0" class="col_heading level0 col0" data-quarto-table-cell-role="th">Avg_Daily_Volume</th>
+<th id="T_5b788_level0_col1" class="col_heading level0 col1" data-quarto-table-cell-role="th">Volume_Uplift_Pct</th>
+</tr>
+<tr class="even">
+<th class="index_name level0" data-quarto-table-cell-role="th">Window</th>
+<th class="blank col0" data-quarto-table-cell-role="th">&nbsp;</th>
+<th class="blank col1" data-quarto-table-cell-role="th">&nbsp;</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<th id="T_5b788_level0_row0" class="row_heading level0 row0" data-quarto-table-cell-role="th">Pre-Announcement</th>
+<td id="T_5b788_row0_col0" class="data row0 col0">179,019,921</td>
+<td id="T_5b788_row0_col1" class="data row0 col1">+0.00%</td>
+</tr>
+<tr class="even">
+<th id="T_5b788_level0_row1" class="row_heading level0 row1" data-quarto-table-cell-role="th">Early Transition</th>
+<td id="T_5b788_row1_col0" class="data row1 col0">131,020,238</td>
+<td id="T_5b788_row1_col1" class="data row1 col1">-26.81%</td>
+</tr>
+<tr class="odd">
+<th id="T_5b788_level0_row2" class="row_heading level0 row2" data-quarto-table-cell-role="th">Late Transition</th>
+<td id="T_5b788_row2_col0" class="data row2 col0">123,473,571</td>
+<td id="T_5b788_row2_col1" class="data row2 col1">-31.03%</td>
+</tr>
+<tr class="even">
+<th id="T_5b788_level0_row3" class="row_heading level0 row3" data-quarto-table-cell-role="th">Post-Inclusion</th>
+<td id="T_5b788_row3_col0" class="data row3 col0">129,542,698</td>
+<td id="T_5b788_row3_col1" class="data row3 col1">-27.64%</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  Saudi_Volume.xlsx saved</code></pre>
+</div>
+</div>
+<div id="da08411a" class="cell" data-execution_count="18">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ── CHANNEL 3: VOLATILITY ─────────────────────────────────────────────────</span></span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> country, config <span class="kw">in</span> events.items():</span>
+<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a>    df  <span class="op">=</span> config[<span class="st">'df'</span>].copy().reset_index(drop<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a>    ann <span class="op">=</span> config[<span class="st">'announcement'</span>]</span>
+<span id="cb23-6"><a href="#cb23-6" aria-hidden="true" tabindex="-1"></a>    inc <span class="op">=</span> config[<span class="st">'inclusion'</span>]</span>
+<span id="cb23-7"><a href="#cb23-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-8"><a href="#cb23-8" aria-hidden="true" tabindex="-1"></a>    windows <span class="op">=</span> get_windows(df, ann, inc, WINDOW)</span>
+<span id="cb23-9"><a href="#cb23-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-10"><a href="#cb23-10" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Calculate annualised volatility per window</span></span>
+<span id="cb23-11"><a href="#cb23-11" aria-hidden="true" tabindex="-1"></a>    vol_rows <span class="op">=</span> []</span>
+<span id="cb23-12"><a href="#cb23-12" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> window_name, wdf <span class="kw">in</span> windows.items():</span>
+<span id="cb23-13"><a href="#cb23-13" aria-hidden="true" tabindex="-1"></a>        ann_vol <span class="op">=</span> <span class="bu">round</span>(wdf[<span class="st">'return'</span>].std() <span class="op">*</span> np.sqrt(<span class="dv">252</span>) <span class="op">*</span> <span class="dv">100</span>, <span class="dv">2</span>)</span>
+<span id="cb23-14"><a href="#cb23-14" aria-hidden="true" tabindex="-1"></a>        vol_rows.append({</span>
+<span id="cb23-15"><a href="#cb23-15" aria-hidden="true" tabindex="-1"></a>            <span class="st">'Window'</span>:                  window_name,</span>
+<span id="cb23-16"><a href="#cb23-16" aria-hidden="true" tabindex="-1"></a>            <span class="st">'Annualised Volatility (%)'</span>: ann_vol</span>
+<span id="cb23-17"><a href="#cb23-17" aria-hidden="true" tabindex="-1"></a>        })</span>
+<span id="cb23-18"><a href="#cb23-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-19"><a href="#cb23-19" aria-hidden="true" tabindex="-1"></a>    vol_df <span class="op">=</span> pd.DataFrame(vol_rows).set_index(<span class="st">'Window'</span>)</span>
+<span id="cb23-20"><a href="#cb23-20" aria-hidden="true" tabindex="-1"></a>    vol_df <span class="op">=</span> vol_df.reindex([<span class="st">'Pre-Announcement'</span>, <span class="st">'Early Transition'</span>, <span class="st">'Late Transition'</span>, <span class="st">'Post-Inclusion'</span>])</span>
+<span id="cb23-21"><a href="#cb23-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-22"><a href="#cb23-22" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Display</span></span>
+<span id="cb23-23"><a href="#cb23-23" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f'</span><span class="ch">\n</span><span class="sc">{</span>country<span class="sc">}</span><span class="ss">'</span>)</span>
+<span id="cb23-24"><a href="#cb23-24" aria-hidden="true" tabindex="-1"></a>    display(vol_df.style.<span class="bu">format</span>(<span class="st">'</span><span class="sc">{:.2f}</span><span class="st">%'</span>))</span>
+<span id="cb23-25"><a href="#cb23-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-26"><a href="#cb23-26" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Save to Excel</span></span>
+<span id="cb23-27"><a href="#cb23-27" aria-hidden="true" tabindex="-1"></a>    vol_df.reset_index().to_excel(<span class="ss">f'</span><span class="sc">{</span>OUTPUT_PATH<span class="sc">}{</span>country<span class="sc">}</span><span class="ss">_Volatility.xlsx'</span>, index<span class="op">=</span><span class="va">False</span>)</span>
+<span id="cb23-28"><a href="#cb23-28" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f'  </span><span class="sc">{</span>country<span class="sc">}</span><span class="ss">_Volatility.xlsx saved'</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+UAE</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<style type="text/css">
+</style>
+
+<table id="T_df2f6" class="caption-top table table-sm table-striped small">
+<thead>
+<tr class="header">
+<th class="blank level0" data-quarto-table-cell-role="th">&nbsp;</th>
+<th id="T_df2f6_level0_col0" class="col_heading level0 col0" data-quarto-table-cell-role="th">Annualised Volatility (%)</th>
+</tr>
+<tr class="even">
+<th class="index_name level0" data-quarto-table-cell-role="th">Window</th>
+<th class="blank col0" data-quarto-table-cell-role="th">&nbsp;</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<th id="T_df2f6_level0_row0" class="row_heading level0 row0" data-quarto-table-cell-role="th">Pre-Announcement</th>
+<td id="T_df2f6_row0_col0" class="data row0 col0">10.89%</td>
+</tr>
+<tr class="even">
+<th id="T_df2f6_level0_row1" class="row_heading level0 row1" data-quarto-table-cell-role="th">Early Transition</th>
+<td id="T_df2f6_row1_col0" class="data row1 col0">17.78%</td>
+</tr>
+<tr class="odd">
+<th id="T_df2f6_level0_row2" class="row_heading level0 row2" data-quarto-table-cell-role="th">Late Transition</th>
+<td id="T_df2f6_row2_col0" class="data row2 col0">17.99%</td>
+</tr>
+<tr class="even">
+<th id="T_df2f6_level0_row3" class="row_heading level0 row3" data-quarto-table-cell-role="th">Post-Inclusion</th>
+<td id="T_df2f6_row3_col0" class="data row3 col0">22.20%</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  UAE_Volatility.xlsx saved
+
+Qatar</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<style type="text/css">
+</style>
+
+<table id="T_1118f" class="caption-top table table-sm table-striped small">
+<thead>
+<tr class="header">
+<th class="blank level0" data-quarto-table-cell-role="th">&nbsp;</th>
+<th id="T_1118f_level0_col0" class="col_heading level0 col0" data-quarto-table-cell-role="th">Annualised Volatility (%)</th>
+</tr>
+<tr class="even">
+<th class="index_name level0" data-quarto-table-cell-role="th">Window</th>
+<th class="blank col0" data-quarto-table-cell-role="th">&nbsp;</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<th id="T_1118f_level0_row0" class="row_heading level0 row0" data-quarto-table-cell-role="th">Pre-Announcement</th>
+<td id="T_1118f_row0_col0" class="data row0 col0">7.34%</td>
+</tr>
+<tr class="even">
+<th id="T_1118f_level0_row1" class="row_heading level0 row1" data-quarto-table-cell-role="th">Early Transition</th>
+<td id="T_1118f_row1_col0" class="data row1 col0">23.17%</td>
+</tr>
+<tr class="odd">
+<th id="T_1118f_level0_row2" class="row_heading level0 row2" data-quarto-table-cell-role="th">Late Transition</th>
+<td id="T_1118f_row2_col0" class="data row2 col0">11.90%</td>
+</tr>
+<tr class="even">
+<th id="T_1118f_level0_row3" class="row_heading level0 row3" data-quarto-table-cell-role="th">Post-Inclusion</th>
+<td id="T_1118f_row3_col0" class="data row3 col0">17.86%</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  Qatar_Volatility.xlsx saved
+
+Saudi</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<style type="text/css">
+</style>
+
+<table id="T_1fffb" class="caption-top table table-sm table-striped small">
+<thead>
+<tr class="header">
+<th class="blank level0" data-quarto-table-cell-role="th">&nbsp;</th>
+<th id="T_1fffb_level0_col0" class="col_heading level0 col0" data-quarto-table-cell-role="th">Annualised Volatility (%)</th>
+</tr>
+<tr class="even">
+<th class="index_name level0" data-quarto-table-cell-role="th">Window</th>
+<th class="blank col0" data-quarto-table-cell-role="th">&nbsp;</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<th id="T_1fffb_level0_row0" class="row_heading level0 row0" data-quarto-table-cell-role="th">Pre-Announcement</th>
+<td id="T_1fffb_row0_col0" class="data row0 col0">11.24%</td>
+</tr>
+<tr class="even">
+<th id="T_1fffb_level0_row1" class="row_heading level0 row1" data-quarto-table-cell-role="th">Early Transition</th>
+<td id="T_1fffb_row1_col0" class="data row1 col0">16.99%</td>
+</tr>
+<tr class="odd">
+<th id="T_1fffb_level0_row2" class="row_heading level0 row2" data-quarto-table-cell-role="th">Late Transition</th>
+<td id="T_1fffb_row2_col0" class="data row2 col0">12.30%</td>
+</tr>
+<tr class="even">
+<th id="T_1fffb_level0_row3" class="row_heading level0 row3" data-quarto-table-cell-role="th">Post-Inclusion</th>
+<td id="T_1fffb_row3_col0" class="data row3 col0">15.10%</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  Saudi_Volatility.xlsx saved</code></pre>
+</div>
+</div>
+<div id="2c0a56ae" class="cell" data-execution_count="19">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb28"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ── CHANNEL 4: MARKET INTEGRATION ─────────────────────────────────────────</span></span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> country, config <span class="kw">in</span> events.items():</span>
+<span id="cb28-4"><a href="#cb28-4" aria-hidden="true" tabindex="-1"></a>    df  <span class="op">=</span> config[<span class="st">'df'</span>].copy().reset_index(drop<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb28-5"><a href="#cb28-5" aria-hidden="true" tabindex="-1"></a>    ann <span class="op">=</span> config[<span class="st">'announcement'</span>]</span>
+<span id="cb28-6"><a href="#cb28-6" aria-hidden="true" tabindex="-1"></a>    inc <span class="op">=</span> config[<span class="st">'inclusion'</span>]</span>
+<span id="cb28-7"><a href="#cb28-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-8"><a href="#cb28-8" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Precompute on full dataset first, then slice into windows</span></span>
+<span id="cb28-9"><a href="#cb28-9" aria-hidden="true" tabindex="-1"></a>    corr_series <span class="op">=</span> precompute_rolling_corr(df, msci_em)</span>
+<span id="cb28-10"><a href="#cb28-10" aria-hidden="true" tabindex="-1"></a>    windows     <span class="op">=</span> get_windows(df, ann, inc, WINDOW)</span>
+<span id="cb28-11"><a href="#cb28-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-12"><a href="#cb28-12" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Average correlation per window</span></span>
+<span id="cb28-13"><a href="#cb28-13" aria-hidden="true" tabindex="-1"></a>    corr_rows <span class="op">=</span> []</span>
+<span id="cb28-14"><a href="#cb28-14" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> window_name, wdf <span class="kw">in</span> windows.items():</span>
+<span id="cb28-15"><a href="#cb28-15" aria-hidden="true" tabindex="-1"></a>        window_corr <span class="op">=</span> corr_series[</span>
+<span id="cb28-16"><a href="#cb28-16" aria-hidden="true" tabindex="-1"></a>            (corr_series[<span class="st">'Date'</span>] <span class="op">&gt;=</span> wdf[<span class="st">'Date'</span>].<span class="bu">min</span>()) <span class="op">&amp;</span></span>
+<span id="cb28-17"><a href="#cb28-17" aria-hidden="true" tabindex="-1"></a>            (corr_series[<span class="st">'Date'</span>] <span class="op">&lt;=</span> wdf[<span class="st">'Date'</span>].<span class="bu">max</span>())</span>
+<span id="cb28-18"><a href="#cb28-18" aria-hidden="true" tabindex="-1"></a>        ][<span class="st">'Rolling_Corr_60d'</span>].dropna()</span>
+<span id="cb28-19"><a href="#cb28-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-20"><a href="#cb28-20" aria-hidden="true" tabindex="-1"></a>        corr_rows.append({</span>
+<span id="cb28-21"><a href="#cb28-21" aria-hidden="true" tabindex="-1"></a>            <span class="st">'Window'</span>:               window_name,</span>
+<span id="cb28-22"><a href="#cb28-22" aria-hidden="true" tabindex="-1"></a>            <span class="st">'Avg Rolling Correlation'</span>: <span class="bu">round</span>(window_corr.mean(), <span class="dv">3</span>)</span>
+<span id="cb28-23"><a href="#cb28-23" aria-hidden="true" tabindex="-1"></a>        })</span>
+<span id="cb28-24"><a href="#cb28-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-25"><a href="#cb28-25" aria-hidden="true" tabindex="-1"></a>    corr_summary <span class="op">=</span> pd.DataFrame(corr_rows).set_index(<span class="st">'Window'</span>)</span>
+<span id="cb28-26"><a href="#cb28-26" aria-hidden="true" tabindex="-1"></a>    corr_summary <span class="op">=</span> corr_summary.reindex([<span class="st">'Pre-Announcement'</span>, <span class="st">'Early Transition'</span>, <span class="st">'Late Transition'</span>, <span class="st">'Post-Inclusion'</span>])</span>
+<span id="cb28-27"><a href="#cb28-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-28"><a href="#cb28-28" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Full rolling correlation time series for chart building</span></span>
+<span id="cb28-29"><a href="#cb28-29" aria-hidden="true" tabindex="-1"></a>    corr_plot <span class="op">=</span> calc_rolling_corr_series(corr_series, df, ann, inc, WINDOW)</span>
+<span id="cb28-30"><a href="#cb28-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-31"><a href="#cb28-31" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Display</span></span>
+<span id="cb28-32"><a href="#cb28-32" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f'</span><span class="ch">\n</span><span class="sc">{</span>country<span class="sc">}</span><span class="ss">'</span>)</span>
+<span id="cb28-33"><a href="#cb28-33" aria-hidden="true" tabindex="-1"></a>    display(corr_summary.style.<span class="bu">format</span>(<span class="st">'</span><span class="sc">{:.3f}</span><span class="st">'</span>))</span>
+<span id="cb28-34"><a href="#cb28-34" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-35"><a href="#cb28-35" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Save full time series to Excel for line chart with event markers</span></span>
+<span id="cb28-36"><a href="#cb28-36" aria-hidden="true" tabindex="-1"></a>    corr_plot.to_excel(<span class="ss">f'</span><span class="sc">{</span>OUTPUT_PATH<span class="sc">}{</span>country<span class="sc">}</span><span class="ss">_Correlation.xlsx'</span>, index<span class="op">=</span><span class="va">False</span>)</span>
+<span id="cb28-37"><a href="#cb28-37" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f'  </span><span class="sc">{</span>country<span class="sc">}</span><span class="ss">_Correlation.xlsx saved'</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+UAE</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<style type="text/css">
+</style>
+
+<table id="T_ec537" class="caption-top table table-sm table-striped small">
+<thead>
+<tr class="header">
+<th class="blank level0" data-quarto-table-cell-role="th">&nbsp;</th>
+<th id="T_ec537_level0_col0" class="col_heading level0 col0" data-quarto-table-cell-role="th">Avg Rolling Correlation</th>
+</tr>
+<tr class="even">
+<th class="index_name level0" data-quarto-table-cell-role="th">Window</th>
+<th class="blank col0" data-quarto-table-cell-role="th">&nbsp;</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<th id="T_ec537_level0_row0" class="row_heading level0 row0" data-quarto-table-cell-role="th">Pre-Announcement</th>
+<td id="T_ec537_row0_col0" class="data row0 col0">0.253</td>
+</tr>
+<tr class="even">
+<th id="T_ec537_level0_row1" class="row_heading level0 row1" data-quarto-table-cell-role="th">Early Transition</th>
+<td id="T_ec537_row1_col0" class="data row1 col0">0.262</td>
+</tr>
+<tr class="odd">
+<th id="T_ec537_level0_row2" class="row_heading level0 row2" data-quarto-table-cell-role="th">Late Transition</th>
+<td id="T_ec537_row2_col0" class="data row2 col0">0.205</td>
+</tr>
+<tr class="even">
+<th id="T_ec537_level0_row3" class="row_heading level0 row3" data-quarto-table-cell-role="th">Post-Inclusion</th>
+<td id="T_ec537_row3_col0" class="data row3 col0">0.131</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  UAE_Correlation.xlsx saved
+
+Qatar</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<style type="text/css">
+</style>
+
+<table id="T_5b19e" class="caption-top table table-sm table-striped small">
+<thead>
+<tr class="header">
+<th class="blank level0" data-quarto-table-cell-role="th">&nbsp;</th>
+<th id="T_5b19e_level0_col0" class="col_heading level0 col0" data-quarto-table-cell-role="th">Avg Rolling Correlation</th>
+</tr>
+<tr class="even">
+<th class="index_name level0" data-quarto-table-cell-role="th">Window</th>
+<th class="blank col0" data-quarto-table-cell-role="th">&nbsp;</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<th id="T_5b19e_level0_row0" class="row_heading level0 row0" data-quarto-table-cell-role="th">Pre-Announcement</th>
+<td id="T_5b19e_row0_col0" class="data row0 col0">0.229</td>
+</tr>
+<tr class="even">
+<th id="T_5b19e_level0_row1" class="row_heading level0 row1" data-quarto-table-cell-role="th">Early Transition</th>
+<td id="T_5b19e_row1_col0" class="data row1 col0">0.253</td>
+</tr>
+<tr class="odd">
+<th id="T_5b19e_level0_row2" class="row_heading level0 row2" data-quarto-table-cell-role="th">Late Transition</th>
+<td id="T_5b19e_row2_col0" class="data row2 col0">0.122</td>
+</tr>
+<tr class="even">
+<th id="T_5b19e_level0_row3" class="row_heading level0 row3" data-quarto-table-cell-role="th">Post-Inclusion</th>
+<td id="T_5b19e_row3_col0" class="data row3 col0">0.147</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  Qatar_Correlation.xlsx saved
+
+Saudi</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<style type="text/css">
+</style>
+
+<table id="T_cfbab" class="caption-top table table-sm table-striped small">
+<thead>
+<tr class="header">
+<th class="blank level0" data-quarto-table-cell-role="th">&nbsp;</th>
+<th id="T_cfbab_level0_col0" class="col_heading level0 col0" data-quarto-table-cell-role="th">Avg Rolling Correlation</th>
+</tr>
+<tr class="even">
+<th class="index_name level0" data-quarto-table-cell-role="th">Window</th>
+<th class="blank col0" data-quarto-table-cell-role="th">&nbsp;</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<th id="T_cfbab_level0_row0" class="row_heading level0 row0" data-quarto-table-cell-role="th">Pre-Announcement</th>
+<td id="T_cfbab_row0_col0" class="data row0 col0">0.249</td>
+</tr>
+<tr class="even">
+<th id="T_cfbab_level0_row1" class="row_heading level0 row1" data-quarto-table-cell-role="th">Early Transition</th>
+<td id="T_cfbab_row1_col0" class="data row1 col0">0.261</td>
+</tr>
+<tr class="odd">
+<th id="T_cfbab_level0_row2" class="row_heading level0 row2" data-quarto-table-cell-role="th">Late Transition</th>
+<td id="T_cfbab_row2_col0" class="data row2 col0">0.335</td>
+</tr>
+<tr class="even">
+<th id="T_cfbab_level0_row3" class="row_heading level0 row3" data-quarto-table-cell-role="th">Post-Inclusion</th>
+<td id="T_cfbab_row3_col0" class="data row3 col0">0.356</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  Saudi_Correlation.xlsx saved</code></pre>
+</div>
+</div>
+<div id="cf396596" class="cell" data-execution_count="21">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb33"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ── PLOT: ROLLING CORRELATION VS MSCI EM ──────────────────────────────────</span></span>
+<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a><span class="co"># One subplot per country showing the 60-day rolling correlation across</span></span>
+<span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a><span class="co"># the full study period. Vertical lines mark the announcement and</span></span>
+<span id="cb33-4"><a href="#cb33-4" aria-hidden="true" tabindex="-1"></a><span class="co"># inclusion dates so the shift in correlation can be read against each event.</span></span>
+<span id="cb33-5"><a href="#cb33-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Reads from the saved Excel files so this cell can be run independently.</span></span>
+<span id="cb33-6"><a href="#cb33-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-7"><a href="#cb33-7" aria-hidden="true" tabindex="-1"></a>fig, axes <span class="op">=</span> plt.subplots(<span class="dv">1</span>, <span class="dv">3</span>, figsize<span class="op">=</span>(<span class="dv">16</span>, <span class="dv">4</span>), sharey<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb33-8"><a href="#cb33-8" aria-hidden="true" tabindex="-1"></a>fig.suptitle(<span class="st">'60-Day Rolling Correlation vs MSCI EM'</span>, fontsize<span class="op">=</span><span class="dv">12</span>, fontweight<span class="op">=</span><span class="st">'bold'</span>)</span>
+<span id="cb33-9"><a href="#cb33-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-10"><a href="#cb33-10" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> ax, country <span class="kw">in</span> <span class="bu">zip</span>(axes, events.keys()):</span>
+<span id="cb33-11"><a href="#cb33-11" aria-hidden="true" tabindex="-1"></a>    df_plot <span class="op">=</span> pd.read_excel(<span class="ss">f'</span><span class="sc">{</span>OUTPUT_PATH<span class="sc">}{</span>country<span class="sc">}</span><span class="ss">_Correlation.xlsx'</span>,</span>
+<span id="cb33-12"><a href="#cb33-12" aria-hidden="true" tabindex="-1"></a>                            parse_dates<span class="op">=</span>[<span class="st">'Date'</span>, <span class="st">'Announcement_Date'</span>, <span class="st">'Inclusion_Date'</span>])</span>
+<span id="cb33-13"><a href="#cb33-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-14"><a href="#cb33-14" aria-hidden="true" tabindex="-1"></a>    ann <span class="op">=</span> df_plot[<span class="st">'Announcement_Date'</span>].iloc[<span class="dv">0</span>]</span>
+<span id="cb33-15"><a href="#cb33-15" aria-hidden="true" tabindex="-1"></a>    inc <span class="op">=</span> df_plot[<span class="st">'Inclusion_Date'</span>].iloc[<span class="dv">0</span>]</span>
+<span id="cb33-16"><a href="#cb33-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-17"><a href="#cb33-17" aria-hidden="true" tabindex="-1"></a>    ax.plot(df_plot[<span class="st">'Date'</span>], df_plot[<span class="st">'Rolling_Corr_60d'</span>],</span>
+<span id="cb33-18"><a href="#cb33-18" aria-hidden="true" tabindex="-1"></a>            color<span class="op">=</span><span class="st">'#1F6FEB'</span>, linewidth<span class="op">=</span><span class="fl">1.8</span>)</span>
+<span id="cb33-19"><a href="#cb33-19" aria-hidden="true" tabindex="-1"></a>    ax.axvline(ann, color<span class="op">=</span><span class="st">'#F4A261'</span>, linewidth<span class="op">=</span><span class="fl">1.5</span>, linestyle<span class="op">=</span><span class="st">'--'</span>,</span>
+<span id="cb33-20"><a href="#cb33-20" aria-hidden="true" tabindex="-1"></a>               label<span class="op">=</span><span class="ss">f'Announcement </span><span class="sc">{</span>ann<span class="sc">.</span>date()<span class="sc">}</span><span class="ss">'</span>)</span>
+<span id="cb33-21"><a href="#cb33-21" aria-hidden="true" tabindex="-1"></a>    ax.axvline(inc, color<span class="op">=</span><span class="st">'#2A9D8F'</span>, linewidth<span class="op">=</span><span class="fl">1.5</span>, linestyle<span class="op">=</span><span class="st">'--'</span>,</span>
+<span id="cb33-22"><a href="#cb33-22" aria-hidden="true" tabindex="-1"></a>               label<span class="op">=</span><span class="ss">f'Inclusion </span><span class="sc">{</span>inc<span class="sc">.</span>date()<span class="sc">}</span><span class="ss">'</span>)</span>
+<span id="cb33-23"><a href="#cb33-23" aria-hidden="true" tabindex="-1"></a>    ax.xaxis.set_major_formatter(mdates.DateFormatter(<span class="st">'%Y'</span>))</span>
+<span id="cb33-24"><a href="#cb33-24" aria-hidden="true" tabindex="-1"></a>    ax.set_title(country)</span>
+<span id="cb33-25"><a href="#cb33-25" aria-hidden="true" tabindex="-1"></a>    ax.set_xlabel(<span class="st">'Date'</span>)</span>
+<span id="cb33-26"><a href="#cb33-26" aria-hidden="true" tabindex="-1"></a>    ax.set_ylabel(<span class="st">'Correlation'</span>)</span>
+<span id="cb33-27"><a href="#cb33-27" aria-hidden="true" tabindex="-1"></a>    ax.legend(fontsize<span class="op">=</span><span class="dv">7</span>)</span>
+<span id="cb33-28"><a href="#cb33-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-29"><a href="#cb33-29" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span>
+<span id="cb33-30"><a href="#cb33-30" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="2026-06-15-GCC-Equity-Markets-MSCI_files/figure-html/cell-16-output-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="section-2-size-liquidity-screening" class="level2">
+<h2 class="anchored" data-anchor-id="section-2-size-liquidity-screening">Section 2 — Size &amp; Liquidity Screening</h2>
+<p>MSCI EM entry requires at least <strong>three qualifying securities</strong> meeting all three thresholds simultaneously:</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Threshold</th>
+<th>MSCI EM Requirement</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Full Market Cap</td>
+<td>≥ USD 3,000mn</td>
+</tr>
+<tr class="even">
+<td>Float-Adjusted Market Cap</td>
+<td>≥ USD 1,900mn</td>
+</tr>
+<tr class="odd">
+<td>ATVR</td>
+<td>≥ 15%</td>
+</tr>
+</tbody>
+</table>
+<p>The three stocks analysed are Bank Muscat, OQ E&amp;P, and Sohar International, the top Omani constituents by float market cap per the latest MSCI factsheet.</p>
+<p>ATVR is calculated as total 12-month traded value divided by the float-adjusted market cap, normalised to 261 trading days. Daily traded value is shares traded multiplied by closing price, converted from OMR/BHD/JOD to USD at the prevailing rate.</p>
+<p><span class="math display">\[\text{ATVR} = \frac{\text{Total 12M Traded Value}}{\text{Float-Adjusted Market Cap}} \times \frac{261}{\text{Actual Trading Days}} \times 100\]</span></p>
+<p>This is a simplified approximation of the official MSCI methodology, which uses monthly median daily traded values rather than total annual traded value. The denominator and direction are consistent with MSCI’s approach and the results are directionally reliable for the purpose of this screening.</p>
+<section id="configuration" class="level3">
+<h3 class="anchored" data-anchor-id="configuration">2.1 Configuration</h3>
+<div id="8bc8a64b" class="cell" data-execution_count="51">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb34"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Each country has its own folder, FX rate, stock files, and float market caps</span></span>
+<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a>countries <span class="op">=</span> {</span>
+<span id="cb34-3"><a href="#cb34-3" aria-hidden="true" tabindex="-1"></a>    <span class="st">'Oman'</span>: {</span>
+<span id="cb34-4"><a href="#cb34-4" aria-hidden="true" tabindex="-1"></a>        <span class="st">'base_path'</span>: <span class="vs">r'C:</span><span class="er">\</span><span class="vs">Users</span><span class="er">\</span><span class="vs">USER</span><span class="dv">\D</span><span class="vs">esktop</span><span class="dv">\A</span><span class="vs">rqaam_Intern_Case</span><span class="er">\</span><span class="vs">Oman'</span>,</span>
+<span id="cb34-5"><a href="#cb34-5" aria-hidden="true" tabindex="-1"></a>        <span class="st">'fx_rate'</span>:   <span class="fl">2.60</span>,</span>
+<span id="cb34-6"><a href="#cb34-6" aria-hidden="true" tabindex="-1"></a>        <span class="st">'files'</span>: {</span>
+<span id="cb34-7"><a href="#cb34-7" aria-hidden="true" tabindex="-1"></a>            <span class="st">'Bank Muscat'</span>:         <span class="st">'Bank Muscat Stock Price History.csv'</span>,</span>
+<span id="cb34-8"><a href="#cb34-8" aria-hidden="true" tabindex="-1"></a>            <span class="st">'Sohar International'</span>: <span class="st">'Bank Sohar Stock Price History.csv'</span>,</span>
+<span id="cb34-9"><a href="#cb34-9" aria-hidden="true" tabindex="-1"></a>            <span class="st">'OQ E&amp;P'</span>:              <span class="st">'Oq Exploration and Production CJSC Stock Price History.csv'</span>,</span>
+<span id="cb34-10"><a href="#cb34-10" aria-hidden="true" tabindex="-1"></a>        },</span>
+<span id="cb34-11"><a href="#cb34-11" aria-hidden="true" tabindex="-1"></a>        <span class="st">'float_mktcap'</span>: {</span>
+<span id="cb34-12"><a href="#cb34-12" aria-hidden="true" tabindex="-1"></a>            <span class="st">'Bank Muscat'</span>:         <span class="dv">2_080_000_000</span>,</span>
+<span id="cb34-13"><a href="#cb34-13" aria-hidden="true" tabindex="-1"></a>            <span class="st">'Sohar International'</span>: <span class="dv">1_610_000_000</span>,</span>
+<span id="cb34-14"><a href="#cb34-14" aria-hidden="true" tabindex="-1"></a>            <span class="st">'OQ E&amp;P'</span>:              <span class="dv">1_990_000_000</span>,</span>
+<span id="cb34-15"><a href="#cb34-15" aria-hidden="true" tabindex="-1"></a>        },</span>
+<span id="cb34-16"><a href="#cb34-16" aria-hidden="true" tabindex="-1"></a>    },</span>
+<span id="cb34-17"><a href="#cb34-17" aria-hidden="true" tabindex="-1"></a>    <span class="st">'Bahrain'</span>: {</span>
+<span id="cb34-18"><a href="#cb34-18" aria-hidden="true" tabindex="-1"></a>        <span class="st">'base_path'</span>: <span class="vs">r'C:</span><span class="er">\</span><span class="vs">Users</span><span class="er">\</span><span class="vs">USER</span><span class="dv">\D</span><span class="vs">esktop</span><span class="dv">\A</span><span class="vs">rqaam_Intern_Case</span><span class="dv">\B</span><span class="vs">ahrain'</span>,</span>
+<span id="cb34-19"><a href="#cb34-19" aria-hidden="true" tabindex="-1"></a>        <span class="st">'fx_rate'</span>:   <span class="fl">2.66</span>,  <span class="co"># BHD to USD</span></span>
+<span id="cb34-20"><a href="#cb34-20" aria-hidden="true" tabindex="-1"></a>        <span class="st">'files'</span>: {</span>
+<span id="cb34-21"><a href="#cb34-21" aria-hidden="true" tabindex="-1"></a>            <span class="st">'GFH Financial'</span>:  <span class="st">'GFH Financial BSC Stock Price History.csv'</span>,</span>
+<span id="cb34-22"><a href="#cb34-22" aria-hidden="true" tabindex="-1"></a>            <span class="st">'Al-Salam Bank'</span>:  <span class="st">'Al Salam Bank Stock Price History.csv'</span>,</span>
+<span id="cb34-23"><a href="#cb34-23" aria-hidden="true" tabindex="-1"></a>            <span class="st">'BBK'</span>:            <span class="st">'BBK Stock Price History.csv'</span>,</span>
+<span id="cb34-24"><a href="#cb34-24" aria-hidden="true" tabindex="-1"></a>        },</span>
+<span id="cb34-25"><a href="#cb34-25" aria-hidden="true" tabindex="-1"></a>        <span class="st">'float_mktcap'</span>: {</span>
+<span id="cb34-26"><a href="#cb34-26" aria-hidden="true" tabindex="-1"></a>            <span class="st">'GFH Financial'</span>:  <span class="dv">1_620_000_000</span>,</span>
+<span id="cb34-27"><a href="#cb34-27" aria-hidden="true" tabindex="-1"></a>            <span class="st">'Al-Salam Bank'</span>:    <span class="dv">730_000_000</span>,</span>
+<span id="cb34-28"><a href="#cb34-28" aria-hidden="true" tabindex="-1"></a>            <span class="st">'BBK'</span>:              <span class="dv">680_000_000</span>,</span>
+<span id="cb34-29"><a href="#cb34-29" aria-hidden="true" tabindex="-1"></a>        },</span>
+<span id="cb34-30"><a href="#cb34-30" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb34-31"><a href="#cb34-31" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb34-32"><a href="#cb34-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-33"><a href="#cb34-33" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> parse_volume(v):</span>
+<span id="cb34-34"><a href="#cb34-34" aria-hidden="true" tabindex="-1"></a>    v <span class="op">=</span> <span class="bu">str</span>(v).strip()</span>
+<span id="cb34-35"><a href="#cb34-35" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> v.endswith(<span class="st">'M'</span>):   <span class="cf">return</span> <span class="bu">float</span>(v[:<span class="op">-</span><span class="dv">1</span>]) <span class="op">*</span> <span class="dv">1_000_000</span></span>
+<span id="cb34-36"><a href="#cb34-36" aria-hidden="true" tabindex="-1"></a>    <span class="cf">elif</span> v.endswith(<span class="st">'K'</span>): <span class="cf">return</span> <span class="bu">float</span>(v[:<span class="op">-</span><span class="dv">1</span>]) <span class="op">*</span> <span class="dv">1_000</span></span>
+<span id="cb34-37"><a href="#cb34-37" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span>:                 <span class="cf">return</span> <span class="bu">float</span>(v)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+<section id="atvr-calculator" class="level3">
+<h3 class="anchored" data-anchor-id="atvr-calculator">2.2 ATVR Calculator</h3>
+<div id="bc503ddc" class="cell" data-execution_count="52">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb35"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> calculate_atvr(filepath, stock_name, float_cap_usd, fx_rate):</span>
+<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a>    df <span class="op">=</span> pd.read_csv(filepath)</span>
+<span id="cb35-3"><a href="#cb35-3" aria-hidden="true" tabindex="-1"></a>    df.columns <span class="op">=</span> df.columns.<span class="bu">str</span>.strip().<span class="bu">str</span>.replace(<span class="st">'</span><span class="ch">\ufeff</span><span class="st">'</span>, <span class="st">''</span>, regex<span class="op">=</span><span class="va">False</span>)</span>
+<span id="cb35-4"><a href="#cb35-4" aria-hidden="true" tabindex="-1"></a>    df[<span class="st">'Date'</span>]   <span class="op">=</span> pd.to_datetime(df[<span class="st">'Date'</span>])</span>
+<span id="cb35-5"><a href="#cb35-5" aria-hidden="true" tabindex="-1"></a>    df[<span class="st">'Price'</span>]  <span class="op">=</span> pd.to_numeric(df[<span class="st">'Price'</span>], errors<span class="op">=</span><span class="st">'coerce'</span>)</span>
+<span id="cb35-6"><a href="#cb35-6" aria-hidden="true" tabindex="-1"></a>    df[<span class="st">'Volume'</span>] <span class="op">=</span> df[<span class="st">'Vol.'</span>].<span class="bu">apply</span>(parse_volume)</span>
+<span id="cb35-7"><a href="#cb35-7" aria-hidden="true" tabindex="-1"></a>    df <span class="op">=</span> df.sort_values(<span class="st">'Date'</span>).reset_index(drop<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb35-8"><a href="#cb35-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-9"><a href="#cb35-9" aria-hidden="true" tabindex="-1"></a>    end_date   <span class="op">=</span> df[<span class="st">'Date'</span>].<span class="bu">max</span>()</span>
+<span id="cb35-10"><a href="#cb35-10" aria-hidden="true" tabindex="-1"></a>    start_date <span class="op">=</span> end_date <span class="op">-</span> pd.DateOffset(years<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb35-11"><a href="#cb35-11" aria-hidden="true" tabindex="-1"></a>    df_12m     <span class="op">=</span> df[df[<span class="st">'Date'</span>] <span class="op">&gt;=</span> start_date].copy()</span>
+<span id="cb35-12"><a href="#cb35-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-13"><a href="#cb35-13" aria-hidden="true" tabindex="-1"></a>    df_12m[<span class="st">'Traded_Value_USD'</span>] <span class="op">=</span> df_12m[<span class="st">'Volume'</span>] <span class="op">*</span> df_12m[<span class="st">'Price'</span>] <span class="op">*</span> fx_rate</span>
+<span id="cb35-14"><a href="#cb35-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-15"><a href="#cb35-15" aria-hidden="true" tabindex="-1"></a>    trading_days <span class="op">=</span> <span class="bu">len</span>(df_12m)</span>
+<span id="cb35-16"><a href="#cb35-16" aria-hidden="true" tabindex="-1"></a>    total_traded <span class="op">=</span> df_12m[<span class="st">'Traded_Value_USD'</span>].<span class="bu">sum</span>()</span>
+<span id="cb35-17"><a href="#cb35-17" aria-hidden="true" tabindex="-1"></a>    adtv         <span class="op">=</span> total_traded <span class="op">/</span> trading_days</span>
+<span id="cb35-18"><a href="#cb35-18" aria-hidden="true" tabindex="-1"></a>    atvr         <span class="op">=</span> (total_traded <span class="op">/</span> float_cap_usd) <span class="op">*</span> (<span class="dv">261</span> <span class="op">/</span> trading_days) <span class="op">*</span> <span class="dv">100</span></span>
+<span id="cb35-19"><a href="#cb35-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-20"><a href="#cb35-20" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> {</span>
+<span id="cb35-21"><a href="#cb35-21" aria-hidden="true" tabindex="-1"></a>        <span class="st">'Country'</span>:       <span class="va">None</span>,  <span class="co"># filled in the loop below</span></span>
+<span id="cb35-22"><a href="#cb35-22" aria-hidden="true" tabindex="-1"></a>        <span class="st">'Stock'</span>:         stock_name,</span>
+<span id="cb35-23"><a href="#cb35-23" aria-hidden="true" tabindex="-1"></a>        <span class="st">'Period'</span>:        <span class="ss">f"</span><span class="sc">{</span>df_12m[<span class="st">'Date'</span>]<span class="sc">.</span><span class="bu">min</span>()<span class="sc">.</span>date()<span class="sc">}</span><span class="ss"> to </span><span class="sc">{</span>df_12m[<span class="st">'Date'</span>]<span class="sc">.</span><span class="bu">max</span>()<span class="sc">.</span>date()<span class="sc">}</span><span class="ss">"</span>,</span>
+<span id="cb35-24"><a href="#cb35-24" aria-hidden="true" tabindex="-1"></a>        <span class="st">'Trading Days'</span>:  trading_days,</span>
+<span id="cb35-25"><a href="#cb35-25" aria-hidden="true" tabindex="-1"></a>        <span class="st">'ADTV (USD mn)'</span>: <span class="bu">round</span>(adtv <span class="op">/</span> <span class="fl">1e6</span>, <span class="dv">2</span>),</span>
+<span id="cb35-26"><a href="#cb35-26" aria-hidden="true" tabindex="-1"></a>        <span class="st">'ATVR (%)'</span>:      <span class="bu">round</span>(atvr, <span class="dv">2</span>),</span>
+<span id="cb35-27"><a href="#cb35-27" aria-hidden="true" tabindex="-1"></a>    }</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+<section id="run-screening" class="level3">
+<h3 class="anchored" data-anchor-id="run-screening">2.3 Run Screening</h3>
+<div id="506bfe18" class="cell" data-execution_count="53">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb36"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a>results <span class="op">=</span> []</span>
+<span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-3"><a href="#cb36-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> country_name, config <span class="kw">in</span> countries.items():</span>
+<span id="cb36-4"><a href="#cb36-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> stock_name, filename <span class="kw">in</span> config[<span class="st">'files'</span>].items():</span>
+<span id="cb36-5"><a href="#cb36-5" aria-hidden="true" tabindex="-1"></a>        filepath <span class="op">=</span> os.path.join(config[<span class="st">'base_path'</span>], filename)</span>
+<span id="cb36-6"><a href="#cb36-6" aria-hidden="true" tabindex="-1"></a>        result   <span class="op">=</span> calculate_atvr(</span>
+<span id="cb36-7"><a href="#cb36-7" aria-hidden="true" tabindex="-1"></a>            filepath, stock_name,</span>
+<span id="cb36-8"><a href="#cb36-8" aria-hidden="true" tabindex="-1"></a>            config[<span class="st">'float_mktcap'</span>][stock_name],</span>
+<span id="cb36-9"><a href="#cb36-9" aria-hidden="true" tabindex="-1"></a>            config[<span class="st">'fx_rate'</span>]</span>
+<span id="cb36-10"><a href="#cb36-10" aria-hidden="true" tabindex="-1"></a>        )</span>
+<span id="cb36-11"><a href="#cb36-11" aria-hidden="true" tabindex="-1"></a>        result[<span class="st">'Country'</span>] <span class="op">=</span> country_name</span>
+<span id="cb36-12"><a href="#cb36-12" aria-hidden="true" tabindex="-1"></a>        results.append(result)</span>
+<span id="cb36-13"><a href="#cb36-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-14"><a href="#cb36-14" aria-hidden="true" tabindex="-1"></a>df_atvr <span class="op">=</span> pd.DataFrame(results)</span>
+<span id="cb36-15"><a href="#cb36-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-16"><a href="#cb36-16" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> country_name, group <span class="kw">in</span> df_atvr.groupby(<span class="st">'Country'</span>):</span>
+<span id="cb36-17"><a href="#cb36-17" aria-hidden="true" tabindex="-1"></a>    display(</span>
+<span id="cb36-18"><a href="#cb36-18" aria-hidden="true" tabindex="-1"></a>        group.drop(columns<span class="op">=</span><span class="st">'Country'</span>)</span>
+<span id="cb36-19"><a href="#cb36-19" aria-hidden="true" tabindex="-1"></a>        .set_index(<span class="st">'Stock'</span>).style</span>
+<span id="cb36-20"><a href="#cb36-20" aria-hidden="true" tabindex="-1"></a>        .<span class="bu">format</span>({<span class="st">'ADTV (USD mn)'</span>: <span class="st">'</span><span class="sc">{:.2f}</span><span class="st">'</span>, <span class="st">'ATVR (%)'</span>: <span class="st">'</span><span class="sc">{:.2f}</span><span class="st">'</span>})</span>
+<span id="cb36-21"><a href="#cb36-21" aria-hidden="true" tabindex="-1"></a>        .set_caption(<span class="ss">f'</span><span class="sc">{</span>country_name<span class="sc">}</span><span class="ss"> — ATVR Calculation (Most Recent 12 Months)'</span>)</span>
+<span id="cb36-22"><a href="#cb36-22" aria-hidden="true" tabindex="-1"></a>        .set_table_styles([</span>
+<span id="cb36-23"><a href="#cb36-23" aria-hidden="true" tabindex="-1"></a>            {<span class="st">'selector'</span>: <span class="st">'caption'</span>, <span class="st">'props'</span>: [(<span class="st">'font-weight'</span>, <span class="st">'bold'</span>), (<span class="st">'font-size'</span>, <span class="st">'11px'</span>)]},</span>
+<span id="cb36-24"><a href="#cb36-24" aria-hidden="true" tabindex="-1"></a>            {<span class="st">'selector'</span>: <span class="st">'th'</span>,      <span class="st">'props'</span>: [(<span class="st">'background-color'</span>, <span class="st">'#0A2342'</span>), (<span class="st">'color'</span>, <span class="st">'white'</span>), (<span class="st">'font-size'</span>, <span class="st">'10px'</span>)]},</span>
+<span id="cb36-25"><a href="#cb36-25" aria-hidden="true" tabindex="-1"></a>        ])</span>
+<span id="cb36-26"><a href="#cb36-26" aria-hidden="true" tabindex="-1"></a>    )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display">
+<style type="text/css">
+#T_0259a caption {
+  font-weight: bold;
+  font-size: 11px;
+}
+#T_0259a th {
+  background-color: #0A2342;
+  color: white;
+  font-size: 10px;
+}
+</style>
+
+<div id="T_0259a" class="quarto-float quarto-figure quarto-figure-center anchored" data-quarto-postprocess="true">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="T_0259a-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;1: Bahrain — ATVR Calculation (Most Recent 12 Months)
+</figcaption>
+<div aria-describedby="T_0259a-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table id="T_0259a" class="caption-top table table-sm table-striped small">
+<thead>
+<tr class="header">
+<th class="blank level0" data-quarto-table-cell-role="th">&nbsp;</th>
+<th id="T_0259a_level0_col0" class="col_heading level0 col0" data-quarto-table-cell-role="th">Period</th>
+<th id="T_0259a_level0_col1" class="col_heading level0 col1" data-quarto-table-cell-role="th">Trading Days</th>
+<th id="T_0259a_level0_col2" class="col_heading level0 col2" data-quarto-table-cell-role="th">ADTV (USD mn)</th>
+<th id="T_0259a_level0_col3" class="col_heading level0 col3" data-quarto-table-cell-role="th">ATVR (%)</th>
+</tr>
+<tr class="even">
+<th class="index_name level0" data-quarto-table-cell-role="th">Stock</th>
+<th class="blank col0" data-quarto-table-cell-role="th">&nbsp;</th>
+<th class="blank col1" data-quarto-table-cell-role="th">&nbsp;</th>
+<th class="blank col2" data-quarto-table-cell-role="th">&nbsp;</th>
+<th class="blank col3" data-quarto-table-cell-role="th">&nbsp;</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<th id="T_0259a_level0_row0" class="row_heading level0 row0" data-quarto-table-cell-role="th">GFH Financial</th>
+<td id="T_0259a_row0_col0" class="data row0 col0">2025-03-12 to 2026-03-12</td>
+<td id="T_0259a_row0_col1" class="data row0 col1">186</td>
+<td id="T_0259a_row0_col2" class="data row0 col2">2.72</td>
+<td id="T_0259a_row0_col3" class="data row0 col3">43.90</td>
+</tr>
+<tr class="even">
+<th id="T_0259a_level0_row1" class="row_heading level0 row1" data-quarto-table-cell-role="th">Al-Salam Bank</th>
+<td id="T_0259a_row1_col0" class="data row1 col0">2025-03-12 to 2026-03-12</td>
+<td id="T_0259a_row1_col1" class="data row1 col1">243</td>
+<td id="T_0259a_row1_col2" class="data row1 col2">0.36</td>
+<td id="T_0259a_row1_col3" class="data row1 col3">13.02</td>
+</tr>
+<tr class="odd">
+<th id="T_0259a_level0_row2" class="row_heading level0 row2" data-quarto-table-cell-role="th">BBK</th>
+<td id="T_0259a_row2_col0" class="data row2 col0">2025-03-10 to 2026-03-09</td>
+<td id="T_0259a_row2_col1" class="data row2 col1">182</td>
+<td id="T_0259a_row2_col2" class="data row2 col2">0.11</td>
+<td id="T_0259a_row2_col3" class="data row2 col3">4.17</td>
+</tr>
+</tbody>
+</table>
+</div>
+</figure>
+</div>
+</div>
+<div class="cell-output cell-output-display">
+<style type="text/css">
+#T_987da caption {
+  font-weight: bold;
+  font-size: 11px;
+}
+#T_987da th {
+  background-color: #0A2342;
+  color: white;
+  font-size: 10px;
+}
+</style>
+
+<div id="T_987da" class="quarto-float quarto-figure quarto-figure-center anchored" data-quarto-postprocess="true">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="T_987da-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;2: Oman — ATVR Calculation (Most Recent 12 Months)
+</figcaption>
+<div aria-describedby="T_987da-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table id="T_987da" class="caption-top table table-sm table-striped small">
+<thead>
+<tr class="header">
+<th class="blank level0" data-quarto-table-cell-role="th">&nbsp;</th>
+<th id="T_987da_level0_col0" class="col_heading level0 col0" data-quarto-table-cell-role="th">Period</th>
+<th id="T_987da_level0_col1" class="col_heading level0 col1" data-quarto-table-cell-role="th">Trading Days</th>
+<th id="T_987da_level0_col2" class="col_heading level0 col2" data-quarto-table-cell-role="th">ADTV (USD mn)</th>
+<th id="T_987da_level0_col3" class="col_heading level0 col3" data-quarto-table-cell-role="th">ATVR (%)</th>
+</tr>
+<tr class="even">
+<th class="index_name level0" data-quarto-table-cell-role="th">Stock</th>
+<th class="blank col0" data-quarto-table-cell-role="th">&nbsp;</th>
+<th class="blank col1" data-quarto-table-cell-role="th">&nbsp;</th>
+<th class="blank col2" data-quarto-table-cell-role="th">&nbsp;</th>
+<th class="blank col3" data-quarto-table-cell-role="th">&nbsp;</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<th id="T_987da_level0_row0" class="row_heading level0 row0" data-quarto-table-cell-role="th">Bank Muscat</th>
+<td id="T_987da_row0_col0" class="data row0 col0">2025-03-12 to 2026-03-12</td>
+<td id="T_987da_row0_col1" class="data row0 col1">248</td>
+<td id="T_987da_row0_col2" class="data row0 col2">14.05</td>
+<td id="T_987da_row0_col3" class="data row0 col3">176.30</td>
+</tr>
+<tr class="even">
+<th id="T_987da_level0_row1" class="row_heading level0 row1" data-quarto-table-cell-role="th">Sohar International</th>
+<td id="T_987da_row1_col0" class="data row1 col0">2025-03-12 to 2026-03-12</td>
+<td id="T_987da_row1_col1" class="data row1 col1">248</td>
+<td id="T_987da_row1_col2" class="data row1 col2">13.52</td>
+<td id="T_987da_row1_col3" class="data row1 col3">219.20</td>
+</tr>
+<tr class="odd">
+<th id="T_987da_level0_row2" class="row_heading level0 row2" data-quarto-table-cell-role="th">OQ E&amp;P</th>
+<td id="T_987da_row2_col0" class="data row2 col0">2025-04-06 to 2026-03-31</td>
+<td id="T_987da_row2_col1" class="data row2 col1">246</td>
+<td id="T_987da_row2_col2" class="data row2 col2">11.39</td>
+<td id="T_987da_row2_col3" class="data row2 col3">149.45</td>
+</tr>
+</tbody>
+</table>
+</div>
+</figure>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="section-3-equity-market-performance-oman-and-bahrain" class="level2">
+<h2 class="anchored" data-anchor-id="section-3-equity-market-performance-oman-and-bahrain">Section 3: Equity Market Performance Oman and Bahrain</h2>
+<p>Computes the performance and risk metrics feeding the Pillar 3 (Equity Market Attractiveness) analysis for both upgrade candidates. Weekly frequency is used as it is more appropriate than daily for Oman and Bahrain given thin daily trading and occasional session gaps.</p>
+<p><strong>Metrics:</strong> 1Y trailing return, 3Y trailing return, annualised volatility, Sharpe ratio (risk-free rate: 3.7% US 3M T-Bill as of march), correlation vs MSCI EM.</p>
+<section id="data-cleaning-function-1" class="level3">
+<h3 class="anchored" data-anchor-id="data-cleaning-function-1">3.1 Data Cleaning Function</h3>
+<div id="cell-0029" class="cell" data-execution_count="36">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb37"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ── PRICE SERIES CLEANER ──────────────────────────────────────────────────────</span></span>
+<span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Handles MSCI index data which uses 'Close' in some files and 'Price' in others.</span></span>
+<span id="cb37-3"><a href="#cb37-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Accepts column names as parameters so one function covers both cases.</span></span>
+<span id="cb37-4"><a href="#cb37-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb37-5"><a href="#cb37-5" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> clean_price_df(df, date_col, price_col, market_name, dayfirst<span class="op">=</span><span class="va">False</span>):</span>
+<span id="cb37-6"><a href="#cb37-6" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Clean and rename a price series from an investing.com or MSCI export."""</span></span>
+<span id="cb37-7"><a href="#cb37-7" aria-hidden="true" tabindex="-1"></a>    out <span class="op">=</span> df[[date_col, price_col]].copy()</span>
+<span id="cb37-8"><a href="#cb37-8" aria-hidden="true" tabindex="-1"></a>    out[date_col]  <span class="op">=</span> pd.to_datetime(out[date_col], errors<span class="op">=</span><span class="st">'coerce'</span>, dayfirst<span class="op">=</span>dayfirst)</span>
+<span id="cb37-9"><a href="#cb37-9" aria-hidden="true" tabindex="-1"></a>    out[price_col] <span class="op">=</span> (</span>
+<span id="cb37-10"><a href="#cb37-10" aria-hidden="true" tabindex="-1"></a>        out[price_col].astype(<span class="bu">str</span>)</span>
+<span id="cb37-11"><a href="#cb37-11" aria-hidden="true" tabindex="-1"></a>        .<span class="bu">str</span>.replace(<span class="st">','</span>, <span class="st">''</span>, regex<span class="op">=</span><span class="va">False</span>)</span>
+<span id="cb37-12"><a href="#cb37-12" aria-hidden="true" tabindex="-1"></a>        .<span class="bu">str</span>.strip()</span>
+<span id="cb37-13"><a href="#cb37-13" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb37-14"><a href="#cb37-14" aria-hidden="true" tabindex="-1"></a>    out[price_col] <span class="op">=</span> pd.to_numeric(out[price_col], errors<span class="op">=</span><span class="st">'coerce'</span>)</span>
+<span id="cb37-15"><a href="#cb37-15" aria-hidden="true" tabindex="-1"></a>    out.columns    <span class="op">=</span> [<span class="st">'Date'</span>, market_name]</span>
+<span id="cb37-16"><a href="#cb37-16" aria-hidden="true" tabindex="-1"></a>    out <span class="op">=</span> out.dropna().sort_values(<span class="st">'Date'</span>).reset_index(drop<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb37-17"><a href="#cb37-17" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> out</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+<section id="load-clean-merge" class="level3">
+<h3 class="anchored" data-anchor-id="load-clean-merge">3.2 Load, Clean &amp; Merge</h3>
+<div id="cell-0031" class="cell" data-execution_count="54">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb38"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a>msm_raw <span class="op">=</span> pd.read_csv(<span class="vs">r'C:</span><span class="er">\</span><span class="vs">Users</span><span class="er">\</span><span class="vs">USER</span><span class="dv">\D</span><span class="vs">esktop</span><span class="dv">\A</span><span class="vs">rqaam_Intern_Case</span><span class="er">\</span><span class="vs">Thesis</span><span class="dv">\M</span><span class="vs">SCI Oman Historical Data</span><span class="dv">.</span><span class="vs">csv'</span>)</span>
+<span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a>bse_raw <span class="op">=</span> pd.read_csv(<span class="vs">r'C:</span><span class="er">\</span><span class="vs">Users</span><span class="er">\</span><span class="vs">USER</span><span class="dv">\D</span><span class="vs">esktop</span><span class="dv">\A</span><span class="vs">rqaam_Intern_Case</span><span class="er">\</span><span class="vs">Thesis</span><span class="dv">\M</span><span class="vs">SCI Bahrain Index</span><span class="dv">.</span><span class="vs">csv'</span>)</span>
+<span id="cb38-3"><a href="#cb38-3" aria-hidden="true" tabindex="-1"></a>em_raw  <span class="op">=</span> pd.read_csv(<span class="vs">r'C:</span><span class="er">\</span><span class="vs">Users</span><span class="er">\</span><span class="vs">USER</span><span class="dv">\D</span><span class="vs">esktop</span><span class="dv">\A</span><span class="vs">rqaam_Intern_Case</span><span class="er">\</span><span class="vs">Thesis</span><span class="dv">\M</span><span class="vs">SCI Emerging Markets Historical Data </span><span class="kw">(</span><span class="vs">1</span><span class="kw">)</span><span class="dv">.</span><span class="vs">csv'</span>)</span>
+<span id="cb38-4"><a href="#cb38-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-5"><a href="#cb38-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Oman and MSCI EM use 'Price'; Bahrain uses 'Close'</span></span>
+<span id="cb38-6"><a href="#cb38-6" aria-hidden="true" tabindex="-1"></a>msm_clean <span class="op">=</span> clean_price_df(msm_raw, <span class="st">'Date'</span>, <span class="st">'Price'</span>, <span class="st">'Oman'</span>)</span>
+<span id="cb38-7"><a href="#cb38-7" aria-hidden="true" tabindex="-1"></a>bse_clean <span class="op">=</span> clean_price_df(bse_raw, <span class="st">'Date'</span>, <span class="st">'Close'</span>, <span class="st">'Bahrain'</span>)</span>
+<span id="cb38-8"><a href="#cb38-8" aria-hidden="true" tabindex="-1"></a>em_clean  <span class="op">=</span> clean_price_df(em_raw,  <span class="st">'Date'</span>, <span class="st">'Price'</span>, <span class="st">'MSCI EM'</span>)</span>
+<span id="cb38-9"><a href="#cb38-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-10"><a href="#cb38-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Outer merge — all dates retained, gaps filled in next step</span></span>
+<span id="cb38-11"><a href="#cb38-11" aria-hidden="true" tabindex="-1"></a>df_prices <span class="op">=</span> (</span>
+<span id="cb38-12"><a href="#cb38-12" aria-hidden="true" tabindex="-1"></a>    msm_clean</span>
+<span id="cb38-13"><a href="#cb38-13" aria-hidden="true" tabindex="-1"></a>    .merge(bse_clean, on<span class="op">=</span><span class="st">'Date'</span>, how<span class="op">=</span><span class="st">'outer'</span>)</span>
+<span id="cb38-14"><a href="#cb38-14" aria-hidden="true" tabindex="-1"></a>    .merge(em_clean,  on<span class="op">=</span><span class="st">'Date'</span>, how<span class="op">=</span><span class="st">'outer'</span>)</span>
+<span id="cb38-15"><a href="#cb38-15" aria-hidden="true" tabindex="-1"></a>    .sort_values(<span class="st">'Date'</span>)</span>
+<span id="cb38-16"><a href="#cb38-16" aria-hidden="true" tabindex="-1"></a>    .set_index(<span class="st">'Date'</span>)</span>
+<span id="cb38-17"><a href="#cb38-17" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb38-18"><a href="#cb38-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-19"><a href="#cb38-19" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f'Merged price series: </span><span class="sc">{</span><span class="bu">len</span>(df_prices)<span class="sc">:,}</span><span class="ss"> rows'</span>)</span>
+<span id="cb38-20"><a href="#cb38-20" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f'Date range: </span><span class="sc">{</span>df_prices<span class="sc">.</span>index<span class="sc">.</span><span class="bu">min</span>()<span class="sc">.</span>date()<span class="sc">}</span><span class="ss"> to </span><span class="sc">{</span>df_prices<span class="sc">.</span>index<span class="sc">.</span><span class="bu">max</span>()<span class="sc">.</span>date()<span class="sc">}</span><span class="ss">'</span>)</span>
+<span id="cb38-21"><a href="#cb38-21" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f'Columns: </span><span class="sc">{</span>df_prices<span class="sc">.</span>columns<span class="sc">.</span>tolist()<span class="sc">}</span><span class="ss">'</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Merged price series: 1,286 rows
+Date range: 2021-12-01 to 2026-03-15
+Columns: ['Oman', 'Bahrain', 'MSCI EM']</code></pre>
+</div>
+</div>
+</section>
+<section id="resample-to-weekly" class="level3">
+<h3 class="anchored" data-anchor-id="resample-to-weekly">3.3 Resample to Weekly</h3>
+<div id="cell-0033" class="cell" data-execution_count="55">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb40"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ── WEEKLY RESAMPLING ─────────────────────────────────────────────────────</span></span>
+<span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Resample to Friday close. Forward-fill after resampling to handle weeks</span></span>
+<span id="cb40-3"><a href="#cb40-3" aria-hidden="true" tabindex="-1"></a><span class="co"># where a market was closed but others were not — avoids spurious return</span></span>
+<span id="cb40-4"><a href="#cb40-4" aria-hidden="true" tabindex="-1"></a><span class="co"># spikes from gaps between stale prices.</span></span>
+<span id="cb40-5"><a href="#cb40-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-6"><a href="#cb40-6" aria-hidden="true" tabindex="-1"></a>weekly_prices  <span class="op">=</span> df_prices.resample(<span class="st">'W-FRI'</span>).last().ffill()</span>
+<span id="cb40-7"><a href="#cb40-7" aria-hidden="true" tabindex="-1"></a>weekly_returns <span class="op">=</span> weekly_prices.pct_change().dropna()</span>
+<span id="cb40-8"><a href="#cb40-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-9"><a href="#cb40-9" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f'Weekly observations: </span><span class="sc">{</span><span class="bu">len</span>(weekly_prices)<span class="sc">:,}</span><span class="ss">'</span>)</span>
+<span id="cb40-10"><a href="#cb40-10" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f'Date range: </span><span class="sc">{</span>weekly_prices<span class="sc">.</span>index<span class="sc">.</span><span class="bu">min</span>()<span class="sc">.</span>date()<span class="sc">}</span><span class="ss"> to </span><span class="sc">{</span>weekly_prices<span class="sc">.</span>index<span class="sc">.</span><span class="bu">max</span>()<span class="sc">.</span>date()<span class="sc">}</span><span class="ss">'</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Weekly observations: 225
+Date range: 2021-12-03 to 2026-03-20</code></pre>
+</div>
+</div>
+</section>
+<section id="metric-functions" class="level3">
+<h3 class="anchored" data-anchor-id="metric-functions">3.4 Metric Functions</h3>
+<div id="cell-0035" class="cell" data-execution_count="45">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb42"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Risk-free rate: 3.7% (US 3M T-Bill)</span></span>
+<span id="cb42-2"><a href="#cb42-2" aria-hidden="true" tabindex="-1"></a>rf        <span class="op">=</span> <span class="fl">0.037</span></span>
+<span id="cb42-3"><a href="#cb42-3" aria-hidden="true" tabindex="-1"></a>weekly_rf <span class="op">=</span> rf <span class="op">/</span> <span class="dv">52</span></span>
+<span id="cb42-4"><a href="#cb42-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb42-5"><a href="#cb42-5" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> trailing_return(price_series, years):</span>
+<span id="cb42-6"><a href="#cb42-6" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Total return over the trailing N-year window from the last available date."""</span></span>
+<span id="cb42-7"><a href="#cb42-7" aria-hidden="true" tabindex="-1"></a>    end_date   <span class="op">=</span> price_series.dropna().index.<span class="bu">max</span>()</span>
+<span id="cb42-8"><a href="#cb42-8" aria-hidden="true" tabindex="-1"></a>    start_date <span class="op">=</span> end_date <span class="op">-</span> pd.DateOffset(years<span class="op">=</span>years)</span>
+<span id="cb42-9"><a href="#cb42-9" aria-hidden="true" tabindex="-1"></a>    window     <span class="op">=</span> price_series.loc[price_series.index <span class="op">&gt;=</span> start_date].dropna()</span>
+<span id="cb42-10"><a href="#cb42-10" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="bu">len</span>(window) <span class="op">&lt;</span> <span class="dv">2</span>:</span>
+<span id="cb42-11"><a href="#cb42-11" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> np.nan</span>
+<span id="cb42-12"><a href="#cb42-12" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> (window.iloc[<span class="op">-</span><span class="dv">1</span>] <span class="op">/</span> window.iloc[<span class="dv">0</span>]) <span class="op">-</span> <span class="dv">1</span></span>
+<span id="cb42-13"><a href="#cb42-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb42-14"><a href="#cb42-14" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> annualised_vol(return_series):</span>
+<span id="cb42-15"><a href="#cb42-15" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Annualised volatility from weekly returns, scaled by sqrt(52)."""</span></span>
+<span id="cb42-16"><a href="#cb42-16" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> return_series.std() <span class="op">*</span> np.sqrt(<span class="dv">52</span>)</span>
+<span id="cb42-17"><a href="#cb42-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb42-18"><a href="#cb42-18" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> sharpe_ratio(return_series, annual_rf<span class="op">=</span><span class="fl">0.037</span>):</span>
+<span id="cb42-19"><a href="#cb42-19" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Annualised Sharpe ratio using weekly return series."""</span></span>
+<span id="cb42-20"><a href="#cb42-20" aria-hidden="true" tabindex="-1"></a>    ann_return <span class="op">=</span> return_series.mean() <span class="op">*</span> <span class="dv">52</span></span>
+<span id="cb42-21"><a href="#cb42-21" aria-hidden="true" tabindex="-1"></a>    ann_vol    <span class="op">=</span> return_series.std()  <span class="op">*</span> np.sqrt(<span class="dv">52</span>)</span>
+<span id="cb42-22"><a href="#cb42-22" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> ann_vol <span class="op">==</span> <span class="dv">0</span>:</span>
+<span id="cb42-23"><a href="#cb42-23" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> np.nan</span>
+<span id="cb42-24"><a href="#cb42-24" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> (ann_return <span class="op">-</span> annual_rf) <span class="op">/</span> ann_vol</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+<section id="summary-statistics" class="level3">
+<h3 class="anchored" data-anchor-id="summary-statistics">3.5 Summary Statistics</h3>
+<div id="ca9e99cf" class="cell" data-execution_count="56">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb43"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a>markets <span class="op">=</span> [<span class="st">'Oman'</span>, <span class="st">'Bahrain'</span>,<span class="st">'MSCI EM'</span>]</span>
+<span id="cb43-2"><a href="#cb43-2" aria-hidden="true" tabindex="-1"></a>summary_rows <span class="op">=</span> []</span>
+<span id="cb43-3"><a href="#cb43-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb43-4"><a href="#cb43-4" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> market <span class="kw">in</span> markets:</span>
+<span id="cb43-5"><a href="#cb43-5" aria-hidden="true" tabindex="-1"></a>    price_s  <span class="op">=</span> weekly_prices[market].dropna()</span>
+<span id="cb43-6"><a href="#cb43-6" aria-hidden="true" tabindex="-1"></a>    return_s <span class="op">=</span> weekly_returns[market].dropna()</span>
+<span id="cb43-7"><a href="#cb43-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb43-8"><a href="#cb43-8" aria-hidden="true" tabindex="-1"></a>    summary_rows.append({</span>
+<span id="cb43-9"><a href="#cb43-9" aria-hidden="true" tabindex="-1"></a>        <span class="st">'Market'</span>:                 market.replace(<span class="st">'_'</span>, <span class="st">' '</span>),</span>
+<span id="cb43-10"><a href="#cb43-10" aria-hidden="true" tabindex="-1"></a>        <span class="st">'1Y Return'</span>:              trailing_return(price_s, <span class="dv">1</span>),</span>
+<span id="cb43-11"><a href="#cb43-11" aria-hidden="true" tabindex="-1"></a>        <span class="st">'3Y Return'</span>:              trailing_return(price_s, <span class="dv">3</span>),</span>
+<span id="cb43-12"><a href="#cb43-12" aria-hidden="true" tabindex="-1"></a>        <span class="st">'Annualised Volatility'</span>:  annualised_vol(return_s),</span>
+<span id="cb43-13"><a href="#cb43-13" aria-hidden="true" tabindex="-1"></a>        <span class="st">'Sharpe Ratio'</span>:           sharpe_ratio(return_s, annual_rf<span class="op">=</span>rf),</span>
+<span id="cb43-14"><a href="#cb43-14" aria-hidden="true" tabindex="-1"></a>        <span class="st">'Correlation vs MSCI EM'</span>: return_s.corr(weekly_returns[<span class="st">'MSCI EM'</span>]) <span class="cf">if</span> market <span class="op">!=</span> <span class="st">'MSCI EM'</span> <span class="cf">else</span> <span class="fl">1.0</span>,</span>
+<span id="cb43-15"><a href="#cb43-15" aria-hidden="true" tabindex="-1"></a>    })</span>
+<span id="cb43-16"><a href="#cb43-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb43-17"><a href="#cb43-17" aria-hidden="true" tabindex="-1"></a>perf_df <span class="op">=</span> pd.DataFrame(summary_rows).set_index(<span class="st">'Market'</span>)</span>
+<span id="cb43-18"><a href="#cb43-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb43-19"><a href="#cb43-19" aria-hidden="true" tabindex="-1"></a>display(</span>
+<span id="cb43-20"><a href="#cb43-20" aria-hidden="true" tabindex="-1"></a>    perf_df.style</span>
+<span id="cb43-21"><a href="#cb43-21" aria-hidden="true" tabindex="-1"></a>    .<span class="bu">format</span>({</span>
+<span id="cb43-22"><a href="#cb43-22" aria-hidden="true" tabindex="-1"></a>        <span class="st">'1Y Return'</span>:              <span class="st">'</span><span class="sc">{:+.1%}</span><span class="st">'</span>,</span>
+<span id="cb43-23"><a href="#cb43-23" aria-hidden="true" tabindex="-1"></a>        <span class="st">'3Y Return'</span>:              <span class="st">'</span><span class="sc">{:+.1%}</span><span class="st">'</span>,</span>
+<span id="cb43-24"><a href="#cb43-24" aria-hidden="true" tabindex="-1"></a>        <span class="st">'Annualised Volatility'</span>:  <span class="st">'</span><span class="sc">{:.1%}</span><span class="st">'</span>,</span>
+<span id="cb43-25"><a href="#cb43-25" aria-hidden="true" tabindex="-1"></a>        <span class="st">'Sharpe Ratio'</span>:           <span class="st">'</span><span class="sc">{:.2f}</span><span class="st">'</span>,</span>
+<span id="cb43-26"><a href="#cb43-26" aria-hidden="true" tabindex="-1"></a>        <span class="st">'Correlation vs MSCI EM'</span>: <span class="st">'</span><span class="sc">{:.2f}</span><span class="st">'</span>,</span>
+<span id="cb43-27"><a href="#cb43-27" aria-hidden="true" tabindex="-1"></a>    })</span>
+<span id="cb43-28"><a href="#cb43-28" aria-hidden="true" tabindex="-1"></a>    .set_caption(<span class="st">'Equity Market Performance: Oman Vs Bahrain Vs MSCI EM'</span>)</span>
+<span id="cb43-29"><a href="#cb43-29" aria-hidden="true" tabindex="-1"></a>    .set_table_styles([</span>
+<span id="cb43-30"><a href="#cb43-30" aria-hidden="true" tabindex="-1"></a>        {<span class="st">'selector'</span>: <span class="st">'caption'</span>, <span class="st">'props'</span>: [(<span class="st">'font-weight'</span>, <span class="st">'bold'</span>), (<span class="st">'font-size'</span>, <span class="st">'11px'</span>)]},</span>
+<span id="cb43-31"><a href="#cb43-31" aria-hidden="true" tabindex="-1"></a>        {<span class="st">'selector'</span>: <span class="st">'th'</span>,      <span class="st">'props'</span>: [(<span class="st">'background-color'</span>, <span class="st">'#0A2342'</span>), (<span class="st">'color'</span>, <span class="st">'white'</span>), (<span class="st">'font-size'</span>, <span class="st">'10px'</span>)]},</span>
+<span id="cb43-32"><a href="#cb43-32" aria-hidden="true" tabindex="-1"></a>    ])</span>
+<span id="cb43-33"><a href="#cb43-33" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display">
+<style type="text/css">
+#T_18893 caption {
+  font-weight: bold;
+  font-size: 11px;
+}
+#T_18893 th {
+  background-color: #0A2342;
+  color: white;
+  font-size: 10px;
+}
+</style>
+
+<div id="T_18893" class="quarto-float quarto-figure quarto-figure-center anchored" data-quarto-postprocess="true">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="T_18893-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;3: Equity Market Performance: Oman Vs Bahrain Vs MSCI EM
+</figcaption>
+<div aria-describedby="T_18893-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table id="T_18893" class="caption-top table table-sm table-striped small">
+<thead>
+<tr class="header">
+<th class="blank level0" data-quarto-table-cell-role="th">&nbsp;</th>
+<th id="T_18893_level0_col0" class="col_heading level0 col0" data-quarto-table-cell-role="th">1Y Return</th>
+<th id="T_18893_level0_col1" class="col_heading level0 col1" data-quarto-table-cell-role="th">3Y Return</th>
+<th id="T_18893_level0_col2" class="col_heading level0 col2" data-quarto-table-cell-role="th">Annualised Volatility</th>
+<th id="T_18893_level0_col3" class="col_heading level0 col3" data-quarto-table-cell-role="th">Sharpe Ratio</th>
+<th id="T_18893_level0_col4" class="col_heading level0 col4" data-quarto-table-cell-role="th">Correlation vs MSCI EM</th>
+</tr>
+<tr class="even">
+<th class="index_name level0" data-quarto-table-cell-role="th">Market</th>
+<th class="blank col0" data-quarto-table-cell-role="th">&nbsp;</th>
+<th class="blank col1" data-quarto-table-cell-role="th">&nbsp;</th>
+<th class="blank col2" data-quarto-table-cell-role="th">&nbsp;</th>
+<th class="blank col3" data-quarto-table-cell-role="th">&nbsp;</th>
+<th class="blank col4" data-quarto-table-cell-role="th">&nbsp;</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<th id="T_18893_level0_row0" class="row_heading level0 row0" data-quarto-table-cell-role="th">Oman</th>
+<td id="T_18893_row0_col0" class="data row0 col0">+79.6%</td>
+<td id="T_18893_row0_col1" class="data row0 col1">+55.8%</td>
+<td id="T_18893_row0_col2" class="data row0 col2">12.8%</td>
+<td id="T_18893_row0_col3" class="data row0 col3">0.92</td>
+<td id="T_18893_row0_col4" class="data row0 col4">0.13</td>
+</tr>
+<tr class="even">
+<th id="T_18893_level0_row1" class="row_heading level0 row1" data-quarto-table-cell-role="th">Bahrain</th>
+<td id="T_18893_row1_col0" class="data row1 col0">+17.8%</td>
+<td id="T_18893_row1_col1" class="data row1 col1">+35.9%</td>
+<td id="T_18893_row1_col2" class="data row1 col2">11.3%</td>
+<td id="T_18893_row1_col3" class="data row1 col3">0.56</td>
+<td id="T_18893_row1_col4" class="data row1 col4">0.15</td>
+</tr>
+<tr class="odd">
+<th id="T_18893_level0_row2" class="row_heading level0 row2" data-quarto-table-cell-role="th">MSCI EM</th>
+<td id="T_18893_row2_col0" class="data row2 col0">+29.9%</td>
+<td id="T_18893_row2_col1" class="data row2 col1">+51.2%</td>
+<td id="T_18893_row2_col2" class="data row2 col2">14.9%</td>
+<td id="T_18893_row2_col3" class="data row2 col3">0.72</td>
+<td id="T_18893_row2_col4" class="data row2 col4">1.00</td>
+</tr>
+</tbody>
+</table>
+</div>
+</figure>
+</div>
+</div>
+</div>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/mjabubakar22\.github\.io\/MJ-Monewmetrics\/");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

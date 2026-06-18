@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.7.31">
+<meta name="generator" content="quarto-1.9.38">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -11,6 +11,9 @@
 
 <title>Understanding Data Through Numbers: A Practical EDA Guide (Part 1) – Monewmetrics</title>
 <style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
 div.columns{display: flex; gap: min(4vw, 1.5em);}
@@ -60,7 +63,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </style>
 
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script><script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" integrity="sha384-ZvpUoO/+PpLXR1lu4jmpXWu80pZlYUAfxl5NsBMWOEPSjUn/6Z/hRTt8+pR6L4N2" crossorigin="anonymous"></script><script src="../site_libs/quarto-nav/quarto-nav.js"></script>
 <script src="../site_libs/quarto-nav/headroom.min.js"></script>
 <script src="../site_libs/clipboard/clipboard.min.js"></script>
 <script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
@@ -74,10 +77,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-46f4cc9626f044588a66931b604fc9c8.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-6b6957c917596b414ec0b78690761e87.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-8916b551a05a89e47cb717b174df5499.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="dark">
+<link href="../site_libs/bootstrap/bootstrap-cb6ddd068ed2fde742fa89075f934cfb.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="dark">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -105,12 +108,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-label": "Search"
   }
 }</script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/requirejs@2.3.6/require.min.js" integrity="sha384-c9c+LnTbwQ3aujuU7ULEPVvgLs+Fn6fJUvIGTsuu1ZcCf11fiEubah0ttpca4ntM sha384-6V1/AdqZRWk1KAlWbKBlGhN7VG4iE/yAZcO6NZPMF8od0vukrvr0tg4qY6NSrItx" crossorigin="anonymous"></script>
 
 <script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
 
   <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
 <script type="text/javascript">
 const typesetMath = (el) => {
@@ -123,7 +126,7 @@ const typesetMath = (el) => {
     var macros = [];
     for (var i = 0; i < mathElements.length; i++) {
       var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN") {
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
         window.katex.render(texText.data, mathElements[i], {
           displayMode: mathElements[i].classList.contains('display'),
           throwOnError: false,
@@ -259,22 +262,22 @@ window.Quarto = {
 <p><span class="math display">\[\bar{x} = \dfrac{\sum_{i=1}^n X_i}{n} \]</span></p>
 <p>where <span class="math inline">\(n\)</span> is the number of observations in the sample.</p>
 <div id="23caf5af-8583-4203-ba95-08930a1e5a4a" class="cell" data-execution_count="31">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">#importing relevant libraries</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">#importing relevant libraries</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> yfinance <span class="im">as</span> yf</span>
 <span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> scipy.stats <span class="im">as</span> stats</span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> statistics</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> statistics</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div id="b2f7b9cc" class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Downloading data</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>msft_daily <span class="op">=</span> yf.download(<span class="st">'MSFT'</span>, <span class="st">'2016-01-01'</span>, <span class="st">'2021-12-31'</span>, interval<span class="op">=</span> <span class="st">'1d'</span>)[<span class="st">'Adj Close'</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Downloading data</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>msft_daily <span class="op">=</span> yf.download(<span class="st">'MSFT'</span>, <span class="st">'2016-01-01'</span>, <span class="st">'2021-12-31'</span>, interval<span class="op">=</span> <span class="st">'1d'</span>)[<span class="st">'Adj Close'</span>]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div id="5dd6b4e0" class="cell" data-execution_count="2">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Calculating average return</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Calculating average return</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>msft_returns <span class="op">=</span> msft_daily.pct_change(<span class="dv">1</span>).dropna()</span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>average_return <span class="op">=</span> <span class="bu">str</span>(<span class="bu">round</span>((np.mean(msft_returns) <span class="op">*</span> <span class="dv">100</span>),<span class="dv">2</span>)) <span class="op">+</span> <span class="st">'%'</span></span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f'The average daily return for Microsoft stock is: </span><span class="sc">{</span>average_return<span class="sc">}</span><span class="ss">'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f'The average daily return for Microsoft stock is: </span><span class="sc">{</span>average_return<span class="sc">}</span><span class="ss">'</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>The average daily return for Microsoft stock is: 0.14%</code></pre>
 </div>
@@ -287,10 +290,10 @@ window.Quarto = {
 <p><span class="math display">\[\bar{X}_w = {\sum_{i=1}^n w_i X_i} \]</span></p>
 <p>where the sum of the weights equals 1; that is,<span class="math inline">\(\sum_{i} w_i = 1\)</span></p>
 <div id="65fd5130-09d2-415c-a06b-12f646266b3f" class="cell" data-execution_count="6">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Downloading data</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Downloading data</span></span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>aapl <span class="op">=</span> yf.download(<span class="st">'AAPL'</span>, <span class="st">'2021-10-01'</span>, <span class="st">'2021-12-31'</span>, interval<span class="op">=</span> <span class="st">'1d'</span>)[<span class="st">'Adj Close'</span>]</span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>nvdia <span class="op">=</span> yf.download(<span class="st">'NVDA'</span>, <span class="st">'2021-10-01'</span>, <span class="st">'2021-12-31'</span>, interval<span class="op">=</span> <span class="st">'1d'</span>)[<span class="st">'Adj Close'</span>]</span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>msft <span class="op">=</span> yf.download(<span class="st">'MSFT'</span>, <span class="st">'2021-10-01'</span>, <span class="st">'2021-12-31'</span>, interval<span class="op">=</span> <span class="st">'1d'</span>)[<span class="st">'Adj Close'</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>msft <span class="op">=</span> yf.download(<span class="st">'MSFT'</span>, <span class="st">'2021-10-01'</span>, <span class="st">'2021-12-31'</span>, interval<span class="op">=</span> <span class="st">'1d'</span>)[<span class="st">'Adj Close'</span>]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[*********************100%***********************]  1 of 1 completed
 [*********************100%***********************]  1 of 1 completed
@@ -298,7 +301,7 @@ window.Quarto = {
 </div>
 </div>
 <div id="9d79ff70" class="cell" data-execution_count="8">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Calculating 2021 Q4 return</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Calculating 2021 Q4 return</span></span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>msft_ret <span class="op">=</span> (msft[<span class="op">-</span><span class="dv">1</span>] <span class="op">-</span> msft[<span class="dv">0</span>])<span class="op">/</span>msft[<span class="dv">0</span>]</span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>aapl_ret <span class="op">=</span> (aapl[<span class="op">-</span><span class="dv">1</span>] <span class="op">-</span> aapl[<span class="dv">0</span>])<span class="op">/</span>aapl[<span class="dv">0</span>]</span>
 <span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>nvda_ret <span class="op">=</span> (nvdia[<span class="op">-</span><span class="dv">1</span>] <span class="op">-</span> nvdia[<span class="dv">0</span>])<span class="op">/</span>aapl[<span class="dv">0</span>]</span>
@@ -311,7 +314,7 @@ window.Quarto = {
 <span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a>arith <span class="op">=</span> <span class="bu">str</span>(<span class="bu">round</span>(avg,<span class="dv">2</span>)) <span class="op">+</span> <span class="st">'%'</span></span>
 <span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"The Weighted mean return of the portfolio assuming a 50/30/20 split is: </span><span class="sc">{</span>weighted<span class="sc">}</span><span class="ss">"</span>)</span>
-<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"The Arithmetic mean return of the portfolio assuming no split is:"</span>, arith)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"The Arithmetic mean return of the portfolio assuming no split is:"</span>, arith)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>The Weighted mean return of the portfolio assuming a 50/30/20 split is: 0.25%
 The Arithmetic mean return of the portfolio assuming no split is: 0.35%</code></pre>
@@ -331,12 +334,12 @@ The Arithmetic mean return of the portfolio assuming no split is: 0.35%</code></
 <p><span class="math display">\[ G = \sqrt[n]{X_1,X_2,X_3....X_n} \]</span></p>
 <p>Data Source: https://www.kaggle.com/datasets/paytonfisher/sp-500-companies-with-financial-information?resource=download</p>
 <div id="b613d152" class="cell" data-execution_count="9">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>SnP_500</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>SnP_500</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display" data-execution_count="9">
 <div>
 
 
-<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<table class="dataframe caption-top table table-sm table-striped small" data-border="1">
 <thead>
 <tr class="header">
 <th data-quarto-table-cell-role="th"></th>
@@ -358,7 +361,7 @@ The Arithmetic mean return of the portfolio assuming no split is: 0.35%</code></
 </thead>
 <tbody>
 <tr class="odd">
-<td data-quarto-table-cell-role="th">0</td>
+<th data-quarto-table-cell-role="th">0</th>
 <td>MMM</td>
 <td>3M Company</td>
 <td>Industrials</td>
@@ -375,7 +378,7 @@ The Arithmetic mean return of the portfolio assuming no split is: 0.35%</code></
 <td>http://www.sec.gov/cgi-bin/browse-edgar?action...</td>
 </tr>
 <tr class="even">
-<td data-quarto-table-cell-role="th">1</td>
+<th data-quarto-table-cell-role="th">1</th>
 <td>AOS</td>
 <td>A.O. Smith Corp</td>
 <td>Industrials</td>
@@ -392,7 +395,7 @@ The Arithmetic mean return of the portfolio assuming no split is: 0.35%</code></
 <td>http://www.sec.gov/cgi-bin/browse-edgar?action...</td>
 </tr>
 <tr class="odd">
-<td data-quarto-table-cell-role="th">2</td>
+<th data-quarto-table-cell-role="th">2</th>
 <td>ABT</td>
 <td>Abbott Laboratories</td>
 <td>Health Care</td>
@@ -409,7 +412,7 @@ The Arithmetic mean return of the portfolio assuming no split is: 0.35%</code></
 <td>http://www.sec.gov/cgi-bin/browse-edgar?action...</td>
 </tr>
 <tr class="even">
-<td data-quarto-table-cell-role="th">3</td>
+<th data-quarto-table-cell-role="th">3</th>
 <td>ABBV</td>
 <td>AbbVie Inc.</td>
 <td>Health Care</td>
@@ -426,7 +429,7 @@ The Arithmetic mean return of the portfolio assuming no split is: 0.35%</code></
 <td>http://www.sec.gov/cgi-bin/browse-edgar?action...</td>
 </tr>
 <tr class="odd">
-<td data-quarto-table-cell-role="th">4</td>
+<th data-quarto-table-cell-role="th">4</th>
 <td>ACN</td>
 <td>Accenture plc</td>
 <td>Information Technology</td>
@@ -443,7 +446,7 @@ The Arithmetic mean return of the portfolio assuming no split is: 0.35%</code></
 <td>http://www.sec.gov/cgi-bin/browse-edgar?action...</td>
 </tr>
 <tr class="even">
-<td data-quarto-table-cell-role="th">...</td>
+<th data-quarto-table-cell-role="th">...</th>
 <td>...</td>
 <td>...</td>
 <td>...</td>
@@ -460,7 +463,7 @@ The Arithmetic mean return of the portfolio assuming no split is: 0.35%</code></
 <td>...</td>
 </tr>
 <tr class="odd">
-<td data-quarto-table-cell-role="th">500</td>
+<th data-quarto-table-cell-role="th">500</th>
 <td>XYL</td>
 <td>Xylem Inc.</td>
 <td>Industrials</td>
@@ -477,7 +480,7 @@ The Arithmetic mean return of the portfolio assuming no split is: 0.35%</code></
 <td>http://www.sec.gov/cgi-bin/browse-edgar?action...</td>
 </tr>
 <tr class="even">
-<td data-quarto-table-cell-role="th">501</td>
+<th data-quarto-table-cell-role="th">501</th>
 <td>YUM</td>
 <td>Yum! Brands Inc</td>
 <td>Consumer Discretionary</td>
@@ -494,7 +497,7 @@ The Arithmetic mean return of the portfolio assuming no split is: 0.35%</code></
 <td>http://www.sec.gov/cgi-bin/browse-edgar?action...</td>
 </tr>
 <tr class="odd">
-<td data-quarto-table-cell-role="th">502</td>
+<th data-quarto-table-cell-role="th">502</th>
 <td>ZBH</td>
 <td>Zimmer Biomet Holdings</td>
 <td>Health Care</td>
@@ -511,7 +514,7 @@ The Arithmetic mean return of the portfolio assuming no split is: 0.35%</code></
 <td>http://www.sec.gov/cgi-bin/browse-edgar?action...</td>
 </tr>
 <tr class="even">
-<td data-quarto-table-cell-role="th">503</td>
+<th data-quarto-table-cell-role="th">503</th>
 <td>ZION</td>
 <td>Zions Bancorp</td>
 <td>Financials</td>
@@ -528,7 +531,7 @@ The Arithmetic mean return of the portfolio assuming no split is: 0.35%</code></
 <td>http://www.sec.gov/cgi-bin/browse-edgar?action...</td>
 </tr>
 <tr class="odd">
-<td data-quarto-table-cell-role="th">504</td>
+<th data-quarto-table-cell-role="th">504</th>
 <td>ZTS</td>
 <td>Zoetis</td>
 <td>Health Care</td>
@@ -552,10 +555,10 @@ The Arithmetic mean return of the portfolio assuming no split is: 0.35%</code></
 </div>
 </div>
 <div id="5e370245" class="cell" data-execution_count="22">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Use scipy's gmean&amp;hmean function to compute the geometric mean and harmonic mean</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Use scipy's gmean&amp;hmean function to compute the geometric mean and harmonic mean</span></span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"The Harmonic mean of Price to Sales Ratio for companies in the S&amp;P 500 is:"</span>, <span class="bu">round</span>(stats.hmean(SnP_500[<span class="st">'Price/Sales'</span>]),<span class="dv">2</span>))</span>
 <span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"The Geometric mean of  Price to Sales Ratio  for companies in the S&amp;P 500 is:"</span>, <span class="bu">round</span>(stats.gmean(SnP_500[<span class="st">'Price/Sales'</span>]),<span class="dv">2</span>))</span>
-<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"The Arithmetic mean of  Price to Sales Ratio  for companies in the S&amp;P 500 is:"</span>, <span class="bu">round</span>(np.mean(SnP_500[<span class="st">'Price/Sales'</span>]),<span class="dv">2</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"The Arithmetic mean of  Price to Sales Ratio  for companies in the S&amp;P 500 is:"</span>, <span class="bu">round</span>(np.mean(SnP_500[<span class="st">'Price/Sales'</span>]),<span class="dv">2</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>The Harmonic mean of Price to Sales Ratio for companies in the S&amp;P 500 is: 1.95
 The Geometric mean of  Price to Sales Ratio  for companies in the S&amp;P 500 is: 2.83
@@ -571,13 +574,13 @@ The Arithmetic mean of  Price to Sales Ratio  for companies in the S&amp;P 500 i
 <p>A trimmed mean is a method of averaging that removes a small designated percentage of the largest and smallest values before calculating the mean. After removing the specified outlier observations, the trimmed mean is found using a standard arithmetic averaging formula. The use of a trimmed mean helps eliminate the influence of outliers or data points on the tails that may unfairly affect the traditional or arithmetic mean.</p>
 <p>To trim the mean by a total of 40%, we remove the lowest 20% and the highest 20% of values, eliminating the scores of 8 and 9</p>
 <div id="fd8869fe" class="cell" data-execution_count="6">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>data <span class="op">=</span> [<span class="dv">8</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">9</span>]</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>data <span class="op">=</span> [<span class="dv">8</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">9</span>]</span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>mean <span class="op">=</span> np.mean(data)</span>
 <span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>trimmed_data <span class="op">=</span> [<span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>]</span>
 <span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>trimmed_mean <span class="op">=</span> np.mean(trimmed_data)</span>
 <span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Hence, a mean trimmed at 40% would equal </span><span class="sc">{</span>trimmed_mean<span class="sc">}</span><span class="ss"> versus </span><span class="sc">{</span>mean<span class="sc">}</span><span class="ss">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Hence, a mean trimmed at 40% would equal </span><span class="sc">{</span>trimmed_mean<span class="sc">}</span><span class="ss"> versus </span><span class="sc">{</span>mean<span class="sc">}</span><span class="ss">"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Hence, a mean trimmed at 40% would equal 3.0 versus 5.2</code></pre>
 </div>
@@ -587,7 +590,7 @@ The Arithmetic mean of  Price to Sales Ratio  for companies in the S&amp;P 500 i
 <h4 class="anchored" data-anchor-id="median">Median:</h4>
 <p>The median is the middle number in a sorted, ascending, or descending list of numbers and can be more descriptive of that data set than the average. It is the point above and below which half (50%) of the observed data falls, and so represents the midpoint of the data.</p>
 <div id="55e067b5" class="cell" data-execution_count="29">
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f'The Median Price to Sales Ratio for Companies in the S&amp;P 500 is:'</span>, <span class="bu">round</span>(np.median(SnP_500[<span class="st">'Price/Sales'</span>]),<span class="dv">2</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f'The Median Price to Sales Ratio for Companies in the S&amp;P 500 is:'</span>, <span class="bu">round</span>(np.median(SnP_500[<span class="st">'Price/Sales'</span>]),<span class="dv">2</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>The Median Price to Sales Ratio for Companies in the S&amp;P 500 is: 2.9</code></pre>
 </div>
@@ -597,8 +600,8 @@ The Arithmetic mean of  Price to Sales Ratio  for companies in the S&amp;P 500 i
 <h4 class="anchored" data-anchor-id="mode">Mode:</h4>
 <p>The mode is the value that appears most frequently in a data set A distribution can have more than one mode or even no mode. When a distribution has one most frequently occurring value, the distribution is said to be unimodal. If a distribution has two most frequently occurring values, then it has two modes and we say it is bimodal. If the distribution has three most frequently occurring values, then it is trimodal. When all the values in a data set are different, the distribution has no mode because no value occurs more frequently than any other value.</p>
 <div id="29979821" class="cell" data-execution_count="36">
-<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>mode <span class="op">=</span>  <span class="bu">round</span>(statistics.mode(SnP_500[<span class="st">'Price/Sales'</span>]),<span class="dv">2</span>)</span>
-<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f'The Mode of the Price to Sales ratio for Companies in the S&amp;P 500 is </span><span class="sc">{</span>mode<span class="sc">}</span><span class="ss">, indicating that it is the most commonly occurring value among the dataset'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>mode <span class="op">=</span>  <span class="bu">round</span>(statistics.mode(SnP_500[<span class="st">'Price/Sales'</span>]),<span class="dv">2</span>)</span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f'The Mode of the Price to Sales ratio for Companies in the S&amp;P 500 is </span><span class="sc">{</span>mode<span class="sc">}</span><span class="ss">, indicating that it is the most commonly occurring value among the dataset'</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>The Mode of the Price to Sales ratio for Companies in the S&amp;P 500 is 4.39, indicating that it is the most commonly occurring value among the dataset</code></pre>
 </div>
@@ -612,13 +615,13 @@ The Arithmetic mean of  Price to Sales Ratio  for companies in the S&amp;P 500 i
 <h4 class="anchored" data-anchor-id="range">Range:</h4>
 <p>Range, the range of a set of data is the difference between the largest and smallest values, the result of subtracting the sample maximum and minimum. It is expressed in the same units as the data.</p>
 <div id="008a4de5" class="cell" data-execution_count="9">
-<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>maX <span class="op">=</span> np.<span class="bu">max</span>(dividends)</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>maX <span class="op">=</span> np.<span class="bu">max</span>(dividends)</span>
 <span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>miN <span class="op">=</span> np.<span class="bu">min</span>(dividends)</span>
 <span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>Range<span class="op">=</span> np.ptp(dividends)</span>
 <span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f'The maximum dividend per share paid by Microsoft is </span><span class="sc">{</span>maX<span class="sc">}</span><span class="ss">$'</span>) </span>
 <span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f'The minimum dividend per share paid by Microsoft is </span><span class="sc">{</span>miN<span class="sc">}</span><span class="ss">$'</span>)</span>
-<span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f'Hence, the range is </span><span class="sc">{</span>Range<span class="sc">}</span><span class="ss">$'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f'Hence, the range is </span><span class="sc">{</span>Range<span class="sc">}</span><span class="ss">$'</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>The maximum dividend per share paid by Microsoft is 3.08$
 The minimum dividend per share paid by Microsoft is 0.08$
@@ -643,8 +646,8 @@ Hence, the range is 3.0$</code></pre>
 <p><span class="math display">\[s^2 = \sqrt{\dfrac{\sum_{i=1}^n(x_i - \bar x)^2}{n-1}} \]</span></p>
 <p>Hence, Variance Measures Dispersion within the Data Set while the standard deviation measures spread around the mean!</p>
 <div id="9b1a286e" class="cell" data-execution_count="10">
-<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"The variance of Microsoft's daily stock returns:"</span>, <span class="bu">round</span>(np.var(msft_returns),<span class="dv">5</span>))</span>
-<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"The standard deviation of Microsoft's daily stock returns:"</span>, <span class="bu">round</span>(np.std(msft_returns),<span class="dv">5</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"The variance of Microsoft's daily stock returns:"</span>, <span class="bu">round</span>(np.var(msft_returns),<span class="dv">5</span>))</span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"The standard deviation of Microsoft's daily stock returns:"</span>, <span class="bu">round</span>(np.std(msft_returns),<span class="dv">5</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>The variance of Microsoft's daily stock returns: 0.00028
 The standard deviation of Microsoft's daily stock returns: 0.01684</code></pre>
@@ -665,14 +668,14 @@ The standard deviation of Microsoft's daily stock returns: 0.01684</code></pre>
 <p>While sample formula is:</p>
 <p><span class="math display">\[s_{xy} = \dfrac{\sum_{i=1}^n(x_i - \bar x)*(y_i - \bar y)}{n-1} \]</span></p>
 <div id="e90d155e" class="cell" data-execution_count="11">
-<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>assets <span class="op">=</span> [<span class="st">'META'</span>,<span class="st">'AMZN'</span>,<span class="st">'NFLX'</span>,<span class="st">'GOOG'</span>,<span class="st">'MSFT'</span>,<span class="st">'NVDA'</span>,<span class="st">'TSLA'</span>]</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>assets <span class="op">=</span> [<span class="st">'META'</span>,<span class="st">'AMZN'</span>,<span class="st">'NFLX'</span>,<span class="st">'GOOG'</span>,<span class="st">'MSFT'</span>,<span class="st">'NVDA'</span>,<span class="st">'TSLA'</span>]</span>
 <span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>pf_data <span class="op">=</span> pd.DataFrame()</span>
 <span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> a <span class="kw">in</span> assets:</span>
 <span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a>    pf_data[a] <span class="op">=</span> yf.download(a, start<span class="op">=</span><span class="st">"2021-10-01"</span>, end<span class="op">=</span><span class="st">"2021-12-31"</span>, index_col <span class="op">=</span> <span class="st">'Date'</span>, parse_dates<span class="op">=</span><span class="va">True</span>)[<span class="st">'Adj Close'</span>]</span>
 <span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb22-6"><a href="#cb22-6" aria-hidden="true" tabindex="-1"></a>returns <span class="op">=</span> pf_data.pct_change(<span class="dv">1</span>).dropna()</span>
 <span id="cb22-7"><a href="#cb22-7" aria-hidden="true" tabindex="-1"></a>cov <span class="op">=</span> returns.cov()</span>
-<span id="cb22-8"><a href="#cb22-8" aria-hidden="true" tabindex="-1"></a>corr <span class="op">=</span> returns.corr()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb22-8"><a href="#cb22-8" aria-hidden="true" tabindex="-1"></a>corr <span class="op">=</span> returns.corr()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[*********************100%***********************]  1 of 1 completed
 [*********************100%***********************]  1 of 1 completed
@@ -684,12 +687,12 @@ The standard deviation of Microsoft's daily stock returns: 0.01684</code></pre>
 </div>
 </div>
 <div id="ed5697df" class="cell" data-execution_count="12">
-<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>cov</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb24"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>cov</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display" data-execution_count="12">
 <div>
 
 
-<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<table class="dataframe caption-top table table-sm table-striped small" data-border="1">
 <thead>
 <tr class="header">
 <th data-quarto-table-cell-role="th"></th>
@@ -704,7 +707,7 @@ The standard deviation of Microsoft's daily stock returns: 0.01684</code></pre>
 </thead>
 <tbody>
 <tr class="odd">
-<td data-quarto-table-cell-role="th">META</td>
+<th data-quarto-table-cell-role="th">META</th>
 <td>0.000404</td>
 <td>0.000137</td>
 <td>0.000143</td>
@@ -714,7 +717,7 @@ The standard deviation of Microsoft's daily stock returns: 0.01684</code></pre>
 <td>0.000189</td>
 </tr>
 <tr class="even">
-<td data-quarto-table-cell-role="th">AMZN</td>
+<th data-quarto-table-cell-role="th">AMZN</th>
 <td>0.000137</td>
 <td>0.000253</td>
 <td>0.000075</td>
@@ -724,7 +727,7 @@ The standard deviation of Microsoft's daily stock returns: 0.01684</code></pre>
 <td>0.000064</td>
 </tr>
 <tr class="odd">
-<td data-quarto-table-cell-role="th">NFLX</td>
+<th data-quarto-table-cell-role="th">NFLX</th>
 <td>0.000143</td>
 <td>0.000075</td>
 <td>0.000319</td>
@@ -734,7 +737,7 @@ The standard deviation of Microsoft's daily stock returns: 0.01684</code></pre>
 <td>0.000151</td>
 </tr>
 <tr class="even">
-<td data-quarto-table-cell-role="th">GOOG</td>
+<th data-quarto-table-cell-role="th">GOOG</th>
 <td>0.000135</td>
 <td>0.000142</td>
 <td>0.000098</td>
@@ -744,7 +747,7 @@ The standard deviation of Microsoft's daily stock returns: 0.01684</code></pre>
 <td>0.000074</td>
 </tr>
 <tr class="odd">
-<td data-quarto-table-cell-role="th">MSFT</td>
+<th data-quarto-table-cell-role="th">MSFT</th>
 <td>0.000134</td>
 <td>0.000111</td>
 <td>0.000115</td>
@@ -754,7 +757,7 @@ The standard deviation of Microsoft's daily stock returns: 0.01684</code></pre>
 <td>0.000182</td>
 </tr>
 <tr class="even">
-<td data-quarto-table-cell-role="th">NVDA</td>
+<th data-quarto-table-cell-role="th">NVDA</th>
 <td>0.000252</td>
 <td>0.000362</td>
 <td>0.000196</td>
@@ -764,7 +767,7 @@ The standard deviation of Microsoft's daily stock returns: 0.01684</code></pre>
 <td>0.000490</td>
 </tr>
 <tr class="odd">
-<td data-quarto-table-cell-role="th">TSLA</td>
+<th data-quarto-table-cell-role="th">TSLA</th>
 <td>0.000189</td>
 <td>0.000064</td>
 <td>0.000151</td>
@@ -789,12 +792,12 @@ The standard deviation of Microsoft's daily stock returns: 0.01684</code></pre>
 <p>While sample formula is:</p>
 <p><span class="math display">\[r = \dfrac{s_{xy}}{s_ys_x} \]</span></p>
 <div id="82e8571e" class="cell" data-execution_count="13">
-<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>corr</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb25"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>corr</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display" data-execution_count="13">
 <div>
 
 
-<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<table class="dataframe caption-top table table-sm table-striped small" data-border="1">
 <thead>
 <tr class="header">
 <th data-quarto-table-cell-role="th"></th>
@@ -809,7 +812,7 @@ The standard deviation of Microsoft's daily stock returns: 0.01684</code></pre>
 </thead>
 <tbody>
 <tr class="odd">
-<td data-quarto-table-cell-role="th">META</td>
+<th data-quarto-table-cell-role="th">META</th>
 <td>1.000000</td>
 <td>0.426954</td>
 <td>0.399251</td>
@@ -819,7 +822,7 @@ The standard deviation of Microsoft's daily stock returns: 0.01684</code></pre>
 <td>0.245190</td>
 </tr>
 <tr class="even">
-<td data-quarto-table-cell-role="th">AMZN</td>
+<th data-quarto-table-cell-role="th">AMZN</th>
 <td>0.426954</td>
 <td>1.000000</td>
 <td>0.263913</td>
@@ -829,7 +832,7 @@ The standard deviation of Microsoft's daily stock returns: 0.01684</code></pre>
 <td>0.105951</td>
 </tr>
 <tr class="odd">
-<td data-quarto-table-cell-role="th">NFLX</td>
+<th data-quarto-table-cell-role="th">NFLX</th>
 <td>0.399251</td>
 <td>0.263913</td>
 <td>1.000000</td>
@@ -839,7 +842,7 @@ The standard deviation of Microsoft's daily stock returns: 0.01684</code></pre>
 <td>0.221220</td>
 </tr>
 <tr class="even">
-<td data-quarto-table-cell-role="th">GOOG</td>
+<th data-quarto-table-cell-role="th">GOOG</th>
 <td>0.451141</td>
 <td>0.599965</td>
 <td>0.369411</td>
@@ -849,7 +852,7 @@ The standard deviation of Microsoft's daily stock returns: 0.01684</code></pre>
 <td>0.130574</td>
 </tr>
 <tr class="odd">
-<td data-quarto-table-cell-role="th">MSFT</td>
+<th data-quarto-table-cell-role="th">MSFT</th>
 <td>0.462463</td>
 <td>0.486596</td>
 <td>0.449536</td>
@@ -859,7 +862,7 @@ The standard deviation of Microsoft's daily stock returns: 0.01684</code></pre>
 <td>0.331061</td>
 </tr>
 <tr class="even">
-<td data-quarto-table-cell-role="th">NVDA</td>
+<th data-quarto-table-cell-role="th">NVDA</th>
 <td>0.349047</td>
 <td>0.635210</td>
 <td>0.306624</td>
@@ -869,7 +872,7 @@ The standard deviation of Microsoft's daily stock returns: 0.01684</code></pre>
 <td>0.357039</td>
 </tr>
 <tr class="odd">
-<td data-quarto-table-cell-role="th">TSLA</td>
+<th data-quarto-table-cell-role="th">TSLA</th>
 <td>0.245190</td>
 <td>0.105951</td>
 <td>0.221220</td>
@@ -950,13 +953,14 @@ The standard deviation of Microsoft's daily stock returns: 0.01684</code></pre>
       e.clearSelection();
     }
     const getTextToCopy = function(trigger) {
-        const codeEl = trigger.previousElementSibling.cloneNode(true);
-        for (const childEl of codeEl.children) {
-          if (isCodeAnnotation(childEl)) {
-            childEl.remove();
-          }
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
         }
-        return codeEl.innerText;
+      }
+      return codeEl.innerText;
     }
     const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
       text: getTextToCopy
