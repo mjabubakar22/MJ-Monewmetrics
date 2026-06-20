@@ -127,3 +127,8 @@ body {
   margin: 0 auto;
   padding: 0 2rem;
 }
+
+/* Fix zoom on live site */
+html {
+  zoom: 1.15;
+}
