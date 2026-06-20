@@ -116,3 +116,14 @@ body {
 .navbar .bi {
   font-size: 1.5rem;
 }
+
+/* Force full width content */
+.page-layout-full .content {
+  max-width: 100% !important;
+}
+
+.page-layout-full .page-columns {
+  max-width: 1400px !important;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
